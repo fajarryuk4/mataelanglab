@@ -157,7 +157,7 @@ services:
   #               ZEPPELIN                    #
   #############################################
   zeppelin:
-    image: apache/zeppelin:0.10.0
+    image: ryuk4/zeppelin-spark:3.2.0-hadoop3.2
     container_name: apache-zeppelin
     depends_on:
       - spark-master

@@ -122,7 +122,7 @@ services:
   #              SPARK CLUSTER                #
   #############################################
   spark-master:
-    image: ryuk4/spark-master:3.2.0-hadoop3.2
+    image: ryuk4/zeppelin-spark:3.2.0-hadoop3.2
     hostname: spark-master
     container_name: spark-master
     expose:
