@@ -57,10 +57,7 @@ services:
             SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
 
     connect:
-        build:
-            context: ./dockerfiles/cp-kafka-connect
-            dockerfile: Dockerfile
-        image: cp-kafka-connect:latest
+        image: ryuk4/cp-kafka-connect:6.2.2
         hostname: connect
         container_name: connect
         depends_on:
@@ -117,13 +114,29 @@ services:
     zeppelin:
         image: apache/zeppelin:0.10.0
         container_name: apache-zeppelin
+        depends_on:
+            - spark-master
         ports:
-            - "8080:8080"
+            - "8180:8080"
         volumes:
             - ./spark:/zeppelin/spark
             - ./notebooks:/zeppelin/notebook
         environment:
+            - "MASTER=spark://localhost:7077"
+            - "SPARK_MASTER=spark://localhost:7077"
             - "SPARK_HOME=/zeppelin/spark"
+
+    spark-master:
+        image: ryuk4/spark-master:3.2.0-hadoop3.2
+        hostname: spark-master
+        container_name: spark-master
+        expose:
+            - "7077"
+        ports:
+            - "8181:8080"
+            - "7077:7077"
+        environment:
+            - INIT_DAEMON_STEP=setup_spark
 
     mongodb:
         image: mongo:latest

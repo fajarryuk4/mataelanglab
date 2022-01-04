@@ -159,8 +159,6 @@ services:
   zeppelin:
     image: apache/zeppelin:0.10.0
     container_name: apache-zeppelin
-    depends_on:
-      - spark-master
     ports:
       - "8180:8080"
     volumes:
@@ -186,7 +184,7 @@ services:
       MONGO_INITDB_DATABASE: 'mataelanglab'
 
   mongochart:
-    image: quay.io/mongodb/charts:19.12.2
+    image: quay.io/mongodb/charts
     hostname: mongo-charts
     container_name: mongo-charts
     ports:
@@ -201,3 +199,65 @@ services:
       CHARTS_SUPPORT_WIDGET_AND_METRICS: "on"
       SSL_CERT_DIR: /mongodb-charts/volumes/db-certs
       CHARTS_MONGODB_URI: mongodb://mongodb:27017
+
+  #############################################
+  #                  HIVE                     #
+  #############################################
+  namenode:
+    image: ryuk4/hadoop-namenode:2.0.0-hadoop3.3.1-java8
+    container_name: namenode
+    hostname: namenode
+    volumes:
+      - ./data/namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=MataElangLab
+    env_file:
+      - ./envfile/hadoop-hive.env
+    ports:
+      - 50070:50070
+
+  datanode:
+    image: ryuk4/hadoop-datanode:2.0.0-hadoop3.3.1-java8
+    hostname: datanode
+    container_name: datanode
+    depends_on:
+      - namenode
+    volumes:
+      - ./data/datanode:/hadoop/dfs/data
+    env_file:
+      - ./envfile/hadoop-hive.env
+    ports:
+      - 50075:50075
+
+  hive-server:
+    image: ryuk4/hive:3.1.2
+    container_name: hive-server
+    hostname: hive-server
+    env_file:
+      - ./envfile/hadoop-hive.env
+    environment:
+      - "HIVE_CORE_CONF_javax_jdo_option_ConnectionURL=jdbc:postgresql://hive-metastore/metastore"
+    ports:
+      - "10000:10000"
+
+  hive-metastore:
+    image: ryuk4/hive:3.1.2
+    container_name: hive-metastore
+    hostname: hive-metastore
+    env_file:
+      - ./envfile/hadoop-hive.env
+    command: /opt/hive/bin/hive --service metastore
+
+  hive-metastore-postgresql:
+    hostname: hive-postgresql
+    container_name: hive-postgresql
+    image: ryuk4/hive-metastore-postgresql:3.1.2
+
+  hue:
+    image: gethue/hue
+    hostname: hue
+    container_name: hue
+    ports:
+      - 8088:8088
+    environment:
+      - NAMENODE_HOST=namenode
