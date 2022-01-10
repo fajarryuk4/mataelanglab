@@ -164,10 +164,10 @@ services:
     volumes:
       - ./spark:/zeppelin/spark
       - ./notebooks:/zeppelin/notebook
+      - ./resource:/resource
     environment:
-      - "MASTER=spark://spark-master:7077"
       - "SPARK_MASTER=spark://spark-master:7077"
-      - "SPARK_HOME=/zeppelin/spark"
+      - "SPARK_HOME=/spark"
 
   #############################################
   #                 MONGO                     #
@@ -178,7 +178,7 @@ services:
     container_name: mongodb
     restart: on-failure
     ports:
-      - "9081:8081"
+      - "8281:8081"
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: 'mataelanglab'
@@ -188,7 +188,7 @@ services:
     hostname: mongo-charts
     container_name: mongo-charts
     ports:
-      - 9080:80
+      - 8280:80
       - 9443:443
     volumes:
       - ./volume/mongochart/keys:/mongodb-charts/volumes/keys

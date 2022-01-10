@@ -9,7 +9,6 @@ fi
 #Requirement checker
 command -v docker >/dev/null 2>&1 || { echo >&2 "This service requires Docker, but your computer doesn't have it. Install Docker then try again. Aborting."; exit 1; }
 command -v docker-compose >/dev/null 2>&1 || { echo >&2 "This service requires Docker-Compose, but your computer doesn't have it. Install Docker-Compose then try again. Aborting."; exit 1;}
-command -v ifconfig >/dev/null 2>&1 || { echo >&2 "This service requires Net-Tools, but your computer doesn't have it. Install Net-Tools then try again. Aborting."; exit 1; }
 command -v mosquitto >/dev/null 2>&1 || { echo >&2 "This service requires Mosquitto Broker, but your computer doesn't have it. Install Mosquitto Broker then try again. Aborting."; exit 1; }
 
 #Opening
@@ -44,20 +43,25 @@ echo -e "\nInput Mongo Chart UserAdmin Account"
 read -p "Username: " USERNAME
 read -s -p "Password: " PASSWORD
 
-echo -e "What kind Mode do you want to use?\n\t1. Standalone\n\t2. Spark-Cluster \n\t3. Spark-Hive-Cluster\n"
+echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Spark-Cluster \n\t3. Spark-Hive-Cluster(Coming Soon)"
 read -p "Your choice : " MELMODE
 
 RULE_CHOICE=1
 
 #Choose commpose mode
-if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 && ! $MELMODE -eq 3 ]]; then
+if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 ]]; then
   echo -e "Choose a valid choice.\nExited."
+  exit 1
+fi
+
+if [[ $MELMODE -eq 3 ]]; then
+  echo -e "Sorry, Still Under Construction.\nExited."
   exit 1
 fi
 #============================================================
 
 #Get NIC IP then override env file
-ip4=$(ifconfig $NETINT | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'  | cut -d' ' -f2)
+ip4=$(/sbin/ip -o -4 addr list $NETINT | awk '{print $4}' | cut -d/ -f1)
 subnet=$(/sbin/ifconfig $NETINT | awk '/Mask:/{ print $4;} ')
 
 ##Netflowmeter
@@ -76,7 +80,7 @@ echo -e "\n\nAdding rule for MQTT transfer file"
 ufw allow 1883 
 
 #Remove Exist Volume
-rm -rf ./volume/mongochart
+rm -rf ./volume/mongochart ./spark ./notebooks
 
 #Starting Big Data
 echo -e "\nStarting Compose BigData..."
@@ -120,6 +124,7 @@ do
   fi
 done
 
+docker exec -u 0 -it apache-zeppelin bash -c "passwd -d zeppelin"
 
 #Display Available Link
 echo -e "\n\n-----------------------------------"
@@ -127,10 +132,12 @@ echo -e "${YELLOW}Available WebApp${NC}"
 echo -e "(For easier Please Bookmark or Copy link)"
 echo -e "-----------------------------------"
 
+echo -e "MongoDB-URL\t\t mongodb://mongodb:27017"
+echo -e "Mongo Chart Panel\t http://0.0.0.0:8280/"
 #Create Charts users
 if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
 then
-  echo -en "\nMongoDB Chart UserAdmin... \n"
+  echo -en "MongoDB Chart UserAdmin... \n"
   sleep 10
   docker exec -it mongo-charts bash -c \
   "charts-cli add-user \
@@ -141,10 +148,10 @@ then
   --role \"UserAdmin\""
 fi
 
-echo -e "Kafka Control Center\t http://0.0.0.0:9021/"
-echo -e "Mongo Chart Panel\t http://0.0.0.0:9080/"
-echo -e "Zeppelin-Notebook\t http://0.0.0.0:8180/"
+echo -e "\nKafka Control Center\t http://0.0.0.0:9021/"
 echo -e "Spark-Panel\t\t http://0.0.0.0:8181/"
+echo -e "Zeppelin-Notebook\t http://0.0.0.0:8180/"
+echo -e "Place Your csv dataset in "$pwd"/resource"
 
 if [[ $MELMODE -eq 3 ]]; then
   echo -e "Hadoop-Panel\t http://0.0.0.0:8181/"

@@ -1,3 +1,4 @@
+connector-config/*
 volume/*
 envfiles/*
 notebooks/*

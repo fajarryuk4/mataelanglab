@@ -112,19 +112,19 @@ services:
             KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS: 'http://connect:8083'
 
     zeppelin:
-        image: ryuk4/zeppelin-spark:3.2.0-hadoop3.2
+        image: ryuk4/zeppelin-spark:3.1.2-hadoop3.2
         container_name: apache-zeppelin
         depends_on:
             - spark-master
         ports:
             - "8180:8080"
         volumes:
-            - ./spark:/zeppelin/spark
+            - ./spark:/spark
             - ./notebooks:/zeppelin/notebook
+            - ./resource:/resource
         environment:
-            - "MASTER=spark://localhost:7077"
-            - "SPARK_MASTER=spark://localhost:7077"
-            - "SPARK_HOME=/zeppelin/spark"
+            - "SPARK_MASTER=spark://spark-master:7077"
+            - "SPARK_HOME=/spark"
 
     spark-master:
         image: ryuk4/spark-master:3.2.0-hadoop3.2
@@ -144,7 +144,7 @@ services:
         container_name: mongodb
         restart: on-failure
         ports:
-            - "8082:8081"
+            - "8281:8081"
             - "27017:27017"
         environment:
             MONGO_INITDB_DATABASE: 'mataelanglab'
@@ -154,7 +154,7 @@ services:
         hostname: mongo-charts
         container_name: mongo-charts
         ports:
-            - 9080:80
+            - 8280:80
             - 9443:443
         volumes:
             - ./volume/mongochart/keys:/mongodb-charts/volumes/keys
