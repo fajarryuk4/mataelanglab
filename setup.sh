@@ -35,7 +35,12 @@ echo -e "-----------\n"
 
 #All input
 #===========================================================
-echo "Available Network Interface : `ls -C /sys/class/net`"
+
+printf "If You have Your own ${YELLOW}DATASET${NC}, please put Your dataset in a folder ${YELLOW}${PWD}/resource${NC}.\n"
+printf "So you can access it via ${YELLOW}'/resource'${NC} folder on zeppelin-notebook\n"
+read -p "Press any key to resume ..."
+
+echo -e "\nAvailable Network Interface : `ls -C /sys/class/net`"
 echo "Network Interface Card for Tapping (ex: eth0)"
 read -p "Your Choice: " NETINT
 
@@ -49,7 +54,7 @@ read -p "Your choice : " MELMODE
 RULE_CHOICE=1
 
 #Choose commpose mode
-if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 ]]; then
+if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 && ! $MELMODE -eq 3 ]]; then
   echo -e "Choose a valid choice.\nExited."
   exit 1
 fi
@@ -151,7 +156,6 @@ fi
 echo -e "\nKafka Control Center\t http://0.0.0.0:9021/"
 echo -e "Spark-Panel\t\t http://0.0.0.0:8181/"
 echo -e "Zeppelin-Notebook\t http://0.0.0.0:8180/"
-echo -e "Place Your csv dataset in "$pwd"/resource"
 
 if [[ $MELMODE -eq 3 ]]; then
   echo -e "Hadoop-Panel\t http://0.0.0.0:8181/"

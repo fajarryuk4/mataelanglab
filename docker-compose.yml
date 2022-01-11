@@ -119,17 +119,19 @@ services:
         ports:
             - "8180:8080"
         volumes:
-            - ./spark:/spark
+            - ./spark:/zeppelin/spark
             - ./notebooks:/zeppelin/notebook
             - ./resource:/resource
         environment:
             - "SPARK_MASTER=spark://spark-master:7077"
             - "SPARK_HOME=/spark"
+            - "BOOTSTRAP_SERVERS=broker:29092"
+            - "SCHEMA_REGISTRY_URL=http://schema-registry:8081"
 
     spark-master:
         image: ryuk4/spark-master:3.2.0-hadoop3.2
-        hostname: spark-master
         container_name: spark-master
+        hostname: spark-master
         expose:
             - "7077"
         ports:

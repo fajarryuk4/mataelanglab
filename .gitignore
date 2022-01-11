@@ -3,4 +3,4 @@ volume/*
 envfiles/*
 notebooks/*
 spark/*
-
+resource/*

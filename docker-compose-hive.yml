@@ -157,8 +157,10 @@ services:
   #               ZEPPELIN                    #
   #############################################
   zeppelin:
-    image: apache/zeppelin:0.10.0
+    image: ryuk4/zeppelin-spark:3.1.2-hadoop3.2
     container_name: apache-zeppelin
+    depends_on:
+      - spark-master
     ports:
       - "8180:8080"
     volumes:
@@ -168,6 +170,8 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "SPARK_HOME=/spark"
+      - "BOOTSTRAP_SERVERS=broker:29092"
+      - "SCHEMA_REGISTRY_URL=http://schema-registry:8081"
 
   #############################################
   #                 MONGO                     #
