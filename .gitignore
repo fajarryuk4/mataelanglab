@@ -4,3 +4,7 @@ envfiles/*
 notebooks/*
 spark/*
 resource/*
+
+connector-config/
+
+envfile/

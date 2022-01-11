@@ -172,6 +172,7 @@ services:
       - "SPARK_HOME=/spark"
       - "BOOTSTRAP_SERVERS=broker:29092"
       - "SCHEMA_REGISTRY_URL=http://schema-registry:8081"
+      - "MONGODB_URL=mongodb://mongodb:27017"
 
   #############################################
   #                 MONGO                     #
@@ -186,6 +187,8 @@ services:
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: 'mataelanglab'
+    volumes:
+      - ./volume/mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   mongochart:
     image: quay.io/mongodb/charts

@@ -81,7 +81,7 @@ sed -i 's/^NETINT=.*/NETINT='$NETINT'/' envfile/snort.env
 systemctl start mosquitto
 
 #Allow mqqt in firewall
-echo -e "\n\nAdding rule for MQTT transfer file"
+echo -e "\nAdding rule for MQTT transfer file"
 ufw allow 1883 
 
 #Remove Exist Volume
@@ -143,7 +143,7 @@ echo -e "Mongo Chart Panel\t http://0.0.0.0:8280/"
 if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
 then
   echo -en "MongoDB Chart UserAdmin... \n"
-  sleep 10
+  sleep 15
   docker exec -it mongo-charts bash -c \
   "charts-cli add-user \
   --first-name "$USERNAME" \
