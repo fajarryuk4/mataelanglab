@@ -1,10 +1,4 @@
-connector-config/*
 volume/*
-envfiles/*
 notebooks/*
 spark/*
 resource/*
-
-connector-config/
-
-envfile/
