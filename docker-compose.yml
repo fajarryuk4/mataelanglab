@@ -130,7 +130,7 @@ services:
             - "MONGODB_URL=mongodb://mongodb:27017"
 
     spark-master:
-        image: ryuk4/spark-master:3.2.0-hadoop3.2
+        image: ryuk4/spark-master:3.1.2-hadoop3.2
         container_name: spark-master
         hostname: spark-master
         expose:
