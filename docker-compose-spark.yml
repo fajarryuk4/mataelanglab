@@ -132,6 +132,8 @@ services:
       - "7077:7077"
     environment:
       - INIT_DAEMON_STEP=setup_spark
+    volumes:
+      - shared-workspace:/resource
 
   spark-worker-1:
     image: ryuk4/spark-worker:3.2.0-hadoop3.2
@@ -142,6 +144,8 @@ services:
       - "8182:8082"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
+    volumes:
+      - shared-workspace:/resource
 
   spark-worker-2:
     image: ryuk4/spark-worker:3.2.0-hadoop3.2
@@ -152,6 +156,8 @@ services:
       - "8183:8083"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
+    volumes:
+      - shared-workspace:/resource
 
   #############################################
   #               ZEPPELIN                    #
@@ -166,7 +172,7 @@ services:
     volumes:
       - ./spark:/zeppelin/spark
       - ./notebooks:/zeppelin/notebook
-      - ./resource:/resource
+      - shared-workspace:/resource
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "SPARK_HOME=/spark"
@@ -206,3 +212,11 @@ services:
       CHARTS_SUPPORT_WIDGET_AND_METRICS: "on"
       SSL_CERT_DIR: /mongodb-charts/volumes/db-certs
       CHARTS_MONGODB_URI: mongodb://mongodb:27017
+
+volumes:
+  shared-workspace:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: $PWD/resource
