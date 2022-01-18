@@ -1,0 +1,8 @@
+
+MongoDB-URL             mongodb://mongodb:27017
+Mongo Chart Panel       http://localhost:8280/
+Kafka Control Center    http://localhost:9021/"
+Spark-Panel             http://localhost:8181/"
+Zeppelin-Notebook       http://localhost:8180/"
+
+Run 'make help' for get some help and information

@@ -1,0 +1,14 @@
+MataElangLab Make Help:
+
+build                Installing MataElangLab
+remove               Uninstall MataElangLab
+
+start                Start MataElangLab environment
+stop                 Stop MataElangLab environment
+
+help                 Get-Help
+info                 Get MataElangLab-GUI app
+
+mongo-user           Create new mongodb user
+
+modul-list           Get Modul Name List

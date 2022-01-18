@@ -85,7 +85,7 @@ echo -e "\nAdding rule for MQTT transfer file"
 ufw allow 1883 
 
 #Remove Exist Volume
-rm -rf ./volume/mongochart ./spark ./notebooks
+rm -rf ./volume/mongochart ./spark ./notebooks scripts/mode
 
 #Starting Big Data
 echo -e "\nStarting Compose BigData..."
@@ -93,18 +93,24 @@ echo "-----------------------------------\ "
 
 if [[ $MELMODE -eq 1 ]]; then
   echo "Using Standalone MataElangLab.."
-  docker-compose up -d
+  compose_file="docker-compose.yml"
 fi
 
 if [[ $MELMODE -eq 2 ]]; then
   echo "Using Single-Cluster MataElangLab.."
-  docker-compose --file docker-compose-spark.yml up -d
+  compose_file="docker-compose-spark.yml"
 fi
 
 if [[ $MELMODE -eq 3 ]]; then
   echo "Using Hadoop-Cluster MataElangLab.."
-  docker-compose --file docker-compose-hive.yml up -d
+  compose_file="docker-compose-hive.yml"
 fi
+
+cat > scripts/mode <<EOL
+${compose_file}
+EOL
+
+docker-compose --file $compose_file up -d
 
 echo -----------------------------------/
 chars="/-\|"
@@ -137,8 +143,6 @@ echo -e "${YELLOW}Available WebApp${NC}"
 echo -e "(For easier Please Bookmark or Copy link)"
 echo -e "-----------------------------------"
 
-echo -e "MongoDB-URL\t\t mongodb://mongodb:27017"
-echo -e "Mongo Chart Panel\t http://0.0.0.0:8280/"
 #Create Charts users
 if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
 then
@@ -153,13 +157,9 @@ then
   --role \"UserAdmin\""
 fi
 
-echo -e "\nKafka Control Center\t http://0.0.0.0:9021/"
-echo -e "Spark-Panel\t\t http://0.0.0.0:8181/"
-echo -e "Zeppelin-Notebook\t http://0.0.0.0:8180/"
+cat scripts/web-info.txt
 
-if [[ $MELMODE -eq 3 ]]; then
-  echo -e "Hadoop-Panel\t http://0.0.0.0:8181/"
-fi
+echo -e "For easier debugging process, You can install portainer"
 
 echo -e "\n\n-----------------------------------"
 echo -e "${YELLOW}Setup completed.${NC}"
