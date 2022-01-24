@@ -1,5 +1,5 @@
 #!bin/bash
 
-file=`cat mode`
+file=`cat /etc/mataelanglab/mode`
 
 sudo docker-compose --file $file stop

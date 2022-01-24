@@ -48,22 +48,20 @@ echo -e "\nInput Mongo Chart UserAdmin Account"
 read -p "Username: " USERNAME
 read -s -p "Password: " PASSWORD
 
-echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Spark-Cluster \n\t3. Spark-Hive-Cluster(Coming Soon)"
+echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Spark-Cluster"
 read -p "Your choice : " MELMODE
 
 RULE_CHOICE=1
 
 #Choose commpose mode
-if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 && ! $MELMODE -eq 3 ]]; then
+if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 ]]; then
   echo -e "Choose a valid choice.\nExited."
   exit 1
 fi
-
-if [[ $MELMODE -eq 3 ]]; then
-  echo -e "Sorry, Still Under Construction.\nExited."
-  exit 1
-fi
 #============================================================
+
+#Export Folder Project Path
+export MEL_PATH=$PWD
 
 #Get NIC IP then override env file
 ip4=$(/sbin/ip -o -4 addr list $NETINT | awk '{print $4}' | cut -d/ -f1)
@@ -81,11 +79,12 @@ sed -i 's/^NETINT=.*/NETINT='$NETINT'/' envfile/snort.env
 systemctl start mosquitto
 
 #Allow mqqt in firewall
-echo -e "\nAdding rule for MQTT transfer file"
+echo -e "\nAdding rule for port-forwarding"
 ufw allow 1883 
+ufw allow 7077 
 
 #Remove Exist Volume
-rm -rf ./volume/mongochart ./spark ./notebooks scripts/mode
+rm -rf ./volume/mongochart ./spark ./notebooks
 
 #Starting Big Data
 echo -e "\nStarting Compose BigData..."
@@ -101,12 +100,9 @@ if [[ $MELMODE -eq 2 ]]; then
   compose_file="docker-compose-spark.yml"
 fi
 
-if [[ $MELMODE -eq 3 ]]; then
-  echo "Using Hadoop-Cluster MataElangLab.."
-  compose_file="docker-compose-hive.yml"
-fi
-
-cat > scripts/mode <<EOL
+#Set Config for Mode
+mkdir -p /etc/mataelanglab
+cat > /etc/mataelanglab/mode <<EOL
 ${compose_file}
 EOL
 
@@ -131,11 +127,16 @@ do
   then
     curl -s -X POST -H 'Content-Type: application/json' --data @connector-config/nfm-connector.json http://localhost:8083/connectors
     curl -s -X POST -H 'Content-Type: application/json' --data @connector-config/snort-connector.json http://localhost:8083/connectors
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector-config/nfm-mongo-sink.json http://localhost:8083/connectors
+    curl -s -X POST -H 'Content-Type: application/json' --data @connector-config/snort-mongo-sink.json http://localhost:8083/connectors
     break;
+  elif [ "$( docker container inspect -f '{{.State.ExitCode}}' $container_name )" == 1 ]
+  then
+    docker-compose --file $compose_file down -v
+    echo "Some process has failed to Instance"
+    exit
   fi
 done
-
-docker exec -u 0 -it apache-zeppelin bash -c "passwd -d zeppelin"
 
 #Display Available Link
 echo -e "\n\n-----------------------------------"
@@ -147,7 +148,7 @@ echo -e "-----------------------------------"
 if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
 then
   echo -en "MongoDB Chart UserAdmin... \n"
-  sleep 15
+  sleep 10
   docker exec -it mongo-charts bash -c \
   "charts-cli add-user \
   --first-name "$USERNAME" \

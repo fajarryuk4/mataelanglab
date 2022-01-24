@@ -94,10 +94,8 @@ services:
       CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       # CLASSPATH required due to CC-2422
       CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-6.1.1.jar
-      CONNECT_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.intercep\
-        tor.MonitoringProducerInterceptor"
-      CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.intercep\
-        tor.MonitoringConsumerInterceptor"
+      CONNECT_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
+      CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       CONNECT_PLUGIN_PATH: "/usr/share/java,/usr/share/confluent-hub-components"
       CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
 
@@ -128,7 +126,7 @@ services:
     expose:
       - "7077"
     ports:
-      - "8181:8080"
+      - "8180:8080"
       - "7077:7077"
     environment:
       - INIT_DAEMON_STEP=setup_spark
@@ -141,7 +139,7 @@ services:
     depends_on:
       - spark-master
     ports:
-      - "8182:8082"
+      - "8181:8081"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
     volumes:
@@ -153,7 +151,7 @@ services:
     depends_on:
       - spark-master
     ports:
-      - "8183:8083"
+      - "8182:8081"
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
     volumes:
@@ -163,15 +161,15 @@ services:
   #               ZEPPELIN                    #
   #############################################
   zeppelin:
-    image: ryuk4/zeppelin-spark:3.1.2-hadoop3.2
+    image: ryuk4/spark-zeppelin:3.1.2-hadoop3.2
     container_name: apache-zeppelin
     user: root
     depends_on:
       - spark-master
     ports:
-      - "8180:8080"
+      - "8190:8080"
     volumes:
-      - ./spark:/zeppelin/spark
+      # - ./spark:/zeppelin/spark
       - ./notebooks:/zeppelin/notebook
       - shared-workspace:/resource
     environment:
@@ -201,8 +199,11 @@ services:
     image: quay.io/mongodb/charts:19.12.2
     hostname: mongo-charts
     container_name: mongo-charts
+    depends_on:
+      - connect
+      - mongodb
     ports:
-      - 9280:80
+      - 8280:80
       - 9443:443
     volumes:
       - ./volume/mongochart/keys:/mongodb-charts/volumes/keys
@@ -220,4 +221,4 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: $PWD/resource
+      device: $MEL_PATH/resource

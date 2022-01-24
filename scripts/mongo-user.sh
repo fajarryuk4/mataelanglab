@@ -13,7 +13,7 @@ read -s -p "Password: " PASSWORD
 #Create Charts users
 if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
 then
-  echo -en "MongoDB Chart UserAdmin... \n"
+  echo -en "\nMongoDB Chart UserAdmin... \n"
   docker exec -it mongo-charts bash -c \
   "charts-cli add-user \
   --first-name "$USERNAME" \
