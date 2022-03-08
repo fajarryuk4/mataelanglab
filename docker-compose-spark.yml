@@ -161,7 +161,7 @@ services:
   #               ZEPPELIN                    #
   #############################################
   zeppelin:
-    image: ryuk4/spark-zeppelin:3.1.2-hadoop3.2
+    image: ryuk4/zeppelin-spark:3.1.2-hadoop3.2
     container_name: apache-zeppelin
     user: root
     depends_on:
