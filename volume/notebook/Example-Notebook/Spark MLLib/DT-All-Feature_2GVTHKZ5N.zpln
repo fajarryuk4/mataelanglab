@@ -1,0 +1,814 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%python\npip install findspark",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:21:14+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642926041257_943630661",
+      "id": "paragraph_1642926041257_943630661",
+      "dateCreated": "2022-01-23T08:20:41+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1927",
+      "dateFinished": "2022-01-23T08:21:18+0000",
+      "dateStarted": "2022-01-23T08:21:14+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting findspark\r\n  Downloading findspark-2.0.0-py2.py3-none-any.whl (4.4 kB)\r\nInstalling collected packages: findspark\r\nSuccessfully installed findspark-2.0.0\r\n\u001b[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\u001b[0m\r\nNote: you may need to restart the kernel to use updated packages.\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nimport findspark\nfindspark.init()\nimport json\nimport pyspark\nfrom pyspark.sql import SparkSession\nimport pyspark.sql.functions as F\nfrom pyspark.sql.types import *\nfrom pyspark.ml.linalg import Vectors, VectorUDT\nfrom pyspark.ml.feature import VectorAssembler, StandardScaler ",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:21:20+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_2126141633",
+      "id": "20220123-081916_1659227606",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:421",
+      "dateFinished": "2022-01-23T08:21:20+0000",
+      "dateStarted": "2022-01-23T08:21:20+0000"
+    },
+    {
+      "text": "%python\n# Spark session & context\n#Run in Cluster Mode\nspark = (SparkSession\n         .builder\n         .master('spark://spark-master:7077')\n         .appName('DT-AF')\n         .getOrCreate())\nsc = spark.sparkContext",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:30:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "22/01/23 08:21:25 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable\nUsing Spark's default log4j profile: org/apache/spark/log4j-defaults.properties\nSetting default log level to \"WARN\".\nTo adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_1315008159",
+      "id": "20220123-081916_531192300",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:422",
+      "dateFinished": "2022-01-23T08:21:34+0000",
+      "dateStarted": "2022-01-23T08:21:22+0000"
+    },
+    {
+      "text": "%python\n#normaliza using data benign.csv\ndf_train = spark.read.csv('/resource/output/renamed-data/RenamedTrainDataUnderSampling.csv', header=\"true\", inferSchema =True)\n#df_train = df_train.select([F.col(column).cast('double') for column in df_train.columns])",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:21:29+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\r[Stage 0:>                                                          (0 + 1) / 1]\r\r                                                                                \r\r[Stage 1:>                                                          (0 + 2) / 2]\r\r[Stage 1:=============================>                             (1 + 1) / 2]\r\r                                                                                \r"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_542452974",
+      "id": "20220123-081916_344068717",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:423",
+      "dateFinished": "2022-01-23T08:21:55+0000",
+      "dateStarted": "2022-01-23T08:21:29+0000"
+    },
+    {
+      "text": "%python\npip install pymongo",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:22:22+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642926133426_1211677627",
+      "id": "paragraph_1642926133426_1211677627",
+      "dateCreated": "2022-01-23T08:22:13+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2162",
+      "dateFinished": "2022-01-23T08:22:28+0000",
+      "dateStarted": "2022-01-23T08:22:22+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting pymongo\r\n  Downloading pymongo-4.0.1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (452 kB)\r\n\u001b[?25l\r\r     |▊                               | 10 kB 1.0 MB/s eta 0:00:01\r     |█▌                              | 20 kB 1.3 MB/s eta 0:00:01\r     |██▏                             | 30 kB 951 kB/s eta 0:00:01\r     |███                             | 40 kB 973 kB/s eta 0:00:01\r     |███▋                            | 51 kB 1.0 MB/s eta 0:00:01\r     |████▍                           | 61 kB 939 kB/s eta 0:00:01\r     |█████                           | 71 kB 893 kB/s eta 0:00:01\r     |█████▉                          | 81 kB 1.0 MB/s eta 0:00:01\r     |██████▌                         | 92 kB 1.0 MB/s eta 0:00:01\r     |███████▎                        | 102 kB 1.0 MB/s eta 0:00:01\r     |████████                        | 112 kB 1.0 MB/s eta 0:00:01\r     |████████▊                       | 122 kB 1.0 MB/s eta 0:00:01\r     |█████████▍                      | 133 kB 1.0 MB/s eta 0:00:01\r     |██████████▏                     | 143 kB 1.0 MB/s eta 0:00:01\r     |██████████▉                     | 153 kB 1.0 MB/s eta 0:00:01\r     |███████████▋                    | 163 kB 1.0 MB/s eta 0:00:01\r     |████████████▎                   | 174 kB 1.0 MB/s eta 0:00:01\r     |█████████████                   | 184 kB 1.0 MB/s eta 0:00:01\r     |█████████████▊                  | 194 kB 1.0 MB/s eta 0:00:01\r     |██████████████▌                 | 204 kB 1.0 MB/s eta 0:00:01\r     |███████████████▏                | 215 kB 1.0 MB/s eta 0:00:01\r     |████████████████                | 225 kB 1.0 MB/s eta 0:00:01\r     |████████████████▋               | 235 kB 1.0 MB/s eta 0:00:01\r     |█████████████████▍              | 245 kB 1.0 MB/s eta 0:00:01\r     |██████████████████              | 256 kB 1.0 MB/s eta 0:00:01\r     |██████████████████▉             | 266 kB 1.0 MB/s eta 0:00:01\r     |███████████████████▌            | 276 kB 1.0 MB/s eta 0:00:01\r     |████████████████████▎           | 286 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████           | 296 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████▊          | 307 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████▍         | 317 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████▏        | 327 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████        | 337 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████▋       | 348 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████████▍      | 358 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████████      | 368 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████████▉     | 378 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████████▌    | 389 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████████▎   | 399 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████████████   | 409 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████████████▊  | 419 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████████████▍ | 430 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████████████▏| 440 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████████████▉| 450 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████████████| 452 kB 1.0 MB/s            \r\n\u001b[?25hInstalling collected packages: pymongo\r\nSuccessfully installed pymongo-4.0.1\r\n\u001b[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\u001b[0m\r\nNote: you may need to restart the kernel to use updated packages.\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nfrom pymongo import MongoClient",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:22:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642926155488_1250344134",
+      "id": "paragraph_1642926155488_1250344134",
+      "dateCreated": "2022-01-23T08:22:35+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2296",
+      "dateFinished": "2022-01-23T08:22:51+0000",
+      "dateStarted": "2022-01-23T08:22:51+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      }
+    },
+    {
+      "text": "%python\n\nMONGODB_URL = os.getenv('MONGODB_URL')\n\nclient = MongoClient(MONGODB_URL)\ndb = client['mataelanglab']\n\nml_duration_col = db[\"ml_duration\"]\nml_metrix_col = db[\"ml_result\"]\nml_metrixPCA_col = db[\"ml_result_cv\"]",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:22:53+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925983726_628238621",
+      "id": "paragraph_1642925983726_628238621",
+      "dateCreated": "2022-01-23T08:19:43+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1777",
+      "dateFinished": "2022-01-23T08:22:53+0000",
+      "dateStarted": "2022-01-23T08:22:53+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      }
+    },
+    {
+      "text": "%md\n## Classification Using All Feature",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:21:35+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Classification Using All Feature</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_479782335",
+      "id": "20220123-081916_1093832368",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:424",
+      "dateFinished": "2022-01-23T08:21:36+0000",
+      "dateStarted": "2022-01-23T08:21:35+0000"
+    },
+    {
+      "text": "%python\nfeature = ['average_packet_size',\n 'bwd_IAT_total',\n 'bwd_PSH_flags',\n 'bwd_URG_flags',\n 'bwd_header_length',\n 'bwd_packets_per_second',\n 'bwd_segment_size_avg',\n 'bwd_win_bytes',\n 'download_upload_ratio',\n 'flow_bytes_per_second',\n 'flow_duration',\n 'flow_pkts_per_second',\n 'fwd_IAT_total',\n 'fwd_PSH_flags',\n 'fwd_URG_flags',\n 'fwd_act_data_pkts',\n 'fwd_header_length',\n 'fwd_packets_per_second',\n 'fwd_seg_size_min',\n 'fwd_segment_size_avg',\n 'fwd_win_bytes',\n 'packet_length_variance',\n 'activePacket_max',\n 'activePacket_mean',\n 'activePacket_min',\n 'activePacket_std',\n 'bwd_IAT_max',\n 'bwd_IAT_mean',\n 'bwd_IAT_min',\n 'bwd_IAT_std',\n 'bwd_bulk_bulk_rate',\n 'bwd_bulk_bytes_per_bulk',\n 'bwd_bulk_packet_per_bulk',\n 'bwd_packet_length_max',\n 'bwd_packet_length_mean',\n 'bwd_packet_length_min',\n 'bwd_packet_length_std',\n 'bwd_subflow_subflow_bytes',\n 'bwd_subflow_subflow_packets',\n 'flagCount_ack',\n 'flagCount_cwr',\n 'flagCount_ece',\n 'flagCount_fin',\n 'flagCount_psh',\n 'flagCount_rst',\n 'flagCount_syn',\n 'flagCount_ugr',\n 'flow_IAT_max',\n 'flow_IAT_mean',\n 'flow_IAT_min',\n 'flow_IAT_std',\n 'fwd_IAT_max',\n 'fwd_IAT_mean',\n 'fwd_IAT_min',\n 'fwd_IAT_std',\n 'fwd_bulk_bulk_rate',\n 'fwd_bulk_bytes_per_bulk',\n 'fwd_bulk_packet_per_bulk',\n 'fwd_packet_length_max',\n 'fwd_packet_length_mean',\n 'fwd_packet_length_min',\n 'fwd_packet_length_std',\n 'fwd_subflow_subflow_bytes',\n 'fwd_subflow_subflow_packets',\n 'idlePacket_max',\n 'idlePacket_mean',\n 'idlePacket_min',\n 'idlePacket_std',\n 'packet_lenght_max',\n 'packet_lenght_mean',\n 'packet_lenght_min',\n 'packet_lenght_std',\n 'totalPacketFeature_backward',\n 'totalPacketFeature_forward',\n 'totalPacketFeature_length_of_backward',\n 'totalPacketFeature_length_of_forward']",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:22:56+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_403297786",
+      "id": "20220123-081916_2036533119",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:425",
+      "dateFinished": "2022-01-23T08:22:56+0000",
+      "dateStarted": "2022-01-23T08:22:56+0000"
+    },
+    {
+      "text": "%python\ndf_train = df_train.select([F.col(column).cast('double') for column in df_train.columns])",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:23:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_1933955014",
+      "id": "20220123-081916_1503270266",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:426",
+      "dateFinished": "2022-01-23T08:23:01+0000",
+      "dateStarted": "2022-01-23T08:23:00+0000"
+    },
+    {
+      "text": "%md\n## Normalize",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:23:03+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Normalize</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_780200720",
+      "id": "20220123-081916_2100674024",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:427",
+      "dateFinished": "2022-01-23T08:23:03+0000",
+      "dateStarted": "2022-01-23T08:23:03+0000"
+    },
+    {
+      "text": "%python\nfrom pyspark.sql.types import *\nfrom pyspark.ml.linalg import Vectors, VectorUDT\nfrom pyspark.ml.feature import VectorAssembler, StandardScaler ",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:23:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_990113990",
+      "id": "20220123-081916_271834736",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:428",
+      "dateFinished": "2022-01-23T08:23:05+0000",
+      "dateStarted": "2022-01-23T08:23:05+0000"
+    },
+    {
+      "text": "%python\nvector_assembler = VectorAssembler(inputCols=feature, outputCol=\"SS_features\")\ndf_train = vector_assembler.transform(df_train)\nscaler = StandardScaler(inputCol=\"SS_features\", outputCol=\"scaledFeatures\", withStd=True, withMean=True)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:23:07+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956760_625484019",
+      "id": "20220123-081916_1896508406",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:429",
+      "dateFinished": "2022-01-23T08:23:07+0000",
+      "dateStarted": "2022-01-23T08:23:07+0000"
+    },
+    {
+      "text": "%python\ntrain = scaler.fit(df_train).transform(df_train)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:23:09+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "22/01/23 08:23:10 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.\n\r[Stage 2:>                                                          (0 + 2) / 2]\r\r[Stage 2:=============================>                             (1 + 1) / 2]\r\r                                                                                \r"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956761_1327802102",
+      "id": "20220123-081916_2024964456",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:430",
+      "dateFinished": "2022-01-23T08:23:19+0000",
+      "dateStarted": "2022-01-23T08:23:09+0000"
+    },
+    {
+      "text": "%python\nfrom pyspark.ml.classification import DecisionTreeClassifier\nimport time\n\n# Split the data\nstart_time = time.time()\n(training_data, test_data) = train.randomSplit([0.8,0.2], seed =2020)\nprint(\"Training Dataset Count: \" + str(training_data.count()))\nprint(\"Test Dataset Count: \" + str(test_data.count()))\n\ndt = DecisionTreeClassifier(featuresCol = 'scaledFeatures', labelCol = 'label', maxDepth =20)\ndtModel = dt.fit(training_data)\ndt_predictions = dtModel.transform(test_data)\nduration = (time.time() - start_time)\nprint(\"--- %s seconds ---\" % duration)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:24:19+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\r[Stage 4:>                                                          (0 + 2) / 2]\r\r[Stage 4:=============================>                             (1 + 1) / 2]\r\r                                                                                \rTraining Dataset Count: 7011\n\r[Stage 6:>                                                          (0 + 2) / 2]\r\r[Stage 6:=============================>                             (1 + 1) / 2]\r\r                                                                                \rTest Dataset Count: 1729\n\r[Stage 8:>                                                          (0 + 2) / 2]\r\r[Stage 8:=============================>                             (1 + 1) / 2]\r\r                                                                                \r\r[Stage 10:>                                                         (0 + 1) / 1]\r\r                                                                                \r\r[Stage 11:>                                                         (0 + 2) / 2]\r\r[Stage 11:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 12:>                                                         (0 + 2) / 2]\r\r[Stage 12:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 14:>                                                         (0 + 2) / 2]\r\r[Stage 14:=============================>                            (1 + 1) / 2]\r\r                                                                                \r--- 36.904078245162964 seconds ---\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956761_1765064531",
+      "id": "20220123-081916_683190635",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:431",
+      "dateFinished": "2022-01-23T08:24:56+0000",
+      "dateStarted": "2022-01-23T08:24:19+0000"
+    },
+    {
+      "text": "%python\nml_duration_col.insert_one({\n    'method': \"Spark DT AF\",\n    'duration': duration\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:35:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<pymongo.results.InsertOneResult at 0x7f804b35a190>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956761_1988033956",
+      "id": "20220123-081916_75610289",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:433",
+      "dateFinished": "2022-01-23T08:35:44+0000",
+      "dateStarted": "2022-01-23T08:35:43+0000"
+    },
+    {
+      "text": "%python\nfrom pyspark.ml.evaluation import MulticlassClassificationEvaluator\nfrom sklearn.metrics import confusion_matrix\n\nypred = dt_predictions.select(\"prediction\").collect()\nytest = dt_predictions.select(\"label\").collect()\n\nacc_eval    = MulticlassClassificationEvaluator(predictionCol=\"prediction\", metricName=\"accuracy\")\nrecall_eval = MulticlassClassificationEvaluator(predictionCol=\"prediction\", metricName=\"weightedRecall\")\nprec_eval   = MulticlassClassificationEvaluator(predictionCol=\"prediction\", metricName=\"weightedPrecision\")\nf1_eval     = MulticlassClassificationEvaluator(predictionCol=\"prediction\", metricName=\"f1\")\n\naccuracy    = acc_eval.evaluate(dt_predictions)\nrecall      = recall_eval.evaluate(dt_predictions)\nprecision   = prec_eval.evaluate(dt_predictions)\nf1_score    = f1_eval.evaluate(dt_predictions)\n\nprint(\"confusion matrix :\",confusion_matrix(ytest, ypred).ravel())\nprint(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n      \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:25:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\r[Stage 60:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 61:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 62:>                                                         (0 + 2) / 2]\r\r[Stage 62:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 64:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 66:=============================>                            (1 + 1) / 2]\r\r                                                                                \r\r[Stage 68:=============================>                            (1 + 1) / 2]\rconfusion matrix : [329   0   0   1  19   2 351   2   0   0   0   1 327   2   0   5   0   3\n 326   0  16   0   0   0 345]\naccuracy :  0.9705\nrecall : 0.9705\nprecision :  0.9707\nf1-measure : 0.9706\n\r                                                                                \r"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956761_820695998",
+      "id": "20220123-081916_1758773384",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:434",
+      "dateFinished": "2022-01-23T08:25:58+0000",
+      "dateStarted": "2022-01-23T08:25:49+0000"
+    },
+    {
+      "text": "%python\nml_metrix_col.insert_one({\n    'method': \"Spark DT AF\",\n    'accuracy': accuracy,\n    'recall': recall,\n    'precision': precision,\n    'f1_score': f1_score\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:37:58+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<pymongo.results.InsertOneResult at 0x7f804b29c320>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925956761_1097102163",
+      "id": "20220123-081916_88792840",
+      "dateCreated": "2022-01-23T08:19:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:435",
+      "dateFinished": "2022-01-23T08:37:58+0000",
+      "dateStarted": "2022-01-23T08:37:58+0000"
+    },
+    {
+      "text": "%python\nsc.stop()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:26:16+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642926028970_797610127",
+      "id": "paragraph_1642926028970_797610127",
+      "dateCreated": "2022-01-23T08:20:28+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:1849",
+      "dateFinished": "2022-01-23T08:26:17+0000",
+      "dateStarted": "2022-01-23T08:26:16+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      }
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:26:16+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642926376881_562659856",
+      "id": "paragraph_1642926376881_562659856",
+      "dateCreated": "2022-01-23T08:26:16+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:2760"
+    }
+  ],
+  "name": "DT-All-Feature",
+  "id": "2GVTHKZ5N",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/DT-All-Feature"
+}

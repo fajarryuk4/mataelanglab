@@ -1,0 +1,1546 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "import findspark\nfindspark.init()\nimport json\nimport pyspark\nfrom pyspark.sql import SparkSession\nimport pyspark.sql.functions as F\nfrom pyspark.sql.types import *\nfrom pyspark.ml.linalg import Vectors, VectorUDT\nfrom pyspark.ml.feature import VectorAssembler, StandardScaler \nfrom pyspark.ml.classification import DecisionTreeClassifier",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477692_423288666",
+      "id": "20220119-194306_1835060529",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:8466"
+    },
+    {
+      "text": "# Spark session & context mongodb local\nMONGODB_URL = os.getenv('MONGODB_URL');\ndb = MONGODB_URL+\"/mataelanglab\"\nnetflowmeterColl = db+\".netflowmeter\"\n\nspark = (SparkSession\n         .builder\n         .master('local')\n         .appName('BotnetDetection')\n         .config(\"spark.jars.packages\",\"org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.1\")                     \n         .config(\"spark.mongodb.input.uri\",netflowmeterColl)\n         .config(\"spark.mongodb.output.uri\",netflowmeterColl)\n         .getOrCreate())\nspark.conf.set(\"spark.sql.caseSensitive\", \"true\")\nsc = spark.sparkContext",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477692_954316484",
+      "id": "20220119-194306_1131843454",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8467"
+    },
+    {
+      "text": "%md\n# Training Phase",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Training Phase</h1>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477693_1753907439",
+      "id": "20220119-194306_246714568",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8468"
+    },
+    {
+      "text": "df_train = spark.read.csv('/resource/RenamedTrainDataUnderSampling.csv', header=\"true\", inferSchema =True)\n#df_train = df_train.select([F.col(column).cast('double') for column in df_train.columns])",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477693_929316071",
+      "id": "20220119-194306_68107128",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8469"
+    },
+    {
+      "text": "df_train.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477694_1458135504",
+      "id": "20220119-194306_1790603940",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8470"
+    },
+    {
+      "text": "featureImp = ['fwd_win_bytes','idlePacket_max','fwd_header_length','bwd_packets_per_second','flow_bytes_per_second','bwd_win_bytes','flow_IAT_max']",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477695_853127600",
+      "id": "20220119-194306_1041649592",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8471"
+    },
+    {
+      "text": "%md\n## EKSTRAK FITUR UNTUK DATA TRAINING",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>EKSTRAK FITUR UNTUK DATA TRAINING</h2>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477695_454671446",
+      "id": "20220119-194306_1723742712",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8472"
+    },
+    {
+      "text": "#mengekstrak fitur data training\ndfImp = df_train.select(F.col('fwd_win_bytes'), F.col('idlePacket_max'), F.col('fwd_header_length'),F.col('bwd_packets_per_second'), F.col('flow_bytes_per_second'), F.col('bwd_win_bytes'), F.col('flow_IAT_max'),F.col('label'))\ndfImp = dfImp.select([F.col(column).cast('double') for column in dfImp.columns])",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477695_22070896",
+      "id": "20220119-194306_462887596",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8473"
+    },
+    {
+      "text": "dfImp.show(3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477695_1147097192",
+      "id": "20220119-194306_570520616",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8474"
+    },
+    {
+      "text": "#dfImp = dfImp.select([F.col(column).cast('double') for column in dfImp.columns])",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477695_1267407658",
+      "id": "20220119-194306_786863199",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8475"
+    },
+    {
+      "text": "%md\n## Normalize",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Normalize</h2>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_1540028780",
+      "id": "20220119-194306_956303746",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8476"
+    },
+    {
+      "text": "from pyspark.sql.types import *\nfrom pyspark.ml.linalg import Vectors, VectorUDT\nfrom pyspark.ml.feature import VectorAssembler, StandardScaler",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_678236875",
+      "id": "20220119-194306_442578548",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8477"
+    },
+    {
+      "text": "vector_assembler = VectorAssembler(inputCols=featureImp, outputCol=\"SS_features\")\ndfImp = vector_assembler.transform(dfImp)\nscaler = StandardScaler(inputCol=\"SS_features\", outputCol=\"scaledFeatures\", withStd=True, withMean=True)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_783693751",
+      "id": "20220119-194306_870883620",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8478"
+    },
+    {
+      "text": "train = scaler.fit(dfImp).transform(dfImp)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_1018342350",
+      "id": "20220119-194306_691441514",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8479"
+    },
+    {
+      "text": "train.show(3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_979367041",
+      "id": "20220119-194306_272879575",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8480"
+    },
+    {
+      "text": "%md\n## Classification",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Classification</h2>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_1149722015",
+      "id": "20220119-194306_58890557",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8481"
+    },
+    {
+      "text": "# Split the data\n#(training_data, test_data) = train.randomSplit([0.8,0.2], seed =2020)\n#print(\"Training Dataset Count: \" + str(training_data.count()))\n#print(\"Test Dataset Count: \" + str(test_data.count()))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_1954548421",
+      "id": "20220119-194306_1964370408",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8482"
+    },
+    {
+      "text": "from pyspark.ml.classification import DecisionTreeClassifier\n\ndt = DecisionTreeClassifier(featuresCol = 'scaledFeatures', labelCol = 'label', maxDepth =20)\ndtModel = dt.fit(train)\n#dt_predictions = dtModel.transform(test_data)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_681567998",
+      "id": "20220119-194306_1749378559",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8483"
+    },
+    {
+      "text": "# from pyspark.ml.evaluation import MulticlassClassificationEvaluator\n\n# multi_evaluator = MulticlassClassificationEvaluator(labelCol = 'label', metricName = 'accuracy')\n# print('Decision Tree Accuracy:', multi_evaluator.evaluate(dt_predictions))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_1139511271",
+      "id": "20220119-194306_1727410775",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8484"
+    },
+    {
+      "text": "%md\n# Streaming Kafka (Testing)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Streaming Kafka (Testing)</h1>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_1313501211",
+      "id": "20220119-194306_1898579141",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8485"
+    },
+    {
+      "text": "jsonFormatSchema = spark.read.json(\"/resource/schema.json\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477696_313196721",
+      "id": "20220119-194306_1060169835",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8486"
+    },
+    {
+      "text": "print(jsonFormatSchema)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477697_1237542898",
+      "id": "20220119-194306_513662820",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8487"
+    },
+    {
+      "text": "BOOTSTRAP_SERVERS = os.getenv('BOOTSTRAP_SERVERS');\n\nrawData = (spark\n  .readStream\n  .format(\"memory\")\n  .option(\"kafka.bootstrap.servers\", BOOTSTRAP_SERVERS) # kafka server\n  .option(\"subscribe\", \"netflowmeter\") # topic\n  .option(\"startingOffsets\", \"latest\") \n  .load())",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477697_607149144",
+      "id": "20220119-194306_1644583671",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8488"
+    },
+    {
+      "text": "parsedData = rawData.selectExpr(\"cast (value as string) as json\").select(F.from_json(\"json\",jsonFormatSchema.schema).alias(\"data\")).select(\"data.*\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477697_763447539",
+      "id": "20220119-194306_313041706",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8489"
+    },
+    {
+      "text": "parsedData.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477697_211493360",
+      "id": "20220119-194306_719549092",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8490"
+    },
+    {
+      "text": "#mengurutkan fitur agar tertata\nfeatureExtraction = parsedData.select(F.col('flow_id'), F.col('src_ip'), F.col('src_port'), F.col('dst_ip'), F.col('dst_port'), F.col('protocol'), F.col('timestamp'),F.col(\"extractFeature.*\"))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_1811595091",
+      "id": "20220119-194306_1517682275",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8491"
+    },
+    {
+      "text": "# data diflatkan biar ga bercabang --> pada extract feature\ndef flatten_df(nested_df):\n    flat_cols = [c[0] for c in nested_df.dtypes if c[1][:6] != 'struct']\n    nested_cols = [c[0] for c in nested_df.dtypes if c[1][:6] == 'struct']\n\n    flat_df = nested_df.select(flat_cols +\n                               [F.col(nc+'.'+c).alias(nc+'_'+c)\n                                for nc in nested_cols\n                                for c in nested_df.select(nc+'.*').columns])\n    return flat_df",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_523575923",
+      "id": "20220119-194306_175425080",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8492"
+    },
+    {
+      "text": "data_flat = flatten_df(featureExtraction)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_236539985",
+      "id": "20220119-194306_1561499055",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8493"
+    },
+    {
+      "text": "duplicate_columns = ['ActivePacket_max', 'ActivePacket_mean', 'ActivePacket_min', 'ActivePacket_std', 'IdlePacket_max', 'IdlePacket_mean', 'IdlePacket_min','IdlePacket_std']\ndata_flat = data_flat.drop(*duplicate_columns)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_635720597",
+      "id": "20220119-194306_1825946363",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8494"
+    },
+    {
+      "text": "data_flat.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_140487892",
+      "id": "20220119-194306_430360548",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8495"
+    },
+    {
+      "text": "#Seleksi Fitur (featureImportance)\ndataSelect =  data_flat.select(F.col('flow_id'), F.col('src_ip'), F.col('src_port'), F.col('dst_ip'), F.col('dst_port'), F.col('protocol'), F.col('timestamp'),F.col('fwd_win_bytes'), F.col('idlePacket_max'), F.col('fwd_header_length'),F.col('bwd_packets_per_second'), F.col('flow_bytes_per_second'), F.col('bwd_win_bytes'), F.col('flow_IAT_max'))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_479697371",
+      "id": "20220119-194306_902793198",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8496"
+    },
+    {
+      "text": "#ngevector data berdasarkan df train\nvector_assembler = VectorAssembler(inputCols=featureImp, outputCol=\"SS_features\")\n\ndataSelect = vector_assembler.transform(dataSelect)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_149664236",
+      "id": "20220119-194306_2092552981",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8497"
+    },
+    {
+      "text": "dataSelect.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_1657766838",
+      "id": "20220119-194306_1039838235",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8498"
+    },
+    {
+      "text": "#normalize data sensor berdasar df_train\n#data_flat = scaler.fit(df_train).transform(data_flat)\n\n#normalisasi data seleksi fitur\ndataSelect = scaler.fit(dfImp).transform(dataSelect)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477698_771509955",
+      "id": "20220119-194306_307021223",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8499"
+    },
+    {
+      "text": "pred_df = dtModel.transform(dataSelect)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_1386854062",
+      "id": "20220119-194306_1542836471",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8500"
+    },
+    {
+      "text": "pred_df.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_1700588827",
+      "id": "20220119-194306_1776718311",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8501"
+    },
+    {
+      "text": "%python\n%python\nfrom datetime import datetime \nfrom decimal import Decimal\n\ndef date_udf(x):\n  dec = Decimal(x)\n  c = datetime.fromtimestamp(int(dec)/1000).strftime(\"%Y-%m-%d %H:%M:%S\")\n  return c",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_211831494",
+      "id": "20220119-194306_18113204",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8502"
+    },
+    {
+      "text": "datetime_udf = F.udf(date_udf, StringType())\npred_df= pred_df.withColumn('datetime', datetime_udf(pred_df['timestamp']))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_1395884456",
+      "id": "20220119-194306_1971449548",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8503"
+    },
+    {
+      "text": "pred_df_1 = pred_df.select(F.col('flow_id'), F.col('src_ip'), F.col('src_port'), F.col('dst_ip'), F.col('dst_port'), F.col('protocol'), F.col('datetime'), F.col('prediction'))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_1061370649",
+      "id": "20220119-194306_8846051",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8504"
+    },
+    {
+      "text": "%python\n%python\ndef write_mongo_row(df, epoch_id):\n    df.write.format(\"mongo\").mode(\"append\").option(\"database\",\"mataelanglab\").option(\"collection\",\"netflowmeter\").save()\n    pass\n\nquery=pred_df_1.writeStream.foreachBatch(write_mongo_row).start()\nquery.awaitTermination()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_1709041939",
+      "id": "20220119-194306_1563572925",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8505"
+    },
+    {
+      "text": "#y = pred_df.writeStream.queryName(\"sas\").format(\"memory\").outputMode(\"append\").start()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_1085619236",
+      "id": "20220119-194306_2131878509",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8506"
+    },
+    {
+      "text": "#raw = spark.sql(\"select * from sas\")\n#raw[['datetime']].show()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:44:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642927477699_381930466",
+      "id": "20220119-194306_94143693",
+      "dateCreated": "2022-01-23T08:44:37+0000",
+      "status": "READY",
+      "$$hashKey": "object:8507"
+    }
+  ],
+  "name": "Streaming",
+  "id": "2GVU8FRV6",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Streaming"
+}

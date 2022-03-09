@@ -1,0 +1,824 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%sh\nmkdir -p /resource/output/renamed-data",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:47+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597302_509078396",
+      "id": "20220123-081317_57991578",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:8498",
+      "dateFinished": "2022-01-23T08:14:47+0000",
+      "dateStarted": "2022-01-23T08:14:47+0000"
+    },
+    {
+      "text": "%python\nimport pandas as pd\nimport numpy as np\n\ndata= pd.read_csv('/resource/output/labeled-data/TrainDataUnderSampling.csv')\ndata.head(4)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:47+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>Total Length of Fwd Packet</th>\n      <th>Total Length of Bwd Packet</th>\n      <th>Fwd Packet Length Max</th>\n      <th>Fwd Packet Length Min</th>\n      <th>Fwd Packet Length Mean</th>\n      <th>Fwd Packet Length Std</th>\n      <th>Bwd Packet Length Max</th>\n      <th>Bwd Packet Length Min</th>\n      <th>Bwd Packet Length Mean</th>\n      <th>Bwd Packet Length Std</th>\n      <th>Flow Bytes/s</th>\n      <th>Flow Packets/s</th>\n      <th>Flow IAT Mean</th>\n      <th>Flow IAT Std</th>\n      <th>Flow IAT Max</th>\n      <th>Flow IAT Min</th>\n      <th>Fwd IAT Total</th>\n      <th>Fwd IAT Mean</th>\n      <th>Fwd IAT Std</th>\n      <th>Fwd IAT Max</th>\n      <th>Fwd IAT Min</th>\n      <th>Bwd IAT Total</th>\n      <th>Bwd IAT Mean</th>\n      <th>Bwd IAT Std</th>\n      <th>Bwd IAT Max</th>\n      <th>Bwd IAT Min</th>\n      <th>Fwd PSH Flags</th>\n      <th>Bwd PSH Flags</th>\n      <th>Fwd URG Flags</th>\n      <th>Bwd URG Flags</th>\n      <th>Fwd Header Length</th>\n      <th>Bwd Header Length</th>\n      <th>Fwd Packets/s</th>\n      <th>Bwd Packets/s</th>\n      <th>Packet Length Min</th>\n      <th>Packet Length Max</th>\n      <th>Packet Length Mean</th>\n      <th>Packet Length Std</th>\n      <th>Packet Length Variance</th>\n      <th>FIN Flag Count</th>\n      <th>SYN Flag Count</th>\n      <th>RST Flag Count</th>\n      <th>PSH Flag Count</th>\n      <th>ACK Flag Count</th>\n      <th>URG Flag Count</th>\n      <th>CWR Flag Count</th>\n      <th>ECE Flag Count</th>\n      <th>Down/Up Ratio</th>\n      <th>Average Packet Size</th>\n      <th>Fwd Segment Size Avg</th>\n      <th>Bwd Segment Size Avg</th>\n      <th>Fwd Bytes/Bulk Avg</th>\n      <th>Fwd Packet/Bulk Avg</th>\n      <th>Fwd Bulk Rate Avg</th>\n      <th>Bwd Bytes/Bulk Avg</th>\n      <th>Bwd Packet/Bulk Avg</th>\n      <th>Bwd Bulk Rate Avg</th>\n      <th>Subflow Fwd Packets</th>\n      <th>Subflow Fwd Bytes</th>\n      <th>Subflow Bwd Packets</th>\n      <th>Subflow Bwd Bytes</th>\n      <th>FWD Init Win Bytes</th>\n      <th>Bwd Init Win Bytes</th>\n      <th>Fwd Act Data Pkts</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n      <th>Label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>824776</td>\n      <td>5</td>\n      <td>2</td>\n      <td>592.0</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0.0</td>\n      <td>118.400000</td>\n      <td>264.750449</td>\n      <td>72.0</td>\n      <td>0.0</td>\n      <td>36.000000</td>\n      <td>50.911688</td>\n      <td>805.067073</td>\n      <td>8.487153</td>\n      <td>1.374627e+05</td>\n      <td>2.037714e+05</td>\n      <td>464763.0</td>\n      <td>7.0</td>\n      <td>824776.0</td>\n      <td>2.061940e+05</td>\n      <td>2.245934e+05</td>\n      <td>465194.0</td>\n      <td>7.0</td>\n      <td>196.0</td>\n      <td>196.000000</td>\n      <td>0.000000</td>\n      <td>196.0</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>116</td>\n      <td>40</td>\n      <td>6.062252</td>\n      <td>2.424901</td>\n      <td>0.0</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>207.204523</td>\n      <td>42933.714286</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>2</td>\n      <td>6</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>94.857143</td>\n      <td>118.400000</td>\n      <td>36.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>84</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>49287464</td>\n      <td>3</td>\n      <td>0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>25.403412</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.892722</td>\n      <td>0.060867</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>49287464.0</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>60</td>\n      <td>0</td>\n      <td>0.060867</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>22.000000</td>\n      <td>484.000000</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>14.666667</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>14</td>\n      <td>0</td>\n      <td>0</td>\n      <td>63983</td>\n      <td>0</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>6.381794e+14</td>\n      <td>9.025219e+14</td>\n      <td>1.276359e+15</td>\n      <td>4.928731e+07</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>2922422</td>\n      <td>42</td>\n      <td>22</td>\n      <td>56797.0</td>\n      <td>62.0</td>\n      <td>1460.0</td>\n      <td>0.0</td>\n      <td>1352.309524</td>\n      <td>380.249115</td>\n      <td>62.0</td>\n      <td>0.0</td>\n      <td>2.818182</td>\n      <td>13.218444</td>\n      <td>19456.122353</td>\n      <td>21.899644</td>\n      <td>4.638765e+04</td>\n      <td>1.767560e+05</td>\n      <td>1320971.0</td>\n      <td>160.0</td>\n      <td>2922422.0</td>\n      <td>7.127859e+04</td>\n      <td>2.168977e+05</td>\n      <td>1320971.0</td>\n      <td>3122.0</td>\n      <td>2673104.0</td>\n      <td>127290.666667</td>\n      <td>340020.473297</td>\n      <td>1557368.0</td>\n      <td>201.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>856</td>\n      <td>440</td>\n      <td>14.371641</td>\n      <td>7.528002</td>\n      <td>0.0</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>718.086695</td>\n      <td>515648.500962</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>3</td>\n      <td>63</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>888.421875</td>\n      <td>1352.309524</td>\n      <td>2.818182</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>56797</td>\n      <td>39</td>\n      <td>50580</td>\n      <td>0</td>\n      <td>887</td>\n      <td>0</td>\n      <td>0</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>39</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>192.168.4.121-192.168.5.122-51526-143-6</td>\n      <td>192.168.4.121</td>\n      <td>51526</td>\n      <td>192.168.5.122</td>\n      <td>143</td>\n      <td>6</td>\n      <td>12/06/2010 11:19:52 AM</td>\n      <td>31006</td>\n      <td>14</td>\n      <td>26</td>\n      <td>339.0</td>\n      <td>3622.0</td>\n      <td>172.0</td>\n      <td>0.0</td>\n      <td>24.214286</td>\n      <td>43.865491</td>\n      <td>466.0</td>\n      <td>0.0</td>\n      <td>139.307692</td>\n      <td>158.768956</td>\n      <td>127749.467845</td>\n      <td>1290.072889</td>\n      <td>7.950256e+02</td>\n      <td>1.502608e+03</td>\n      <td>9574.0</td>\n      <td>43.0</td>\n      <td>31006.0</td>\n      <td>2.385077e+03</td>\n      <td>2.656102e+03</td>\n      <td>10698.0</td>\n      <td>43.0</td>\n      <td>28862.0</td>\n      <td>1154.480000</td>\n      <td>1974.791363</td>\n      <td>10192.0</td>\n      <td>149.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>292</td>\n      <td>544</td>\n      <td>451.525511</td>\n      <td>838.547378</td>\n      <td>0.0</td>\n      <td>466.0</td>\n      <td>96.609756</td>\n      <td>140.117251</td>\n      <td>19632.843902</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>33</td>\n      <td>39</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>99.025000</td>\n      <td>24.214286</td>\n      <td>139.307692</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>3961</td>\n      <td>33</td>\n      <td>133102</td>\n      <td>0</td>\n      <td>8</td>\n      <td>0</td>\n      <td>90</td>\n      <td>8192</td>\n      <td>54</td>\n      <td>11</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276316e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276316e+15</td>\n      <td>1.276316e+15</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597302_2032033373",
+      "id": "20220123-081317_1559546963",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8499",
+      "dateFinished": "2022-01-23T08:14:47+0000",
+      "dateStarted": "2022-01-23T08:14:47+0000"
+    },
+    {
+      "text": "%python\ndata.loc[(data['Label']=='NeedManualLabel'), 'Label'] = 1\ndata.head(4)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:47+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>Total Length of Fwd Packet</th>\n      <th>Total Length of Bwd Packet</th>\n      <th>Fwd Packet Length Max</th>\n      <th>Fwd Packet Length Min</th>\n      <th>Fwd Packet Length Mean</th>\n      <th>Fwd Packet Length Std</th>\n      <th>Bwd Packet Length Max</th>\n      <th>Bwd Packet Length Min</th>\n      <th>Bwd Packet Length Mean</th>\n      <th>Bwd Packet Length Std</th>\n      <th>Flow Bytes/s</th>\n      <th>Flow Packets/s</th>\n      <th>Flow IAT Mean</th>\n      <th>Flow IAT Std</th>\n      <th>Flow IAT Max</th>\n      <th>Flow IAT Min</th>\n      <th>Fwd IAT Total</th>\n      <th>Fwd IAT Mean</th>\n      <th>Fwd IAT Std</th>\n      <th>Fwd IAT Max</th>\n      <th>Fwd IAT Min</th>\n      <th>Bwd IAT Total</th>\n      <th>Bwd IAT Mean</th>\n      <th>Bwd IAT Std</th>\n      <th>Bwd IAT Max</th>\n      <th>Bwd IAT Min</th>\n      <th>Fwd PSH Flags</th>\n      <th>Bwd PSH Flags</th>\n      <th>Fwd URG Flags</th>\n      <th>Bwd URG Flags</th>\n      <th>Fwd Header Length</th>\n      <th>Bwd Header Length</th>\n      <th>Fwd Packets/s</th>\n      <th>Bwd Packets/s</th>\n      <th>Packet Length Min</th>\n      <th>Packet Length Max</th>\n      <th>Packet Length Mean</th>\n      <th>Packet Length Std</th>\n      <th>Packet Length Variance</th>\n      <th>FIN Flag Count</th>\n      <th>SYN Flag Count</th>\n      <th>RST Flag Count</th>\n      <th>PSH Flag Count</th>\n      <th>ACK Flag Count</th>\n      <th>URG Flag Count</th>\n      <th>CWR Flag Count</th>\n      <th>ECE Flag Count</th>\n      <th>Down/Up Ratio</th>\n      <th>Average Packet Size</th>\n      <th>Fwd Segment Size Avg</th>\n      <th>Bwd Segment Size Avg</th>\n      <th>Fwd Bytes/Bulk Avg</th>\n      <th>Fwd Packet/Bulk Avg</th>\n      <th>Fwd Bulk Rate Avg</th>\n      <th>Bwd Bytes/Bulk Avg</th>\n      <th>Bwd Packet/Bulk Avg</th>\n      <th>Bwd Bulk Rate Avg</th>\n      <th>Subflow Fwd Packets</th>\n      <th>Subflow Fwd Bytes</th>\n      <th>Subflow Bwd Packets</th>\n      <th>Subflow Bwd Bytes</th>\n      <th>FWD Init Win Bytes</th>\n      <th>Bwd Init Win Bytes</th>\n      <th>Fwd Act Data Pkts</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n      <th>Label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>824776</td>\n      <td>5</td>\n      <td>2</td>\n      <td>592.0</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0.0</td>\n      <td>118.400000</td>\n      <td>264.750449</td>\n      <td>72.0</td>\n      <td>0.0</td>\n      <td>36.000000</td>\n      <td>50.911688</td>\n      <td>805.067073</td>\n      <td>8.487153</td>\n      <td>1.374627e+05</td>\n      <td>2.037714e+05</td>\n      <td>464763.0</td>\n      <td>7.0</td>\n      <td>824776.0</td>\n      <td>2.061940e+05</td>\n      <td>2.245934e+05</td>\n      <td>465194.0</td>\n      <td>7.0</td>\n      <td>196.0</td>\n      <td>196.000000</td>\n      <td>0.000000</td>\n      <td>196.0</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>116</td>\n      <td>40</td>\n      <td>6.062252</td>\n      <td>2.424901</td>\n      <td>0.0</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>207.204523</td>\n      <td>42933.714286</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>2</td>\n      <td>6</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>94.857143</td>\n      <td>118.400000</td>\n      <td>36.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>84</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>49287464</td>\n      <td>3</td>\n      <td>0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>25.403412</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.892722</td>\n      <td>0.060867</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>49287464.0</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>60</td>\n      <td>0</td>\n      <td>0.060867</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>22.000000</td>\n      <td>484.000000</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>14.666667</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>14</td>\n      <td>0</td>\n      <td>0</td>\n      <td>63983</td>\n      <td>0</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>6.381794e+14</td>\n      <td>9.025219e+14</td>\n      <td>1.276359e+15</td>\n      <td>4.928731e+07</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>2922422</td>\n      <td>42</td>\n      <td>22</td>\n      <td>56797.0</td>\n      <td>62.0</td>\n      <td>1460.0</td>\n      <td>0.0</td>\n      <td>1352.309524</td>\n      <td>380.249115</td>\n      <td>62.0</td>\n      <td>0.0</td>\n      <td>2.818182</td>\n      <td>13.218444</td>\n      <td>19456.122353</td>\n      <td>21.899644</td>\n      <td>4.638765e+04</td>\n      <td>1.767560e+05</td>\n      <td>1320971.0</td>\n      <td>160.0</td>\n      <td>2922422.0</td>\n      <td>7.127859e+04</td>\n      <td>2.168977e+05</td>\n      <td>1320971.0</td>\n      <td>3122.0</td>\n      <td>2673104.0</td>\n      <td>127290.666667</td>\n      <td>340020.473297</td>\n      <td>1557368.0</td>\n      <td>201.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>856</td>\n      <td>440</td>\n      <td>14.371641</td>\n      <td>7.528002</td>\n      <td>0.0</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>718.086695</td>\n      <td>515648.500962</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>3</td>\n      <td>63</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>888.421875</td>\n      <td>1352.309524</td>\n      <td>2.818182</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>56797</td>\n      <td>39</td>\n      <td>50580</td>\n      <td>0</td>\n      <td>887</td>\n      <td>0</td>\n      <td>0</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>39</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>192.168.4.121-192.168.5.122-51526-143-6</td>\n      <td>192.168.4.121</td>\n      <td>51526</td>\n      <td>192.168.5.122</td>\n      <td>143</td>\n      <td>6</td>\n      <td>12/06/2010 11:19:52 AM</td>\n      <td>31006</td>\n      <td>14</td>\n      <td>26</td>\n      <td>339.0</td>\n      <td>3622.0</td>\n      <td>172.0</td>\n      <td>0.0</td>\n      <td>24.214286</td>\n      <td>43.865491</td>\n      <td>466.0</td>\n      <td>0.0</td>\n      <td>139.307692</td>\n      <td>158.768956</td>\n      <td>127749.467845</td>\n      <td>1290.072889</td>\n      <td>7.950256e+02</td>\n      <td>1.502608e+03</td>\n      <td>9574.0</td>\n      <td>43.0</td>\n      <td>31006.0</td>\n      <td>2.385077e+03</td>\n      <td>2.656102e+03</td>\n      <td>10698.0</td>\n      <td>43.0</td>\n      <td>28862.0</td>\n      <td>1154.480000</td>\n      <td>1974.791363</td>\n      <td>10192.0</td>\n      <td>149.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>292</td>\n      <td>544</td>\n      <td>451.525511</td>\n      <td>838.547378</td>\n      <td>0.0</td>\n      <td>466.0</td>\n      <td>96.609756</td>\n      <td>140.117251</td>\n      <td>19632.843902</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>33</td>\n      <td>39</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>99.025000</td>\n      <td>24.214286</td>\n      <td>139.307692</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>3961</td>\n      <td>33</td>\n      <td>133102</td>\n      <td>0</td>\n      <td>8</td>\n      <td>0</td>\n      <td>90</td>\n      <td>8192</td>\n      <td>54</td>\n      <td>11</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276316e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276316e+15</td>\n      <td>1.276316e+15</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597303_742760580",
+      "id": "20220123-081317_554164489",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8500",
+      "dateFinished": "2022-01-23T08:14:47+0000",
+      "dateStarted": "2022-01-23T08:14:47+0000"
+    },
+    {
+      "text": "%python\ndata['Label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:47+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    1748\n1    1748\n2    1748\n3    1748\n4    1748\nName: Label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597303_191348403",
+      "id": "20220123-081317_1892447648",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8501",
+      "dateFinished": "2022-01-23T08:14:47+0000",
+      "dateStarted": "2022-01-23T08:14:47+0000"
+    },
+    {
+      "text": "%python\ndata.drop(['Unnamed: 0'],axis=1,inplace=True)\ndata.head(3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:47+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>Total Length of Fwd Packet</th>\n      <th>Total Length of Bwd Packet</th>\n      <th>Fwd Packet Length Max</th>\n      <th>Fwd Packet Length Min</th>\n      <th>Fwd Packet Length Mean</th>\n      <th>Fwd Packet Length Std</th>\n      <th>Bwd Packet Length Max</th>\n      <th>Bwd Packet Length Min</th>\n      <th>Bwd Packet Length Mean</th>\n      <th>Bwd Packet Length Std</th>\n      <th>Flow Bytes/s</th>\n      <th>Flow Packets/s</th>\n      <th>Flow IAT Mean</th>\n      <th>Flow IAT Std</th>\n      <th>Flow IAT Max</th>\n      <th>Flow IAT Min</th>\n      <th>Fwd IAT Total</th>\n      <th>Fwd IAT Mean</th>\n      <th>Fwd IAT Std</th>\n      <th>Fwd IAT Max</th>\n      <th>Fwd IAT Min</th>\n      <th>Bwd IAT Total</th>\n      <th>Bwd IAT Mean</th>\n      <th>Bwd IAT Std</th>\n      <th>Bwd IAT Max</th>\n      <th>Bwd IAT Min</th>\n      <th>Fwd PSH Flags</th>\n      <th>Bwd PSH Flags</th>\n      <th>Fwd URG Flags</th>\n      <th>Bwd URG Flags</th>\n      <th>Fwd Header Length</th>\n      <th>Bwd Header Length</th>\n      <th>Fwd Packets/s</th>\n      <th>Bwd Packets/s</th>\n      <th>Packet Length Min</th>\n      <th>Packet Length Max</th>\n      <th>Packet Length Mean</th>\n      <th>Packet Length Std</th>\n      <th>Packet Length Variance</th>\n      <th>FIN Flag Count</th>\n      <th>SYN Flag Count</th>\n      <th>RST Flag Count</th>\n      <th>PSH Flag Count</th>\n      <th>ACK Flag Count</th>\n      <th>URG Flag Count</th>\n      <th>CWR Flag Count</th>\n      <th>ECE Flag Count</th>\n      <th>Down/Up Ratio</th>\n      <th>Average Packet Size</th>\n      <th>Fwd Segment Size Avg</th>\n      <th>Bwd Segment Size Avg</th>\n      <th>Fwd Bytes/Bulk Avg</th>\n      <th>Fwd Packet/Bulk Avg</th>\n      <th>Fwd Bulk Rate Avg</th>\n      <th>Bwd Bytes/Bulk Avg</th>\n      <th>Bwd Packet/Bulk Avg</th>\n      <th>Bwd Bulk Rate Avg</th>\n      <th>Subflow Fwd Packets</th>\n      <th>Subflow Fwd Bytes</th>\n      <th>Subflow Bwd Packets</th>\n      <th>Subflow Bwd Bytes</th>\n      <th>FWD Init Win Bytes</th>\n      <th>Bwd Init Win Bytes</th>\n      <th>Fwd Act Data Pkts</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n      <th>Label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>824776</td>\n      <td>5</td>\n      <td>2</td>\n      <td>592.0</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0.0</td>\n      <td>118.400000</td>\n      <td>264.750449</td>\n      <td>72.0</td>\n      <td>0.0</td>\n      <td>36.000000</td>\n      <td>50.911688</td>\n      <td>805.067073</td>\n      <td>8.487153</td>\n      <td>1.374627e+05</td>\n      <td>2.037714e+05</td>\n      <td>464763.0</td>\n      <td>7.0</td>\n      <td>824776.0</td>\n      <td>2.061940e+05</td>\n      <td>2.245934e+05</td>\n      <td>465194.0</td>\n      <td>7.0</td>\n      <td>196.0</td>\n      <td>196.000000</td>\n      <td>0.000000</td>\n      <td>196.0</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>116</td>\n      <td>40</td>\n      <td>6.062252</td>\n      <td>2.424901</td>\n      <td>0.0</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>207.204523</td>\n      <td>42933.714286</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>2</td>\n      <td>6</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>94.857143</td>\n      <td>118.400000</td>\n      <td>36.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>84</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>49287464</td>\n      <td>3</td>\n      <td>0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>25.403412</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.892722</td>\n      <td>0.060867</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>49287464.0</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>60</td>\n      <td>0</td>\n      <td>0.060867</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>22.000000</td>\n      <td>484.000000</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>14.666667</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>14</td>\n      <td>0</td>\n      <td>0</td>\n      <td>63983</td>\n      <td>0</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>6.381794e+14</td>\n      <td>9.025219e+14</td>\n      <td>1.276359e+15</td>\n      <td>4.928731e+07</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>2922422</td>\n      <td>42</td>\n      <td>22</td>\n      <td>56797.0</td>\n      <td>62.0</td>\n      <td>1460.0</td>\n      <td>0.0</td>\n      <td>1352.309524</td>\n      <td>380.249115</td>\n      <td>62.0</td>\n      <td>0.0</td>\n      <td>2.818182</td>\n      <td>13.218444</td>\n      <td>19456.122353</td>\n      <td>21.899644</td>\n      <td>4.638765e+04</td>\n      <td>1.767560e+05</td>\n      <td>1320971.0</td>\n      <td>160.0</td>\n      <td>2922422.0</td>\n      <td>7.127859e+04</td>\n      <td>2.168977e+05</td>\n      <td>1320971.0</td>\n      <td>3122.0</td>\n      <td>2673104.0</td>\n      <td>127290.666667</td>\n      <td>340020.473297</td>\n      <td>1557368.0</td>\n      <td>201.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>856</td>\n      <td>440</td>\n      <td>14.371641</td>\n      <td>7.528002</td>\n      <td>0.0</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>718.086695</td>\n      <td>515648.500962</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>3</td>\n      <td>63</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>888.421875</td>\n      <td>1352.309524</td>\n      <td>2.818182</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>56797</td>\n      <td>39</td>\n      <td>50580</td>\n      <td>0</td>\n      <td>887</td>\n      <td>0</td>\n      <td>0</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>39</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_689576948",
+      "id": "20220123-081317_1410343442",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8502",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\ndata.shape",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(8740, 84)"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_721526779",
+      "id": "20220123-081317_779938455",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8503",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\ndata['Label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    1748\n1    1748\n2    1748\n3    1748\n4    1748\nName: Label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_1395367073",
+      "id": "20220123-081317_820861432",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8504",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\nnew_feature = ['flow_id','src_ip','src_port','dst_ip','dst_port','protocol','timestamp','flow_duration', 'totalPacketFeature_forward', 'totalPacketFeature_backward', 'totalPacketFeature_length_of_forward', 'totalPacketFeature_length_of_backward', 'fwd_packet_length_max', 'fwd_packet_length_min', 'fwd_packet_length_mean', 'fwd_packet_length_std', 'bwd_packet_length_max', 'bwd_packet_length_min', 'bwd_packet_length_mean', 'bwd_packet_length_std', 'flow_bytes_per_second', 'flow_pkts_per_second', 'flow_IAT_mean', 'flow_IAT_std', 'flow_IAT_max', 'flow_IAT_min', 'fwd_IAT_total', 'fwd_IAT_mean', 'fwd_IAT_std', 'fwd_IAT_max', 'fwd_IAT_min', 'bwd_IAT_total', 'bwd_IAT_mean', 'bwd_IAT_std', 'bwd_IAT_max', 'bwd_IAT_min', 'fwd_PSH_flags', 'bwd_PSH_flags', 'fwd_URG_flags', 'bwd_URG_flags', 'fwd_header_length', 'bwd_header_length', 'fwd_packets_per_second', 'bwd_packets_per_second', 'packet_lenght_min', 'packet_lenght_max', 'packet_lenght_mean', 'packet_lenght_std', 'packet_length_variance', 'flagCount_fin', 'flagCount_syn', 'flagCount_rst', 'flagCount_psh', 'flagCount_ack', 'flagCount_ugr', 'flagCount_cwr', 'flagCount_ece', 'download_upload_ratio', 'average_packet_size', 'fwd_segment_size_avg', 'bwd_segment_size_avg', 'fwd_bulk_bytes_per_bulk', 'fwd_bulk_packet_per_bulk', 'fwd_bulk_bulk_rate', 'bwd_bulk_bytes_per_bulk', 'bwd_bulk_packet_per_bulk', 'bwd_bulk_bulk_rate', 'fwd_subflow_subflow_packets', 'fwd_subflow_subflow_bytes', 'bwd_subflow_subflow_packets', 'bwd_subflow_subflow_bytes', 'fwd_win_bytes', 'bwd_win_bytes', 'fwd_act_data_pkts', 'fwd_seg_size_min', 'activePacket_mean', 'activePacket_std', 'activePacket_max', 'activePacket_min', 'idlePacket_mean', 'idlePacket_std', 'idlePacket_max', 'idlePacket_min','label']",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_1574293177",
+      "id": "20220123-081317_589253424",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8505",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\nlen(new_feature)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "84"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_539623797",
+      "id": "20220123-081317_1993010675",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8506",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\na = new_feature \nb = data.columns\n\nfor i in range (0, len(data.columns)):\n    print(str(a[i] ) + \"  <-> \" + str(b[i]) + \" no  \" + str(i))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "flow_id  <-> Flow ID no  0\nsrc_ip  <-> Src IP no  1\nsrc_port  <-> Src Port no  2\ndst_ip  <-> Dst IP no  3\ndst_port  <-> Dst Port no  4\nprotocol  <-> Protocol no  5\ntimestamp  <-> Timestamp no  6\nflow_duration  <-> Flow Duration no  7\ntotalPacketFeature_forward  <-> Total Fwd Packet no  8\ntotalPacketFeature_backward  <-> Total Bwd packets no  9\ntotalPacketFeature_length_of_forward  <-> Total Length of Fwd Packet no  10\ntotalPacketFeature_length_of_backward  <-> Total Length of Bwd Packet no  11\nfwd_packet_length_max  <-> Fwd Packet Length Max no  12\nfwd_packet_length_min  <-> Fwd Packet Length Min no  13\nfwd_packet_length_mean  <-> Fwd Packet Length Mean no  14\nfwd_packet_length_std  <-> Fwd Packet Length Std no  15\nbwd_packet_length_max  <-> Bwd Packet Length Max no  16\nbwd_packet_length_min  <-> Bwd Packet Length Min no  17\nbwd_packet_length_mean  <-> Bwd Packet Length Mean no  18\nbwd_packet_length_std  <-> Bwd Packet Length Std no  19\nflow_bytes_per_second  <-> Flow Bytes/s no  20\nflow_pkts_per_second  <-> Flow Packets/s no  21\nflow_IAT_mean  <-> Flow IAT Mean no  22\nflow_IAT_std  <-> Flow IAT Std no  23\nflow_IAT_max  <-> Flow IAT Max no  24\nflow_IAT_min  <-> Flow IAT Min no  25\nfwd_IAT_total  <-> Fwd IAT Total no  26\nfwd_IAT_mean  <-> Fwd IAT Mean no  27\nfwd_IAT_std  <-> Fwd IAT Std no  28\nfwd_IAT_max  <-> Fwd IAT Max no  29\nfwd_IAT_min  <-> Fwd IAT Min no  30\nbwd_IAT_total  <-> Bwd IAT Total no  31\nbwd_IAT_mean  <-> Bwd IAT Mean no  32\nbwd_IAT_std  <-> Bwd IAT Std no  33\nbwd_IAT_max  <-> Bwd IAT Max no  34\nbwd_IAT_min  <-> Bwd IAT Min no  35\nfwd_PSH_flags  <-> Fwd PSH Flags no  36\nbwd_PSH_flags  <-> Bwd PSH Flags no  37\nfwd_URG_flags  <-> Fwd URG Flags no  38\nbwd_URG_flags  <-> Bwd URG Flags no  39\nfwd_header_length  <-> Fwd Header Length no  40\nbwd_header_length  <-> Bwd Header Length no  41\nfwd_packets_per_second  <-> Fwd Packets/s no  42\nbwd_packets_per_second  <-> Bwd Packets/s no  43\npacket_lenght_min  <-> Packet Length Min no  44\npacket_lenght_max  <-> Packet Length Max no  45\npacket_lenght_mean  <-> Packet Length Mean no  46\npacket_lenght_std  <-> Packet Length Std no  47\npacket_length_variance  <-> Packet Length Variance no  48\nflagCount_fin  <-> FIN Flag Count no  49\nflagCount_syn  <-> SYN Flag Count no  50\nflagCount_rst  <-> RST Flag Count no  51\nflagCount_psh  <-> PSH Flag Count no  52\nflagCount_ack  <-> ACK Flag Count no  53\nflagCount_ugr  <-> URG Flag Count no  54\nflagCount_cwr  <-> CWR Flag Count no  55\nflagCount_ece  <-> ECE Flag Count no  56\ndownload_upload_ratio  <-> Down/Up Ratio no  57\naverage_packet_size  <-> Average Packet Size no  58\nfwd_segment_size_avg  <-> Fwd Segment Size Avg no  59\nbwd_segment_size_avg  <-> Bwd Segment Size Avg no  60\nfwd_bulk_bytes_per_bulk  <-> Fwd Bytes/Bulk Avg no  61\nfwd_bulk_packet_per_bulk  <-> Fwd Packet/Bulk Avg no  62\nfwd_bulk_bulk_rate  <-> Fwd Bulk Rate Avg no  63\nbwd_bulk_bytes_per_bulk  <-> Bwd Bytes/Bulk Avg no  64\nbwd_bulk_packet_per_bulk  <-> Bwd Packet/Bulk Avg no  65\nbwd_bulk_bulk_rate  <-> Bwd Bulk Rate Avg no  66\nfwd_subflow_subflow_packets  <-> Subflow Fwd Packets no  67\nfwd_subflow_subflow_bytes  <-> Subflow Fwd Bytes no  68\nbwd_subflow_subflow_packets  <-> Subflow Bwd Packets no  69\nbwd_subflow_subflow_bytes  <-> Subflow Bwd Bytes no  70\nfwd_win_bytes  <-> FWD Init Win Bytes no  71\nbwd_win_bytes  <-> Bwd Init Win Bytes no  72\nfwd_act_data_pkts  <-> Fwd Act Data Pkts no  73\nfwd_seg_size_min  <-> Fwd Seg Size Min no  74\nactivePacket_mean  <-> Active Mean no  75\nactivePacket_std  <-> Active Std no  76\nactivePacket_max  <-> Active Max no  77\nactivePacket_min  <-> Active Min no  78\nidlePacket_mean  <-> Idle Mean no  79\nidlePacket_std  <-> Idle Std no  80\nidlePacket_max  <-> Idle Max no  81\nidlePacket_min  <-> Idle Min no  82\nlabel  <-> Label no  83\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_600356792",
+      "id": "20220123-081317_1068210671",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8507",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\ndictionary = dict(zip(data.columns, new_feature))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_1833218964",
+      "id": "20220123-081317_1708336507",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8508",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\ndictionary",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{'Flow ID': 'flow_id',\n 'Src IP': 'src_ip',\n 'Src Port': 'src_port',\n 'Dst IP': 'dst_ip',\n 'Dst Port': 'dst_port',\n 'Protocol': 'protocol',\n 'Timestamp': 'timestamp',\n 'Flow Duration': 'flow_duration',\n 'Total Fwd Packet': 'totalPacketFeature_forward',\n 'Total Bwd packets': 'totalPacketFeature_backward',\n 'Total Length of Fwd Packet': 'totalPacketFeature_length_of_forward',\n 'Total Length of Bwd Packet': 'totalPacketFeature_length_of_backward',\n 'Fwd Packet Length Max': 'fwd_packet_length_max',\n 'Fwd Packet Length Min': 'fwd_packet_length_min',\n 'Fwd Packet Length Mean': 'fwd_packet_length_mean',\n 'Fwd Packet Length Std': 'fwd_packet_length_std',\n 'Bwd Packet Length Max': 'bwd_packet_length_max',\n 'Bwd Packet Length Min': 'bwd_packet_length_min',\n 'Bwd Packet Length Mean': 'bwd_packet_length_mean',\n 'Bwd Packet Length Std': 'bwd_packet_length_std',\n 'Flow Bytes/s': 'flow_bytes_per_second',\n 'Flow Packets/s': 'flow_pkts_per_second',\n 'Flow IAT Mean': 'flow_IAT_mean',\n 'Flow IAT Std': 'flow_IAT_std',\n 'Flow IAT Max': 'flow_IAT_max',\n 'Flow IAT Min': 'flow_IAT_min',\n 'Fwd IAT Total': 'fwd_IAT_total',\n 'Fwd IAT Mean': 'fwd_IAT_mean',\n 'Fwd IAT Std': 'fwd_IAT_std',\n 'Fwd IAT Max': 'fwd_IAT_max',\n 'Fwd IAT Min': 'fwd_IAT_min',\n 'Bwd IAT Total': 'bwd_IAT_total',\n 'Bwd IAT Mean': 'bwd_IAT_mean',\n 'Bwd IAT Std': 'bwd_IAT_std',\n 'Bwd IAT Max': 'bwd_IAT_max',\n 'Bwd IAT Min': 'bwd_IAT_min',\n 'Fwd PSH Flags': 'fwd_PSH_flags',\n 'Bwd PSH Flags': 'bwd_PSH_flags',\n 'Fwd URG Flags': 'fwd_URG_flags',\n 'Bwd URG Flags': 'bwd_URG_flags',\n 'Fwd Header Length': 'fwd_header_length',\n 'Bwd Header Length': 'bwd_header_length',\n 'Fwd Packets/s': 'fwd_packets_per_second',\n 'Bwd Packets/s': 'bwd_packets_per_second',\n 'Packet Length Min': 'packet_lenght_min',\n 'Packet Length Max': 'packet_lenght_max',\n 'Packet Length Mean': 'packet_lenght_mean',\n 'Packet Length Std': 'packet_lenght_std',\n 'Packet Length Variance': 'packet_length_variance',\n 'FIN Flag Count': 'flagCount_fin',\n 'SYN Flag Count': 'flagCount_syn',\n 'RST Flag Count': 'flagCount_rst',\n 'PSH Flag Count': 'flagCount_psh',\n 'ACK Flag Count': 'flagCount_ack',\n 'URG Flag Count': 'flagCount_ugr',\n 'CWR Flag Count': 'flagCount_cwr',\n 'ECE Flag Count': 'flagCount_ece',\n 'Down/Up Ratio': 'download_upload_ratio',\n 'Average Packet Size': 'average_packet_size',\n 'Fwd Segment Size Avg': 'fwd_segment_size_avg',\n 'Bwd Segment Size Avg': 'bwd_segment_size_avg',\n 'Fwd Bytes/Bulk Avg': 'fwd_bulk_bytes_per_bulk',\n 'Fwd Packet/Bulk Avg': 'fwd_bulk_packet_per_bulk',\n 'Fwd Bulk Rate Avg': 'fwd_bulk_bulk_rate',\n 'Bwd Bytes/Bulk Avg': 'bwd_bulk_bytes_per_bulk',\n 'Bwd Packet/Bulk Avg': 'bwd_bulk_packet_per_bulk',\n 'Bwd Bulk Rate Avg': 'bwd_bulk_bulk_rate',\n 'Subflow Fwd Packets': 'fwd_subflow_subflow_packets',\n 'Subflow Fwd Bytes': 'fwd_subflow_subflow_bytes',\n 'Subflow Bwd Packets': 'bwd_subflow_subflow_packets',\n 'Subflow Bwd Bytes': 'bwd_subflow_subflow_bytes',\n 'FWD Init Win Bytes': 'fwd_win_bytes',\n 'Bwd Init Win Bytes': 'bwd_win_bytes',\n 'Fwd Act Data Pkts': 'fwd_act_data_pkts',\n 'Fwd Seg Size Min': 'fwd_seg_size_min',\n 'Active Mean': 'activePacket_mean',\n 'Active Std': 'activePacket_std',\n 'Active Max': 'activePacket_max',\n 'Active Min': 'activePacket_min',\n 'Idle Mean': 'idlePacket_mean',\n 'Idle Std': 'idlePacket_std',\n 'Idle Max': 'idlePacket_max',\n 'Idle Min': 'idlePacket_min',\n 'Label': 'label'}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_1723306130",
+      "id": "20220123-081317_1020044346",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8509",
+      "dateFinished": "2022-01-23T08:14:48+0000",
+      "dateStarted": "2022-01-23T08:14:48+0000"
+    },
+    {
+      "text": "%python\ndata = data.rename(columns=dictionary)\ndata.head(3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:48+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>flow_id</th>\n      <th>src_ip</th>\n      <th>src_port</th>\n      <th>dst_ip</th>\n      <th>dst_port</th>\n      <th>protocol</th>\n      <th>timestamp</th>\n      <th>flow_duration</th>\n      <th>totalPacketFeature_forward</th>\n      <th>totalPacketFeature_backward</th>\n      <th>totalPacketFeature_length_of_forward</th>\n      <th>totalPacketFeature_length_of_backward</th>\n      <th>fwd_packet_length_max</th>\n      <th>fwd_packet_length_min</th>\n      <th>fwd_packet_length_mean</th>\n      <th>fwd_packet_length_std</th>\n      <th>bwd_packet_length_max</th>\n      <th>bwd_packet_length_min</th>\n      <th>bwd_packet_length_mean</th>\n      <th>bwd_packet_length_std</th>\n      <th>flow_bytes_per_second</th>\n      <th>flow_pkts_per_second</th>\n      <th>flow_IAT_mean</th>\n      <th>flow_IAT_std</th>\n      <th>flow_IAT_max</th>\n      <th>flow_IAT_min</th>\n      <th>fwd_IAT_total</th>\n      <th>fwd_IAT_mean</th>\n      <th>fwd_IAT_std</th>\n      <th>fwd_IAT_max</th>\n      <th>fwd_IAT_min</th>\n      <th>bwd_IAT_total</th>\n      <th>bwd_IAT_mean</th>\n      <th>bwd_IAT_std</th>\n      <th>bwd_IAT_max</th>\n      <th>bwd_IAT_min</th>\n      <th>fwd_PSH_flags</th>\n      <th>bwd_PSH_flags</th>\n      <th>fwd_URG_flags</th>\n      <th>bwd_URG_flags</th>\n      <th>fwd_header_length</th>\n      <th>bwd_header_length</th>\n      <th>fwd_packets_per_second</th>\n      <th>bwd_packets_per_second</th>\n      <th>packet_lenght_min</th>\n      <th>packet_lenght_max</th>\n      <th>packet_lenght_mean</th>\n      <th>packet_lenght_std</th>\n      <th>packet_length_variance</th>\n      <th>flagCount_fin</th>\n      <th>flagCount_syn</th>\n      <th>flagCount_rst</th>\n      <th>flagCount_psh</th>\n      <th>flagCount_ack</th>\n      <th>flagCount_ugr</th>\n      <th>flagCount_cwr</th>\n      <th>flagCount_ece</th>\n      <th>download_upload_ratio</th>\n      <th>average_packet_size</th>\n      <th>fwd_segment_size_avg</th>\n      <th>bwd_segment_size_avg</th>\n      <th>fwd_bulk_bytes_per_bulk</th>\n      <th>fwd_bulk_packet_per_bulk</th>\n      <th>fwd_bulk_bulk_rate</th>\n      <th>bwd_bulk_bytes_per_bulk</th>\n      <th>bwd_bulk_packet_per_bulk</th>\n      <th>bwd_bulk_bulk_rate</th>\n      <th>fwd_subflow_subflow_packets</th>\n      <th>fwd_subflow_subflow_bytes</th>\n      <th>bwd_subflow_subflow_packets</th>\n      <th>bwd_subflow_subflow_bytes</th>\n      <th>fwd_win_bytes</th>\n      <th>bwd_win_bytes</th>\n      <th>fwd_act_data_pkts</th>\n      <th>fwd_seg_size_min</th>\n      <th>activePacket_mean</th>\n      <th>activePacket_std</th>\n      <th>activePacket_max</th>\n      <th>activePacket_min</th>\n      <th>idlePacket_mean</th>\n      <th>idlePacket_std</th>\n      <th>idlePacket_max</th>\n      <th>idlePacket_min</th>\n      <th>label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>824776</td>\n      <td>5</td>\n      <td>2</td>\n      <td>592.0</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0.0</td>\n      <td>118.400000</td>\n      <td>264.750449</td>\n      <td>72.0</td>\n      <td>0.0</td>\n      <td>36.000000</td>\n      <td>50.911688</td>\n      <td>805.067073</td>\n      <td>8.487153</td>\n      <td>1.374627e+05</td>\n      <td>2.037714e+05</td>\n      <td>464763.0</td>\n      <td>7.0</td>\n      <td>824776.0</td>\n      <td>2.061940e+05</td>\n      <td>2.245934e+05</td>\n      <td>465194.0</td>\n      <td>7.0</td>\n      <td>196.0</td>\n      <td>196.000000</td>\n      <td>0.000000</td>\n      <td>196.0</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>116</td>\n      <td>40</td>\n      <td>6.062252</td>\n      <td>2.424901</td>\n      <td>0.0</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>207.204523</td>\n      <td>42933.714286</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>2</td>\n      <td>6</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>94.857143</td>\n      <td>118.400000</td>\n      <td>36.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>84</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>49287464</td>\n      <td>3</td>\n      <td>0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>25.403412</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.892722</td>\n      <td>0.060867</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>49287464.0</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>60</td>\n      <td>0</td>\n      <td>0.060867</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>22.000000</td>\n      <td>484.000000</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>14.666667</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>14</td>\n      <td>0</td>\n      <td>0</td>\n      <td>63983</td>\n      <td>0</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>6.381794e+14</td>\n      <td>9.025219e+14</td>\n      <td>1.276359e+15</td>\n      <td>4.928731e+07</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>2922422</td>\n      <td>42</td>\n      <td>22</td>\n      <td>56797.0</td>\n      <td>62.0</td>\n      <td>1460.0</td>\n      <td>0.0</td>\n      <td>1352.309524</td>\n      <td>380.249115</td>\n      <td>62.0</td>\n      <td>0.0</td>\n      <td>2.818182</td>\n      <td>13.218444</td>\n      <td>19456.122353</td>\n      <td>21.899644</td>\n      <td>4.638765e+04</td>\n      <td>1.767560e+05</td>\n      <td>1320971.0</td>\n      <td>160.0</td>\n      <td>2922422.0</td>\n      <td>7.127859e+04</td>\n      <td>2.168977e+05</td>\n      <td>1320971.0</td>\n      <td>3122.0</td>\n      <td>2673104.0</td>\n      <td>127290.666667</td>\n      <td>340020.473297</td>\n      <td>1557368.0</td>\n      <td>201.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>856</td>\n      <td>440</td>\n      <td>14.371641</td>\n      <td>7.528002</td>\n      <td>0.0</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>718.086695</td>\n      <td>515648.500962</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>3</td>\n      <td>63</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>888.421875</td>\n      <td>1352.309524</td>\n      <td>2.818182</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>56797</td>\n      <td>39</td>\n      <td>50580</td>\n      <td>0</td>\n      <td>887</td>\n      <td>0</td>\n      <td>0</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>39</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_757672565",
+      "id": "20220123-081317_491287333",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8510",
+      "dateFinished": "2022-01-23T08:14:49+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "%python\n#khusus data testing baru\n#reindex seperti data sensor\n\nreindex = ['flow_id','src_ip','src_port','dst_ip','dst_port','protocol','timestamp','average_packet_size',\n 'bwd_IAT_total',\n 'bwd_PSH_flags',\n 'bwd_URG_flags',\n 'bwd_header_length',\n 'bwd_packets_per_second',\n 'bwd_segment_size_avg',\n 'bwd_win_bytes',\n 'download_upload_ratio',\n 'flow_bytes_per_second',\n 'flow_duration',\n 'flow_pkts_per_second',\n 'fwd_IAT_total',\n 'fwd_PSH_flags',\n 'fwd_URG_flags',\n 'fwd_act_data_pkts',\n 'fwd_header_length',\n 'fwd_packets_per_second',\n 'fwd_seg_size_min',\n 'fwd_segment_size_avg',\n 'fwd_win_bytes',\n 'packet_length_variance',\n 'activePacket_max',\n 'activePacket_mean',\n 'activePacket_min',\n 'activePacket_std',\n 'bwd_IAT_max',\n 'bwd_IAT_mean',\n 'bwd_IAT_min',\n 'bwd_IAT_std',\n 'bwd_bulk_bulk_rate',\n 'bwd_bulk_bytes_per_bulk',\n 'bwd_bulk_packet_per_bulk',\n 'bwd_packet_length_max',\n 'bwd_packet_length_mean',\n 'bwd_packet_length_min',\n 'bwd_packet_length_std',\n 'bwd_subflow_subflow_bytes',\n 'bwd_subflow_subflow_packets',\n 'flagCount_ack',\n 'flagCount_cwr',\n 'flagCount_ece',\n 'flagCount_fin',\n 'flagCount_psh',\n 'flagCount_rst',\n 'flagCount_syn',\n 'flagCount_ugr',\n 'flow_IAT_max',\n 'flow_IAT_mean',\n 'flow_IAT_min',\n 'flow_IAT_std',\n 'fwd_IAT_max',\n 'fwd_IAT_mean',\n 'fwd_IAT_min',\n 'fwd_IAT_std',\n 'fwd_bulk_bulk_rate',\n 'fwd_bulk_bytes_per_bulk',\n 'fwd_bulk_packet_per_bulk',\n 'fwd_packet_length_max',\n 'fwd_packet_length_mean',\n 'fwd_packet_length_min',\n 'fwd_packet_length_std',\n 'fwd_subflow_subflow_bytes',\n 'fwd_subflow_subflow_packets',\n 'idlePacket_max',\n 'idlePacket_mean',\n 'idlePacket_min',\n 'idlePacket_std',\n 'packet_lenght_max',\n 'packet_lenght_mean',\n 'packet_lenght_min',\n 'packet_lenght_std',\n 'totalPacketFeature_backward',\n 'totalPacketFeature_forward',\n 'totalPacketFeature_length_of_backward',\n 'totalPacketFeature_length_of_forward',\n 'label']",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_314654951",
+      "id": "20220123-081317_2119169410",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8511",
+      "dateFinished": "2022-01-23T08:14:49+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "%python\ndataRe = data.reindex(columns=reindex)\ndataRe.head(3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>flow_id</th>\n      <th>src_ip</th>\n      <th>src_port</th>\n      <th>dst_ip</th>\n      <th>dst_port</th>\n      <th>protocol</th>\n      <th>timestamp</th>\n      <th>average_packet_size</th>\n      <th>bwd_IAT_total</th>\n      <th>bwd_PSH_flags</th>\n      <th>bwd_URG_flags</th>\n      <th>bwd_header_length</th>\n      <th>bwd_packets_per_second</th>\n      <th>bwd_segment_size_avg</th>\n      <th>bwd_win_bytes</th>\n      <th>download_upload_ratio</th>\n      <th>flow_bytes_per_second</th>\n      <th>flow_duration</th>\n      <th>flow_pkts_per_second</th>\n      <th>fwd_IAT_total</th>\n      <th>fwd_PSH_flags</th>\n      <th>fwd_URG_flags</th>\n      <th>fwd_act_data_pkts</th>\n      <th>fwd_header_length</th>\n      <th>fwd_packets_per_second</th>\n      <th>fwd_seg_size_min</th>\n      <th>fwd_segment_size_avg</th>\n      <th>fwd_win_bytes</th>\n      <th>packet_length_variance</th>\n      <th>activePacket_max</th>\n      <th>activePacket_mean</th>\n      <th>activePacket_min</th>\n      <th>activePacket_std</th>\n      <th>bwd_IAT_max</th>\n      <th>bwd_IAT_mean</th>\n      <th>bwd_IAT_min</th>\n      <th>bwd_IAT_std</th>\n      <th>bwd_bulk_bulk_rate</th>\n      <th>bwd_bulk_bytes_per_bulk</th>\n      <th>bwd_bulk_packet_per_bulk</th>\n      <th>bwd_packet_length_max</th>\n      <th>bwd_packet_length_mean</th>\n      <th>bwd_packet_length_min</th>\n      <th>bwd_packet_length_std</th>\n      <th>bwd_subflow_subflow_bytes</th>\n      <th>bwd_subflow_subflow_packets</th>\n      <th>flagCount_ack</th>\n      <th>flagCount_cwr</th>\n      <th>flagCount_ece</th>\n      <th>flagCount_fin</th>\n      <th>flagCount_psh</th>\n      <th>flagCount_rst</th>\n      <th>flagCount_syn</th>\n      <th>flagCount_ugr</th>\n      <th>flow_IAT_max</th>\n      <th>flow_IAT_mean</th>\n      <th>flow_IAT_min</th>\n      <th>flow_IAT_std</th>\n      <th>fwd_IAT_max</th>\n      <th>fwd_IAT_mean</th>\n      <th>fwd_IAT_min</th>\n      <th>fwd_IAT_std</th>\n      <th>fwd_bulk_bulk_rate</th>\n      <th>fwd_bulk_bytes_per_bulk</th>\n      <th>fwd_bulk_packet_per_bulk</th>\n      <th>fwd_packet_length_max</th>\n      <th>fwd_packet_length_mean</th>\n      <th>fwd_packet_length_min</th>\n      <th>fwd_packet_length_std</th>\n      <th>fwd_subflow_subflow_bytes</th>\n      <th>fwd_subflow_subflow_packets</th>\n      <th>idlePacket_max</th>\n      <th>idlePacket_mean</th>\n      <th>idlePacket_min</th>\n      <th>idlePacket_std</th>\n      <th>packet_lenght_max</th>\n      <th>packet_lenght_mean</th>\n      <th>packet_lenght_min</th>\n      <th>packet_lenght_std</th>\n      <th>totalPacketFeature_backward</th>\n      <th>totalPacketFeature_forward</th>\n      <th>totalPacketFeature_length_of_backward</th>\n      <th>totalPacketFeature_length_of_forward</th>\n      <th>label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>94.857143</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>40</td>\n      <td>2.424901</td>\n      <td>36.000000</td>\n      <td>64240</td>\n      <td>0.0</td>\n      <td>805.067073</td>\n      <td>824776</td>\n      <td>8.487153</td>\n      <td>824776.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>116</td>\n      <td>6.062252</td>\n      <td>20</td>\n      <td>118.400000</td>\n      <td>64240</td>\n      <td>42933.714286</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>196.0</td>\n      <td>196.000000</td>\n      <td>196.0</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>72.0</td>\n      <td>36.000000</td>\n      <td>0.0</td>\n      <td>50.911688</td>\n      <td>10</td>\n      <td>0</td>\n      <td>6</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>2</td>\n      <td>0</td>\n      <td>464763.0</td>\n      <td>1.374627e+05</td>\n      <td>7.0</td>\n      <td>2.037714e+05</td>\n      <td>465194.0</td>\n      <td>2.061940e+05</td>\n      <td>7.0</td>\n      <td>2.245934e+05</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>592.0</td>\n      <td>118.400000</td>\n      <td>0.0</td>\n      <td>264.750449</td>\n      <td>84</td>\n      <td>0</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>0.0</td>\n      <td>207.204523</td>\n      <td>2</td>\n      <td>5</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>14.666667</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.892722</td>\n      <td>49287464</td>\n      <td>0.060867</td>\n      <td>49287464.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>60</td>\n      <td>0.060867</td>\n      <td>20</td>\n      <td>14.666667</td>\n      <td>63983</td>\n      <td>484.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>3</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>49287314.0</td>\n      <td>2.464373e+07</td>\n      <td>150.0</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>2.464373e+07</td>\n      <td>150.0</td>\n      <td>3.485129e+07</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>44.0</td>\n      <td>14.666667</td>\n      <td>0.0</td>\n      <td>25.403412</td>\n      <td>14</td>\n      <td>1</td>\n      <td>1.276359e+15</td>\n      <td>6.381794e+14</td>\n      <td>4.928731e+07</td>\n      <td>9.025219e+14</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>0.0</td>\n      <td>22.000000</td>\n      <td>0</td>\n      <td>3</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>888.421875</td>\n      <td>2673104.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>440</td>\n      <td>7.528002</td>\n      <td>2.818182</td>\n      <td>64240</td>\n      <td>0.0</td>\n      <td>19456.122353</td>\n      <td>2922422</td>\n      <td>21.899644</td>\n      <td>2922422.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>39</td>\n      <td>856</td>\n      <td>14.371641</td>\n      <td>20</td>\n      <td>1352.309524</td>\n      <td>64240</td>\n      <td>515648.500962</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1557368.0</td>\n      <td>127290.666667</td>\n      <td>201.0</td>\n      <td>340020.473297</td>\n      <td>50580</td>\n      <td>56797</td>\n      <td>39</td>\n      <td>62.0</td>\n      <td>2.818182</td>\n      <td>0.0</td>\n      <td>13.218444</td>\n      <td>0</td>\n      <td>0</td>\n      <td>63</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>2</td>\n      <td>0</td>\n      <td>1320971.0</td>\n      <td>4.638765e+04</td>\n      <td>160.0</td>\n      <td>1.767560e+05</td>\n      <td>1320971.0</td>\n      <td>7.127859e+04</td>\n      <td>3122.0</td>\n      <td>2.168977e+05</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1460.0</td>\n      <td>1352.309524</td>\n      <td>0.0</td>\n      <td>380.249115</td>\n      <td>887</td>\n      <td>0</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>0.0</td>\n      <td>718.086695</td>\n      <td>22</td>\n      <td>42</td>\n      <td>62.0</td>\n      <td>56797.0</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_1649946688",
+      "id": "20220123-081317_38535117",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8512",
+      "dateFinished": "2022-01-23T08:14:49+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "%python\ndataRe.shape",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(8740, 84)"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_1859287843",
+      "id": "20220123-081317_1543468746",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8513",
+      "dateFinished": "2022-01-23T08:14:49+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "%python\ndataRe['label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    1748\n1    1748\n2    1748\n3    1748\n4    1748\nName: label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_561702388",
+      "id": "20220123-081317_91285451",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8514",
+      "dateFinished": "2022-01-23T08:14:49+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "%sh\n\ntouch /resource/output/renamed-data/RenamedTrainDataUnderSampling.csv",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597304_143627766",
+      "id": "20220123-081317_76738818",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8515",
+      "dateFinished": "2022-01-23T08:14:49+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "%python\ndataRe.to_csv('/resource/output/renamed-data/RenamedTrainDataUnderSampling.csv', index=True) ",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:49+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597305_1833666724",
+      "id": "20220123-081317_1509606346",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8516",
+      "dateFinished": "2022-01-23T08:14:50+0000",
+      "dateStarted": "2022-01-23T08:14:49+0000"
+    },
+    {
+      "text": "\n%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:14:50+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925597305_1384549752",
+      "id": "20220123-081317_2039719705",
+      "dateCreated": "2022-01-23T08:13:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:8517",
+      "dateFinished": "2022-01-23T08:14:50+0000",
+      "dateStarted": "2022-01-23T08:14:50+0000"
+    }
+  ],
+  "name": "02-RenameColumn",
+  "id": "2GSB29WSG",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/02-RenameColumn"
+}

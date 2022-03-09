@@ -1,15 +1,13 @@
 #!bin/bash
 
 #run as root checker
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
+[[ $(id -u) -eq 0 ]] || { echo >&2 "Please run as root"; exit 1; }
 
 #Requirement checker
 command -v docker >/dev/null 2>&1 || { echo >&2 "This service requires Docker, but your computer doesn't have it. Install Docker then try again. Aborting."; exit 1; }
 command -v docker-compose >/dev/null 2>&1 || { echo >&2 "This service requires Docker-Compose, but your computer doesn't have it. Install Docker-Compose then try again. Aborting."; exit 1;}
 command -v mosquitto >/dev/null 2>&1 || { echo >&2 "This service requires Mosquitto Broker, but your computer doesn't have it. Install Mosquitto Broker then try again. Aborting."; exit 1; }
+command -v curl >/dev/null 2>&1 || { echo >&2 "This service requires curl, but your computer doesn't have it. Install curl then try again. Aborting."; exit 1; }
 
 #Opening
 printf '
@@ -40,15 +38,26 @@ printf "If You have Your own ${YELLOW}DATASET${NC}, please put Your dataset in a
 printf "So you can access it via ${YELLOW}'/resource'${NC} folder on zeppelin-notebook\n"
 read -p "Press any key to resume ..."
 
-echo -e "\nAvailable Network Interface : `ls -C /sys/class/net`"
-echo "Network Interface Card for Tapping (ex: eth0)"
-read -p "Your Choice: " NETINT
+echo -e "\nAvailable Network Interface :\n"
+netints=`ls -C /sys/class/net`
+PS3="Network Interface Card for Tapping"$'\n'"Your Choice(ex: 1): "
+select option in ${netints[@]}
+do
+    if [ -z "$option" ]
+    then
+      echo -e "Choose a valid choice.\nExited."
+      exit 1
+    else
+      NETINT=$option
+      break
+    fi
+done
 
 echo -e "\nInput Mongo Chart UserAdmin Account"
 read -p "Username: " USERNAME
 read -s -p "Password: " PASSWORD
 
-echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Spark-Cluster"
+echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Local Cluster(Uder Construction)"
 read -p "Your choice : " MELMODE
 
 RULE_CHOICE=1
@@ -84,7 +93,7 @@ ufw allow 1883
 ufw allow 7077 
 
 #Remove Exist Volume
-rm -rf ./volume/mongochart ./spark ./notebooks
+rm -rf ./volume/mongochart ./spark #./notebooks
 
 #Starting Big Data
 echo -e "\nStarting Compose BigData..."
@@ -97,7 +106,7 @@ fi
 
 if [[ $MELMODE -eq 2 ]]; then
   echo "Using Single-Cluster MataElangLab.."
-  compose_file="docker-compose-spark.yml"
+  compose_file="docker-compose-cluster.yml"
 fi
 
 #Set Config for Mode
@@ -132,8 +141,8 @@ do
     break;
   elif [ "$( docker container inspect -f '{{.State.ExitCode}}' $container_name )" == 1 ]
   then
+    echo -en "\n\nSome process has failed to Instance, Please Try Again\n"
     docker-compose --file $compose_file down -v
-    echo "Some process has failed to Instance"
     exit
   fi
 done
@@ -156,6 +165,8 @@ then
   --email \"$USERNAME@mail.com\" \
   --password "$PASSWORD" \
   --role \"UserAdmin\""
+  docker cp volume/notebook/. apache-zeppelin:/opt/zeppelin/notebook
+
 fi
 
 cat scripts/web-info.txt

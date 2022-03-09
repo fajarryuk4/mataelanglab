@@ -1,0 +1,1466 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%sh\nmkdir -p /resource/output\nmkdir -p /resource/output/labeled-data",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:22+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988254_1775707674",
+      "id": "20220123-080308_938314323",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:335",
+      "dateFinished": "2022-01-23T08:04:25+0000",
+      "dateStarted": "2022-01-23T08:04:22+0000"
+    },
+    {
+      "text": "%md\n# Train Data",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:24+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Train Data</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988255_109581583",
+      "id": "20220123-080308_1258958691",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:336",
+      "dateFinished": "2022-01-23T08:04:26+0000",
+      "dateStarted": "2022-01-23T08:04:24+0000"
+    },
+    {
+      "text": "%python\nimport pandas as pd\nimport numpy as np\n#pd.set_option('display.max_columns',None)\n#pd.set_option('display.max_rows',None)\ntrain_data = pd.read_csv('/resource/Dataset/Botnet-Training.csv')\ntrain_data",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>...</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n      <th>Label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>8.6.0.1-8.0.6.4-0-0-0</td>\n      <td>8.6.0.1</td>\n      <td>0</td>\n      <td>8.0.6.4</td>\n      <td>0</td>\n      <td>0</td>\n      <td>10/08/2011 04:01:40 PM</td>\n      <td>59086131</td>\n      <td>8</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>2987276.0</td>\n      <td>0.0</td>\n      <td>2987276.0</td>\n      <td>2987276.0</td>\n      <td>3.282417e+14</td>\n      <td>6.564834e+14</td>\n      <td>1.312967e+15</td>\n      <td>5.999291e+06</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>147.32.84.180-147.32.84.255-137-137-17</td>\n      <td>147.32.84.180</td>\n      <td>137</td>\n      <td>147.32.84.255</td>\n      <td>137</td>\n      <td>17</td>\n      <td>10/08/2011 04:04:23 PM</td>\n      <td>12452268</td>\n      <td>38</td>\n      <td>0</td>\n      <td>...</td>\n      <td>8</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.312967e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.312967e+15</td>\n      <td>1.312967e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>147.32.84.180-147.32.80.9-1025-53-17</td>\n      <td>147.32.84.180</td>\n      <td>1025</td>\n      <td>147.32.80.9</td>\n      <td>53</td>\n      <td>17</td>\n      <td>10/08/2011 04:04:24 PM</td>\n      <td>118741070</td>\n      <td>6</td>\n      <td>3</td>\n      <td>...</td>\n      <td>8</td>\n      <td>2276383.0</td>\n      <td>0.0</td>\n      <td>2276383.0</td>\n      <td>2276383.0</td>\n      <td>6.564836e+14</td>\n      <td>9.284078e+14</td>\n      <td>1.312967e+15</td>\n      <td>1.161281e+08</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>147.32.84.180-94.63.149.152-1040-80-6</td>\n      <td>147.32.84.180</td>\n      <td>1040</td>\n      <td>94.63.149.152</td>\n      <td>80</td>\n      <td>6</td>\n      <td>10/08/2011 04:06:36 PM</td>\n      <td>180643</td>\n      <td>26</td>\n      <td>10</td>\n      <td>...</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.312967e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.312967e+15</td>\n      <td>1.312967e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>147.32.84.180-94.63.149.152-1040-80-6</td>\n      <td>147.32.84.180</td>\n      <td>1040</td>\n      <td>94.63.149.152</td>\n      <td>80</td>\n      <td>6</td>\n      <td>10/08/2011 04:06:36 PM</td>\n      <td>440</td>\n      <td>5</td>\n      <td>0</td>\n      <td>...</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.312967e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.312967e+15</td>\n      <td>1.312967e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>356154</th>\n      <td>172.16.2.12-83.35.250.221-30319-65347-17</td>\n      <td>172.16.2.12</td>\n      <td>30319</td>\n      <td>83.35.250.221</td>\n      <td>65347</td>\n      <td>17</td>\n      <td>08/10/2007 09:41:36 PM</td>\n      <td>51204298</td>\n      <td>2</td>\n      <td>1</td>\n      <td>...</td>\n      <td>8</td>\n      <td>258803.0</td>\n      <td>0.0</td>\n      <td>258803.0</td>\n      <td>258803.0</td>\n      <td>5.959273e+14</td>\n      <td>8.427684e+14</td>\n      <td>1.191854e+15</td>\n      <td>5.094550e+07</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>356155</th>\n      <td>207.46.170.10-192.168.1.104-80-18953-6</td>\n      <td>207.46.170.10</td>\n      <td>80</td>\n      <td>192.168.1.104</td>\n      <td>18953</td>\n      <td>6</td>\n      <td>12/06/2010 10:23:31 PM</td>\n      <td>235</td>\n      <td>1</td>\n      <td>1</td>\n      <td>...</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276356e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276356e+15</td>\n      <td>1.276356e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>356156</th>\n      <td>142.166.14.69-192.168.2.113-80-1387-6</td>\n      <td>142.166.14.69</td>\n      <td>80</td>\n      <td>192.168.2.113</td>\n      <td>1387</td>\n      <td>6</td>\n      <td>12/06/2010 02:50:00 PM</td>\n      <td>174</td>\n      <td>1</td>\n      <td>1</td>\n      <td>...</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276329e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276329e+15</td>\n      <td>1.276329e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>356157</th>\n      <td>192.168.5.122-198.164.30.2-59564-53-17</td>\n      <td>192.168.5.122</td>\n      <td>59564</td>\n      <td>198.164.30.2</td>\n      <td>53</td>\n      <td>17</td>\n      <td>12/06/2010 02:33:39 PM</td>\n      <td>383414</td>\n      <td>1</td>\n      <td>1</td>\n      <td>...</td>\n      <td>8</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276328e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276328e+15</td>\n      <td>1.276328e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>356158</th>\n      <td>192.168.5.122-198.164.30.2-43235-53-17</td>\n      <td>192.168.5.122</td>\n      <td>43235</td>\n      <td>198.164.30.2</td>\n      <td>53</td>\n      <td>17</td>\n      <td>12/06/2010 11:12:17 AM</td>\n      <td>16505</td>\n      <td>1</td>\n      <td>1</td>\n      <td>...</td>\n      <td>8</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276316e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276316e+15</td>\n      <td>1.276316e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n  </tbody>\n</table>\n<p>356159 rows × 84 columns</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988255_258220332",
+      "id": "20220123-080308_1324427676",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:337",
+      "dateFinished": "2022-01-23T08:04:47+0000",
+      "dateStarted": "2022-01-23T08:04:30+0000"
+    },
+    {
+      "text": "%md\n## Handling Missing Drop",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:32+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Handling Missing Drop</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988255_609720298",
+      "id": "20220123-080308_885926942",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:338",
+      "dateFinished": "2022-01-23T08:04:32+0000",
+      "dateStarted": "2022-01-23T08:04:32+0000"
+    },
+    {
+      "text": "%python\n#handling missing drop\ntrain_data.replace([np.inf, -np.inf], np.nan, inplace=True)\n#train_data.dropna(inplace=True)\npd.set_option('display.max_columns',None)\npd.set_option('display.max_rows',None)\ntrain_data.isnull().sum()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:35+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Flow ID                       0\nSrc IP                        0\nSrc Port                      0\nDst IP                        0\nDst Port                      0\nProtocol                      0\nTimestamp                     0\nFlow Duration                 0\nTotal Fwd Packet              0\nTotal Bwd packets             0\nTotal Length of Fwd Packet    0\nTotal Length of Bwd Packet    0\nFwd Packet Length Max         0\nFwd Packet Length Min         0\nFwd Packet Length Mean        0\nFwd Packet Length Std         0\nBwd Packet Length Max         0\nBwd Packet Length Min         0\nBwd Packet Length Mean        0\nBwd Packet Length Std         0\nFlow Bytes/s                  3\nFlow Packets/s                3\nFlow IAT Mean                 0\nFlow IAT Std                  0\nFlow IAT Max                  0\nFlow IAT Min                  0\nFwd IAT Total                 0\nFwd IAT Mean                  0\nFwd IAT Std                   0\nFwd IAT Max                   0\nFwd IAT Min                   0\nBwd IAT Total                 0\nBwd IAT Mean                  0\nBwd IAT Std                   0\nBwd IAT Max                   0\nBwd IAT Min                   0\nFwd PSH Flags                 0\nBwd PSH Flags                 0\nFwd URG Flags                 0\nBwd URG Flags                 0\nFwd Header Length             0\nBwd Header Length             0\nFwd Packets/s                 0\nBwd Packets/s                 0\nPacket Length Min             0\nPacket Length Max             0\nPacket Length Mean            0\nPacket Length Std             0\nPacket Length Variance        0\nFIN Flag Count                0\nSYN Flag Count                0\nRST Flag Count                0\nPSH Flag Count                0\nACK Flag Count                0\nURG Flag Count                0\nCWR Flag Count                0\nECE Flag Count                0\nDown/Up Ratio                 0\nAverage Packet Size           0\nFwd Segment Size Avg          0\nBwd Segment Size Avg          0\nFwd Bytes/Bulk Avg            0\nFwd Packet/Bulk Avg           0\nFwd Bulk Rate Avg             0\nBwd Bytes/Bulk Avg            0\nBwd Packet/Bulk Avg           0\nBwd Bulk Rate Avg             0\nSubflow Fwd Packets           0\nSubflow Fwd Bytes             0\nSubflow Bwd Packets           0\nSubflow Bwd Bytes             0\nFWD Init Win Bytes            0\nBwd Init Win Bytes            0\nFwd Act Data Pkts             0\nFwd Seg Size Min              0\nActive Mean                   0\nActive Std                    0\nActive Max                    0\nActive Min                    0\nIdle Mean                     0\nIdle Std                      0\nIdle Max                      0\nIdle Min                      0\nLabel                         0\ndtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988255_340949256",
+      "id": "20220123-080308_1525550949",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:339",
+      "dateFinished": "2022-01-23T08:04:48+0000",
+      "dateStarted": "2022-01-23T08:04:35+0000"
+    },
+    {
+      "text": "%python\n\ntrain_data.dropna(inplace=True)\ntrain_data.isnull().sum()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:38+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Flow ID                       0\nSrc IP                        0\nSrc Port                      0\nDst IP                        0\nDst Port                      0\nProtocol                      0\nTimestamp                     0\nFlow Duration                 0\nTotal Fwd Packet              0\nTotal Bwd packets             0\nTotal Length of Fwd Packet    0\nTotal Length of Bwd Packet    0\nFwd Packet Length Max         0\nFwd Packet Length Min         0\nFwd Packet Length Mean        0\nFwd Packet Length Std         0\nBwd Packet Length Max         0\nBwd Packet Length Min         0\nBwd Packet Length Mean        0\nBwd Packet Length Std         0\nFlow Bytes/s                  0\nFlow Packets/s                0\nFlow IAT Mean                 0\nFlow IAT Std                  0\nFlow IAT Max                  0\nFlow IAT Min                  0\nFwd IAT Total                 0\nFwd IAT Mean                  0\nFwd IAT Std                   0\nFwd IAT Max                   0\nFwd IAT Min                   0\nBwd IAT Total                 0\nBwd IAT Mean                  0\nBwd IAT Std                   0\nBwd IAT Max                   0\nBwd IAT Min                   0\nFwd PSH Flags                 0\nBwd PSH Flags                 0\nFwd URG Flags                 0\nBwd URG Flags                 0\nFwd Header Length             0\nBwd Header Length             0\nFwd Packets/s                 0\nBwd Packets/s                 0\nPacket Length Min             0\nPacket Length Max             0\nPacket Length Mean            0\nPacket Length Std             0\nPacket Length Variance        0\nFIN Flag Count                0\nSYN Flag Count                0\nRST Flag Count                0\nPSH Flag Count                0\nACK Flag Count                0\nURG Flag Count                0\nCWR Flag Count                0\nECE Flag Count                0\nDown/Up Ratio                 0\nAverage Packet Size           0\nFwd Segment Size Avg          0\nBwd Segment Size Avg          0\nFwd Bytes/Bulk Avg            0\nFwd Packet/Bulk Avg           0\nFwd Bulk Rate Avg             0\nBwd Bytes/Bulk Avg            0\nBwd Packet/Bulk Avg           0\nBwd Bulk Rate Avg             0\nSubflow Fwd Packets           0\nSubflow Fwd Bytes             0\nSubflow Bwd Packets           0\nSubflow Bwd Bytes             0\nFWD Init Win Bytes            0\nBwd Init Win Bytes            0\nFwd Act Data Pkts             0\nFwd Seg Size Min              0\nActive Mean                   0\nActive Std                    0\nActive Max                    0\nActive Min                    0\nIdle Mean                     0\nIdle Std                      0\nIdle Max                      0\nIdle Min                      0\nLabel                         0\ndtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_1211268750",
+      "id": "20220123-080308_1912613120",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:340",
+      "dateFinished": "2022-01-23T08:04:49+0000",
+      "dateStarted": "2022-01-23T08:04:47+0000"
+    },
+    {
+      "text": "%python\n\n#Neris\ntrain_data.loc[(train_data['Src IP']=='147.32.84.180')| \n               (train_data['Dst IP']=='147.32.84.180'), 'Label'] = 1\n#Rbot\ntrain_data.loc[(train_data['Src IP']=='147.32.84.170') | \n               (train_data['Dst IP']=='147.32.84.170'), 'Label'] = 2\n#virut\ntrain_data.loc[(train_data['Src IP']=='147.32.84.160')| \n               (train_data['Dst IP']=='147.32.84.160'), 'Label'] = 3\n#irc\ntrain_data.loc[(train_data['Src IP']=='192.168.5.122') & (train_data['Dst IP']=='198.164.30.2'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.2.110') & (train_data['Dst IP']=='192.168.5.122'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.4.118') & (train_data['Dst IP']=='192.168.5.122'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.2.113') & (train_data['Dst IP']=='192.168.5.122'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.1.103') & (train_data['Dst IP']=='192.168.5.122'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.4.120') & (train_data['Dst IP']=='192.168.5.122'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.2.112') & (train_data['Dst IP']=='192.168.2.113'), 'Label'] = 4\ntrain_data.loc[(train_data['Src IP']=='192.168.1.105') & (train_data['Dst IP']=='192.168.5.122'), 'Label'] = 4\n#normal\ntrain_data.loc[(train_data['Label']=='NeedManualLabel'), 'Label'] = 0",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:41+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_30568837",
+      "id": "20220123-080308_905597717",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:341",
+      "dateFinished": "2022-01-23T08:04:50+0000",
+      "dateStarted": "2022-01-23T08:04:48+0000"
+    },
+    {
+      "text": "%python\n\ntrain_data['Label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    247089\n2     45342\n4     39485\n1     22492\n3      1748\nName: Label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_1875052148",
+      "id": "20220123-080308_1880172392",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:342",
+      "dateFinished": "2022-01-23T08:04:50+0000",
+      "dateStarted": "2022-01-23T08:04:49+0000"
+    },
+    {
+      "text": "%python\n\n#multilabel\ntrain_data['Label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:04:45+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    247089\n2     45342\n4     39485\n1     22492\n3      1748\nName: Label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_1707101633",
+      "id": "20220123-080308_1513003816",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:343",
+      "dateFinished": "2022-01-23T08:04:50+0000",
+      "dateStarted": "2022-01-23T08:04:50+0000"
+    },
+    {
+      "text": "%sh\n\nsudo apt update\nsudo apt install -y libmagic-dev",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:04+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nWARNING: apt does not have a stable CLI interface. Use with caution in scripts.\n\nGet:1 http://archive.ubuntu.com/ubuntu focal InRelease [265 kB]\nGet:2 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]\nGet:5 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [839 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/restricted amd64 Packages [33.4 kB]\nGet:7 http://archive.ubuntu.com/ubuntu focal/main amd64 Packages [1,275 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 Packages [11.3 MB]\nGet:9 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [889 kB]\nGet:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [1,470 kB]\nGet:11 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [30.1 kB]\nGet:12 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 Packages [177 kB]\nGet:13 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1,120 kB]\nGet:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [1,895 kB]\nGet:15 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [952 kB]\nGet:16 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [33.7 kB]\nGet:17 http://archive.ubuntu.com/ubuntu focal-backports/main amd64 Packages [50.8 kB]\nGet:18 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [22.4 kB]\nFetched 20.7 MB in 35s (589 kB/s)\nReading package lists...\nBuilding dependency tree...\nReading state information...\n3 packages can be upgraded. Run 'apt list --upgradable' to see them.\n\nWARNING: apt does not have a stable CLI interface. Use with caution in scripts.\n\nReading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  libmagic-mgc libmagic1\nSuggested packages:\n  file\nThe following NEW packages will be installed:\n  libmagic-dev libmagic-mgc libmagic1\n0 upgraded, 3 newly installed, 0 to remove and 3 not upgraded.\nNeed to get 382 kB of archives.\nAfter this operation, 6,462 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic-mgc amd64 1:5.38-4 [218 kB]\nGet:2 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic1 amd64 1:5.38-4 [75.9 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic-dev amd64 1:5.38-4 [88.3 kB]\ndebconf: delaying package configuration, since apt-utils is not installed\nFetched 382 kB in 2s (222 kB/s)\nSelecting previously unselected package libmagic-mgc.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 6722 files and directories currently installed.)\r\nPreparing to unpack .../libmagic-mgc_1%3a5.38-4_amd64.deb ...\r\nUnpacking libmagic-mgc (1:5.38-4) ...\r\nSelecting previously unselected package libmagic1:amd64.\r\nPreparing to unpack .../libmagic1_1%3a5.38-4_amd64.deb ...\r\nUnpacking libmagic1:amd64 (1:5.38-4) ...\r\nSelecting previously unselected package libmagic-dev:amd64.\r\nPreparing to unpack .../libmagic-dev_1%3a5.38-4_amd64.deb ...\r\nUnpacking libmagic-dev:amd64 (1:5.38-4) ...\r\nSetting up libmagic-mgc (1:5.38-4) ...\r\nSetting up libmagic1:amd64 (1:5.38-4) ...\r\nSetting up libmagic-dev:amd64 (1:5.38-4) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9.2) ...\r\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_1489548219",
+      "id": "20220123-080308_689299780",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:344",
+      "dateFinished": "2022-01-23T08:05:45+0000",
+      "dateStarted": "2022-01-23T08:05:04+0000"
+    },
+    {
+      "text": "%python\nimport matplotlib.pyplot as plt\n\n# create a figure and axis \nfig, ax = plt.subplots() \n\n# count the occurrence of each class \ndata = train_data['Label'].value_counts() \n\n# get x and y data \npoints = data.index \nfrequency = data.values \n\n# create bar chart \n# ax.bar(points, frequency) \nplt.barh(points, frequency)\n\n# set title and labels \n# ax.set_title('Distribusi Data Training') \n# ax.set_xlabel('Label') \n# ax.set_ylabel('Count')\nplt.title('Distribusi Data Training') \nplt.xlabel('Count') \nplt.ylabel('Label')\n\nz.show(plt)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:12+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div style='width:auto;height:auto'><img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjUuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/YYfK9AAAACXBIWXMAAA9hAAAPYQGoP6dpAAArcElEQVR4nO3deXRUZZ7/8U8RkiKGpJIIJAQCBFC2EHYxyL5jQBn0KDYDiGg3LTAgMCpNQ4JOH5ZBRlu2VjCAqNAeQcG20bCjQMsqu0OPRCIQMwZIWCRAeH5/8EuNZVgSSLhJnvfrnDqHunWr6psnZfPue6sKlzHGCAAAANYo5/QAAAAAuLsIQAAAAMsQgAAAAJYhAAEAACxDAAIAAFiGAAQAALAMAQgAAGAZAhAAAMAyBCAAAIBlCEAAAADLEIAAAACWIQABAAAsQwACAABYhgAEAACwDAEIAABgGQIQAADAMgQgAACAZQhAAAAAyxCAAAAAliEAAQAALEMAAgAAWIYABAAAsAwBCAAAYBkCEAAAwDIEIAAAgGUIQAAAAMsQgAAAAJYhAAEAACxDAAIAAFiGAAQAALAMAQgAAGAZAhAAAMAyBCAAAIBlCEAAAADLEIAAAACWIQABAAAsQwACJdTChQvlcrm8lwoVKigyMlKdOnXSlClTlJGRke8+SUlJcrlchXqeCxcuKCkpSRs2bCjU/a73XLVq1VLv3r0L9ThFoVatWnr66acLtF/eepYrV04ej0cNGjTQoEGD9MUXX9zRDHPmzNHChQvv6DF+acOGDT6//5td7lTHjh3VsWPH27rv7bzmADivvNMDALi55ORk1a9fX5cvX1ZGRoa+/PJLTZs2TTNmzNCyZcvUtWtX777PPvusevbsWajHv3DhgiZPnixJhYqA23mu4rJixQqFhIQUaN+HHnpIM2bMkCSdO3dO3377rZYuXaoePXroscce0wcffCB/f/9CzzBnzhxVqlSpQCFaEM2bN9fWrVt9tv3Lv/yL6tSp452/qMyZM+e271uSXgcACo4ABEq42NhYtWzZ0nv9scce0wsvvKC2bduqX79+OnLkiCIiIiRJ1atXV/Xq1Yt1ngsXLuiee+65K89VUM2aNSvwvqGhoXrwwQe917t27arhw4crKSlJkydP1h//+EdNmzatOMYslJCQEJ85Jcntdueb/9eMMbp48aICAwML/FwNGza87TlL0usAQMFxChgohWrUqKHXXntNZ8+e1V/+8hfv9uudjlu3bp06duyoe++9V4GBgapRo4Yee+wxXbhwQampqapcubIkafLkyd5TinlHsfIeb9euXXr88ccVFhamOnXq3PC58qxYsUJxcXGqUKGCateurT//+c8+t+ed3k5NTfXZnnfa85eno3fv3q3evXurSpUqcrvdioqKUkJCgn744QfvPgU9BXwzSUlJatSokWbNmqWLFy96t0+ePFmtW7dWeHi4QkJC1Lx5cy1YsEDGGJ/nP3DggDZu3Ohdw1q1akmSLl68qLFjx6pp06byeDwKDw9XfHy8PvnkkzuaN4/L5dKIESM0b948NWjQQG63W4sWLSrw7FL+U8CpqalyuVyaMWOGZs6cqZiYGFWsWFHx8fHatm1bvnW70VsBVq9erebNmyswMFD169fXO++8k2/+L7/8UvHx8apQoYKqVaumiRMnav78+dd9fQAoOhwBBEqphx9+WH5+ftq0adMN90lNTVVCQoLatWund955R6GhoTp+/LhWr16tS5cuqWrVqlq9erV69uypoUOH6tlnn5UkbxTm6devn/r3769hw4bp/PnzN51rz549Gj16tJKSkhQZGan33ntPo0aN0qVLlzRu3LhC/Yznz59Xt27dFBMTo9mzZysiIkLp6elav369zp49W6jHKog+ffpo6tSp2rFjh9q2bSvp2hr+7ne/U40aNSRJ27Zt08iRI3X8+HFNmjRJ0rXgffzxx+XxeLynU91utyQpJydHp06d0rhx41StWjVdunRJa9asUb9+/ZScnKxBgwbd8dwff/yxNm/erEmTJikyMlJVqlQp8Ow3M3v2bNWvX1+vv/66JGnixIl6+OGHdfToUXk8npve95tvvtHYsWP18ssvKyIiQvPnz9fQoUNVt25dtW/fXpK0d+9edevWTffff78WLVqke+65R/PmzdOSJUvuYDUAFAQBCJRSQUFBqlSpkk6cOHHDfXbu3KmLFy/qP//zP9WkSRPv9t/85jfeP7do0ULStVN5Nzq1OHjwYO/7BG/lxIkT2r17t/f5evXqpYyMDL366qt6/vnndc899xTocSTp8OHDyszM1IIFC/Too496tz/xxBMFfozCqFmzpiT5rGlycrL3z1evXlXHjh1ljNEbb7yhiRMnyuVyqVmzZgoMDLzuaVuPx+PzGLm5uerSpYtOnz6t119/vUgC8Ny5c9q3b5/CwsJ8thdk9psJDg7Wp59+Kj8/P0lSVFSUHnjgAf39739X//79b3rfn376SV999ZU3Ptu3b6+1a9fq/fff9wbgf/zHf8jPz09r165VpUqVJEkJCQlq3Lhx4RYAQKFxChgoxX59Ku/XmjZtqoCAAP32t7/VokWL9N13393W8zz22GMF3rdRo0Y+sSldC87s7Gzt2rWrUM9bt25dhYWF6aWXXtK8efN08ODBQt2/sK63nuvWrVPXrl3l8Xjk5+cnf39/TZo0SZmZmdf9JPb1fPjhh3rooYdUsWJFlS9fXv7+/lqwYIEOHTpUJHN37tw5X/wVxewJCQne+JOkuLg4SdL3339/y/s2bdrUG3+SVKFCBd1///0+9924caM6d+7sjT9JKleuXLEFPoD/QwACpdT58+eVmZmpqKioG+5Tp04drVmzRlWqVNHw4cNVp04d1alTR2+88Uahnqtq1aoF3jcyMvKG2zIzMwv1vB6PRxs3blTTpk31hz/8QY0aNVJUVJQSExN1+fLlQj1WQeTFSd6afv311+revbsk6e2339ZXX32l7du3a8KECZKkn3/++ZaPuXz5cj3xxBOqVq2alixZoq1bt2r79u165plnfN5reCeu9/spitnvvfden+t5p7Vv57559//lfTMzM70fYPql620DULQ4BQyUUn/729+Um5t7y69uadeundq1a6fc3Fzt2LFDb775pkaPHq2IiIhbnsbLU5jveUtPT7/htrwoqFChgqRr74/7pZ9++inffRs3bqylS5fKGKO9e/dq4cKFeuWVVxQYGKiXX365wHPdijFGq1atUlBQkPdT10uXLpW/v78+/fRT78zStffcFdSSJUsUExOjZcuW+azjr3/2O3G9309RzF7c7r33Xv3444/5tl/vNQSgaHEEECiFjh07pnHjxsnj8eh3v/tdge7j5+en1q1ba/bs2ZLkPR1bmKM6BXHgwAF98803Ptvef/99BQcHq3nz5pLk/YTs3r17ffZbuXLlDR/X5XKpSZMm+q//+i+FhoYW+nTyrUyePFkHDx7UqFGjvMHkcrlUvnx5n9OgP//8s95999189//10a1fzh0QEOATaenp6UX2KeAbKczsTunQoYPWrVvnE/5Xr17Vhx9+6OBUgB04AgiUcPv379eVK1d0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ARfSpUuXtHPnTnXv3t1ne/fu3bVlyxaHpiodjhw5oqioKMXExKh///767rvvJElHjx5Venq6z5q63W516NDBu6Y7d+7U5cuXffaJiopSbGysd5+tW7fK4/GodevW3n0efPBBeTwen31iY2N9/gHwHj16KCcnRzt37iy+H74EKWnrvXXrVnXo0MHni1179OihEydOKDU1tegXoITYsGGDqlSpovvvv1/PPfecMjIyvLex/kUnKytLkhQeHi6J1//d9Ou1z8Nrv2QgAAvpp59+Um5uriIiIny2R0REKD093aGpSr7WrVtr8eLF+vzzz/X2228rPT1dbdq0UWZmpnfdbram6enpCggIUFhY2E33qVKlSr7nrlKlis8+v36esLAwBQQEWPP7K2nrfb198q6X1d9Jr1699N5772ndunV67bXXtH37dnXu3Fk5OTmSWP+iYozRmDFj1LZtW8XGxkri9X+3XG/tJV77JUl5pwcorVwul891Y0y+bfg/vXr18v65cePGio+PV506dbRo0SLvG4BvZ01/vc/19r+dfWxQktb7erPc6L5lwZNPPun9c2xsrFq2bKmaNWvqb3/7m/r163fD+7H+hTNixAjt3btXX375Zb7beP0XrxutPa/9koMjgIVUqVIl+fn55ft/BxkZGfn+nwRuLCgoSI0bN9aRI0e8nwa+2ZpGRkbq0qVLOn369E33+fHHH/M91//+7//67PPr5zl9+rQuX75sze+vpK339fbJOyVky++katWqqlmzpo4cOSKJ9S8KI0eO1MqVK7V+/XpVr17du53Xf/G70dpfD6995xCAhRQQEKAWLVooJSXFZ3tKSoratGnj0FSlT05Ojg4dOqSqVasqJiZGkZGRPmt66dIlbdy40bumLVq0kL+/v88+J0+e1P79+737xMfHKysrS19//bV3n3/84x/Kysry2Wf//v06efKkd58vvvhCbrdbLVq0KNafuaQoaesdHx+vTZs2+Xw9wxdffKGoqCjVqlWr6BegBMrMzFRaWpqqVq0qifW/E8YYjRgxQsuXL9e6desUExPjczuv/+Jzq7W/Hl77DrpLHzYpU/K+BmbBggXm4MGDZvTo0SYoKMikpqY6PVqJNXbsWLNhwwbz3XffmW3btpnevXub4OBg75pNnTrVeDwes3z5crNv3z7z1FNPXfdrGapXr27WrFljdu3aZTp37nzdrwaIi4szW7duNVu3bjWNGze+7lcDdOnSxezatcusWbPGVK9evcx9DczZs2fN7t27ze7du40kM3PmTLN7927vVxWVpPU+c+aMiYiIME899ZTZt2+fWb58uQkJCSnVX8Vws/U/e/asGTt2rNmyZYs5evSoWb9+vYmPjzfVqlVj/YvA73//e+PxeMyGDRt8vmrkwoUL3n14/RePW609r/2ShQC8TbNnzzY1a9Y0AQEBpnnz5j4fc0d+ed+z5e/vb6Kioky/fv3MgQMHvLdfvXrVJCYmmsjISON2u0379u3Nvn37fB7j559/NiNGjDDh4eEmMDDQ9O7d2xw7dsxnn8zMTDNgwAATHBxsgoODzYABA8zp06d99vn+++9NQkKCCQwMNOHh4WbEiBE+XwNQFqxfv95IyncZPHiwMabkrffevXtNu3btjNvtNpGRkSYpKalUfw3Dzdb/woULpnv37qZy5crG39/f1KhRwwwePDjf2rL+t+d66y7JJCcne/fh9V88brX2vPZLFpcxtnzlNQAAACTeAwgAAGAdAhAAAMAyBCAAAIBlCEAAAADLEIAAAACWIQABAAAsQwACAABYhgAEAACwDAEIoMxJT0/XyJEjVbt2bbndbkVHR6tPnz5au3btXZ3D5XLp448/vqvPCQAFUd7pAQCgKKWmpuqhhx5SaGiopk+frri4OF2+fFmff/65hg8frsOHDzs9IgA4jn8KDkCZ8vDDD2vv3r369ttvFRQU5HPbmTNnFBoaqmPHjmnkyJFau3atypUrp549e+rNN99URESEJOnpp5/WmTNnfI7ejR49Wnv27NGGDRskSR07dlRcXJwqVKig+fPnKyAgQMOGDVNSUpIkqVatWvr++++9969Zs6ZSU1OL80cHgALjFDCAMuPUqVNavXq1hg8fni/+JCk0NFTGGPXt21enTp3Sxo0blZKSov/5n//Rk08+WejnW7RokYKCgvSPf/xD06dP1yuvvKKUlBRJ0vbt2yVJycnJOnnypPc6AJQEnAIGUGb885//lDFG9evXv+E+a9as0d69e3X06FFFR0dLkt599101atRI27dvV6tWrQr8fHFxcUpMTJQk3XfffZo1a5bWrl2rbt26qXLlypKuRWdkZOQd/FQAUPQ4AgigzMh7R4vL5brhPocOHVJ0dLQ3/iSpYcOGCg0N1aFDhwr1fHFxcT7Xq1atqoyMjEI9BgA4gQAEUGbcd999crlcNw05Y8x1A/GX28uVK6dfvz368uXL+e7j7+/vc93lcunq1au3MzoA3FUEIIAyIzw8XD169NDs2bN1/vz5fLefOXNGDRs21LFjx5SWlubdfvDgQWVlZalBgwaSpMqVK+vkyZM+992zZ0+h5/H391dubm6h7wcAxY0ABFCmzJkzR7m5uXrggQf00Ucf6ciRIzp06JD+/Oc/Kz4+Xl27dlVcXJwGDBigXbt26euvv9agQYPUoUMHtWzZUpLUuXNn7dixQ4sXL9aRI0eUmJio/fv3F3qWWrVqae3atUpPT9fp06eL+kcFgNtGAAIoU2JiYrRr1y516tRJY8eOVWxsrLp166a1a9dq7ty53i9nDgsLU/v27dW1a1fVrl1by5Yt8z5Gjx49NHHiRL344otq1aqVzp49q0GDBhV6ltdee00pKSmKjo5Ws2bNivLHBIA7wvcAAgAAWIYjgAAAAJYhAAEAACxDAAIAAFiGAAQAALAMAQgAAGAZAhAAAMAyBCAAAIBlCEAAAADLEIAAAACWIQABAAAsQwACAABYhgAEAACwzP8DnwlvmCI/BPAAAAAASUVORK5CYII= style='width=auto;height:auto'><div>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_2062736357",
+      "id": "20220123-080308_1318088072",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:345",
+      "dateFinished": "2022-01-23T08:05:13+0000",
+      "dateStarted": "2022-01-23T08:05:12+0000"
+    },
+    {
+      "text": "%sh\n\ntouch /resource/output/labeled-data/MultiLabeltrainData.csv",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:28+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988256_434074075",
+      "id": "20220123-080308_927148373",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:346",
+      "dateFinished": "2022-01-23T08:05:28+0000",
+      "dateStarted": "2022-01-23T08:05:28+0000"
+    },
+    {
+      "text": "%python\n\ntrain_data.to_csv('/resource/output/labeled-data/MultiLabeltrainData.csv')",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:31+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_802642834",
+      "id": "20220123-080308_421139278",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:347",
+      "dateFinished": "2022-01-23T08:05:56+0000",
+      "dateStarted": "2022-01-23T08:05:31+0000"
+    },
+    {
+      "text": "%md\n## UnderSampling",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:34+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>UnderSampling</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_1163649947",
+      "id": "20220123-080308_520343272",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:348",
+      "dateFinished": "2022-01-23T08:05:34+0000",
+      "dateStarted": "2022-01-23T08:05:34+0000"
+    },
+    {
+      "text": "%python\n\ncol = train_data.drop(['Label'], axis=1)\ntar = train_data[['Label']]",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:37+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_534463470",
+      "id": "20220123-080308_1379015853",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:349",
+      "dateFinished": "2022-01-23T08:05:57+0000",
+      "dateStarted": "2022-01-23T08:05:37+0000"
+    },
+    {
+      "text": "%python\n\n!pip3 install imbalanced-learn",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:40+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting imbalanced-learn\r\n  Downloading imbalanced_learn-0.9.0-py3-none-any.whl (199 kB)\r\n\u001b[?25l\r\r     |█▋                              | 10 kB 3.0 MB/s eta 0:00:01\r     |███▎                            | 20 kB 1.4 MB/s eta 0:00:01\r     |█████                           | 30 kB 1.1 MB/s eta 0:00:01\r     |██████▋                         | 40 kB 1.0 MB/s eta 0:00:01\r     |████████▎                       | 51 kB 1.1 MB/s eta 0:00:01\r     |█████████▉                      | 61 kB 1.1 MB/s eta 0:00:01\r     |███████████▌                    | 71 kB 1.1 MB/s eta 0:00:01\r     |█████████████▏                  | 81 kB 1.3 MB/s eta 0:00:01\r     |██████████████▉                 | 92 kB 1.2 MB/s eta 0:00:01\r     |████████████████▌               | 102 kB 1.1 MB/s eta 0:00:01\r     |██████████████████              | 112 kB 1.1 MB/s eta 0:00:01\r     |███████████████████▊            | 122 kB 1.1 MB/s eta 0:00:01\r     |█████████████████████▍          | 133 kB 1.1 MB/s eta 0:00:01\r     |███████████████████████         | 143 kB 1.1 MB/s eta 0:00:01\r     |████████████████████████▊       | 153 kB 1.1 MB/s eta 0:00:01\r     |██████████████████████████▎     | 163 kB 1.1 MB/s eta 0:00:01\r     |████████████████████████████    | 174 kB 1.1 MB/s eta 0:00:01\r     |█████████████████████████████▋  | 184 kB 1.1 MB/s eta 0:00:01\r     |███████████████████████████████▎| 194 kB 1.1 MB/s eta 0:00:01\r     |████████████████████████████████| 199 kB 1.1 MB/s            \r\n\u001b[?25hRequirement already satisfied: numpy>=1.14.6 in /opt/conda/envs/python_3_with_R/lib/python3.7/site-packages (from imbalanced-learn) (1.19.5)\r\nRequirement already satisfied: scikit-learn>=1.0.1 in /opt/conda/envs/python_3_with_R/lib/python3.7/site-packages (from imbalanced-learn) (1.0.2)\r\nRequirement already satisfied: joblib>=0.11 in /opt/conda/envs/python_3_with_R/lib/python3.7/site-packages (from imbalanced-learn) (1.1.0)\r\nRequirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/envs/python_3_with_R/lib/python3.7/site-packages (from imbalanced-learn) (3.0.0)\r\nRequirement already satisfied: scipy>=1.1.0 in /opt/conda/envs/python_3_with_R/lib/python3.7/site-packages (from imbalanced-learn) (1.7.3)\r\nInstalling collected packages: imbalanced-learn\r\nSuccessfully installed imbalanced-learn-0.9.0\r\n\u001b[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\u001b[0m\r\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_1895738017",
+      "id": "20220123-080308_2090176063",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:350",
+      "dateFinished": "2022-01-23T08:06:02+0000",
+      "dateStarted": "2022-01-23T08:05:56+0000"
+    },
+    {
+      "text": "%python\n\ncol.head(4)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:05:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>Total Length of Fwd Packet</th>\n      <th>Total Length of Bwd Packet</th>\n      <th>Fwd Packet Length Max</th>\n      <th>Fwd Packet Length Min</th>\n      <th>Fwd Packet Length Mean</th>\n      <th>Fwd Packet Length Std</th>\n      <th>Bwd Packet Length Max</th>\n      <th>Bwd Packet Length Min</th>\n      <th>Bwd Packet Length Mean</th>\n      <th>Bwd Packet Length Std</th>\n      <th>Flow Bytes/s</th>\n      <th>Flow Packets/s</th>\n      <th>Flow IAT Mean</th>\n      <th>Flow IAT Std</th>\n      <th>Flow IAT Max</th>\n      <th>Flow IAT Min</th>\n      <th>Fwd IAT Total</th>\n      <th>Fwd IAT Mean</th>\n      <th>Fwd IAT Std</th>\n      <th>Fwd IAT Max</th>\n      <th>Fwd IAT Min</th>\n      <th>Bwd IAT Total</th>\n      <th>Bwd IAT Mean</th>\n      <th>Bwd IAT Std</th>\n      <th>Bwd IAT Max</th>\n      <th>Bwd IAT Min</th>\n      <th>Fwd PSH Flags</th>\n      <th>Bwd PSH Flags</th>\n      <th>Fwd URG Flags</th>\n      <th>Bwd URG Flags</th>\n      <th>Fwd Header Length</th>\n      <th>Bwd Header Length</th>\n      <th>Fwd Packets/s</th>\n      <th>Bwd Packets/s</th>\n      <th>Packet Length Min</th>\n      <th>Packet Length Max</th>\n      <th>Packet Length Mean</th>\n      <th>Packet Length Std</th>\n      <th>Packet Length Variance</th>\n      <th>FIN Flag Count</th>\n      <th>SYN Flag Count</th>\n      <th>RST Flag Count</th>\n      <th>PSH Flag Count</th>\n      <th>ACK Flag Count</th>\n      <th>URG Flag Count</th>\n      <th>CWR Flag Count</th>\n      <th>ECE Flag Count</th>\n      <th>Down/Up Ratio</th>\n      <th>Average Packet Size</th>\n      <th>Fwd Segment Size Avg</th>\n      <th>Bwd Segment Size Avg</th>\n      <th>Fwd Bytes/Bulk Avg</th>\n      <th>Fwd Packet/Bulk Avg</th>\n      <th>Fwd Bulk Rate Avg</th>\n      <th>Bwd Bytes/Bulk Avg</th>\n      <th>Bwd Packet/Bulk Avg</th>\n      <th>Bwd Bulk Rate Avg</th>\n      <th>Subflow Fwd Packets</th>\n      <th>Subflow Fwd Bytes</th>\n      <th>Subflow Bwd Packets</th>\n      <th>Subflow Bwd Bytes</th>\n      <th>FWD Init Win Bytes</th>\n      <th>Bwd Init Win Bytes</th>\n      <th>Fwd Act Data Pkts</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>8.6.0.1-8.0.6.4-0-0-0</td>\n      <td>8.6.0.1</td>\n      <td>0</td>\n      <td>8.0.6.4</td>\n      <td>0</td>\n      <td>0</td>\n      <td>10/08/2011 04:01:40 PM</td>\n      <td>59086131</td>\n      <td>8</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.135396</td>\n      <td>8.440876e+06</td>\n      <td>1.478245e+07</td>\n      <td>41116855.0</td>\n      <td>269702.0</td>\n      <td>59086131.0</td>\n      <td>8.440876e+06</td>\n      <td>1.478245e+07</td>\n      <td>41116855.0</td>\n      <td>269702.0</td>\n      <td>0.0</td>\n      <td>0.000000e+00</td>\n      <td>0.000000e+00</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.135396</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000e+00</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>2987276.0</td>\n      <td>0.0</td>\n      <td>2987276.0</td>\n      <td>2987276.0</td>\n      <td>3.282417e+14</td>\n      <td>6.564834e+14</td>\n      <td>1.312967e+15</td>\n      <td>5.999291e+06</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>147.32.84.180-147.32.84.255-137-137-17</td>\n      <td>147.32.84.180</td>\n      <td>137</td>\n      <td>147.32.84.255</td>\n      <td>137</td>\n      <td>17</td>\n      <td>10/08/2011 04:04:23 PM</td>\n      <td>12452268</td>\n      <td>38</td>\n      <td>0</td>\n      <td>2476.0</td>\n      <td>0.0</td>\n      <td>68.0</td>\n      <td>50.0</td>\n      <td>65.157895</td>\n      <td>6.651666</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>198.839280</td>\n      <td>3.051653</td>\n      <td>3.365478e+05</td>\n      <td>4.175364e+05</td>\n      <td>1763265.0</td>\n      <td>0.0</td>\n      <td>12452268.0</td>\n      <td>3.365478e+05</td>\n      <td>4.175364e+05</td>\n      <td>1763265.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000e+00</td>\n      <td>0.000000e+00</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>304</td>\n      <td>0</td>\n      <td>3.051653</td>\n      <td>0.000000</td>\n      <td>50.0</td>\n      <td>68.0</td>\n      <td>65.230769</td>\n      <td>6.579320</td>\n      <td>4.328745e+01</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>66.947368</td>\n      <td>65.157895</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1238</td>\n      <td>19</td>\n      <td>231</td>\n      <td>1</td>\n      <td>65</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>37</td>\n      <td>8</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.312967e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.312967e+15</td>\n      <td>1.312967e+15</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>147.32.84.180-147.32.80.9-1025-53-17</td>\n      <td>147.32.84.180</td>\n      <td>1025</td>\n      <td>147.32.80.9</td>\n      <td>53</td>\n      <td>17</td>\n      <td>10/08/2011 04:04:24 PM</td>\n      <td>118741070</td>\n      <td>6</td>\n      <td>3</td>\n      <td>192.0</td>\n      <td>660.0</td>\n      <td>45.0</td>\n      <td>22.0</td>\n      <td>32.000000</td>\n      <td>10.545141</td>\n      <td>461.0</td>\n      <td>97.0</td>\n      <td>220.0</td>\n      <td>208.727095</td>\n      <td>7.175276</td>\n      <td>0.075795</td>\n      <td>1.484263e+07</td>\n      <td>4.093289e+07</td>\n      <td>116128125.0</td>\n      <td>6.0</td>\n      <td>118404514.0</td>\n      <td>2.368090e+07</td>\n      <td>5.170040e+07</td>\n      <td>116148894.0</td>\n      <td>6.0</td>\n      <td>118740445.0</td>\n      <td>5.937022e+07</td>\n      <td>8.074377e+07</td>\n      <td>116464687.0</td>\n      <td>2275758.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>48</td>\n      <td>24</td>\n      <td>0.050530</td>\n      <td>0.025265</td>\n      <td>22.0</td>\n      <td>461.0</td>\n      <td>87.400000</td>\n      <td>134.631349</td>\n      <td>1.812560e+04</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>97.111111</td>\n      <td>32.000000</td>\n      <td>220.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>21</td>\n      <td>0</td>\n      <td>73</td>\n      <td>0</td>\n      <td>0</td>\n      <td>5</td>\n      <td>8</td>\n      <td>2276383.0</td>\n      <td>0.0</td>\n      <td>2276383.0</td>\n      <td>2276383.0</td>\n      <td>6.564836e+14</td>\n      <td>9.284078e+14</td>\n      <td>1.312967e+15</td>\n      <td>1.161281e+08</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>147.32.84.180-94.63.149.152-1040-80-6</td>\n      <td>147.32.84.180</td>\n      <td>1040</td>\n      <td>94.63.149.152</td>\n      <td>80</td>\n      <td>6</td>\n      <td>10/08/2011 04:06:36 PM</td>\n      <td>180643</td>\n      <td>26</td>\n      <td>10</td>\n      <td>180.0</td>\n      <td>25790.0</td>\n      <td>90.0</td>\n      <td>0.0</td>\n      <td>6.923077</td>\n      <td>24.457184</td>\n      <td>5840.0</td>\n      <td>0.0</td>\n      <td>2579.0</td>\n      <td>2000.424677</td>\n      <td>143764.220036</td>\n      <td>199.288099</td>\n      <td>5.161229e+03</td>\n      <td>1.250558e+04</td>\n      <td>35794.0</td>\n      <td>4.0</td>\n      <td>145705.0</td>\n      <td>5.828200e+03</td>\n      <td>1.349212e+04</td>\n      <td>37155.0</td>\n      <td>4.0</td>\n      <td>145436.0</td>\n      <td>1.615956e+04</td>\n      <td>1.867284e+04</td>\n      <td>36284.0</td>\n      <td>9.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>536</td>\n      <td>208</td>\n      <td>143.930293</td>\n      <td>55.357805</td>\n      <td>0.0</td>\n      <td>5840.0</td>\n      <td>701.891892</td>\n      <td>1530.393627</td>\n      <td>2.342105e+06</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>4</td>\n      <td>34</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>721.388889</td>\n      <td>6.923077</td>\n      <td>2579.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>25970</td>\n      <td>10</td>\n      <td>179264</td>\n      <td>0</td>\n      <td>5</td>\n      <td>0</td>\n      <td>716</td>\n      <td>64240</td>\n      <td>5840</td>\n      <td>2</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.312967e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.312967e+15</td>\n      <td>1.312967e+15</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_537328524",
+      "id": "20220123-080308_903635584",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:351",
+      "dateFinished": "2022-01-23T08:06:02+0000",
+      "dateStarted": "2022-01-23T08:05:57+0000"
+    },
+    {
+      "text": "%python\n\nprint(col.shape)\nprint(tar.shape)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:06+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(356156, 83)\n(356156, 1)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_1074994977",
+      "id": "20220123-080308_883527261",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:352",
+      "dateFinished": "2022-01-23T08:06:06+0000",
+      "dateStarted": "2022-01-23T08:06:06+0000"
+    },
+    {
+      "text": "%python\n\ntar=tar.astype('int')\ntar.dtypes",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Label    int64\ndtype: object"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988257_1056806358",
+      "id": "20220123-080308_1983658769",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:353",
+      "dateFinished": "2022-01-23T08:06:08+0000",
+      "dateStarted": "2022-01-23T08:06:08+0000"
+    },
+    {
+      "text": "%python\n\n#UnderSampling\nfrom imblearn.under_sampling import RandomUnderSampler\nrus = RandomUnderSampler(random_state=0)\nX_res, Y_res = rus.fit_resample(col, tar)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:09+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_375050185",
+      "id": "20220123-080308_638105503",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:354",
+      "dateFinished": "2022-01-23T08:06:13+0000",
+      "dateStarted": "2022-01-23T08:06:09+0000"
+    },
+    {
+      "text": "%python\n\ntrainResampling = pd.concat([X_res, Y_res],axis=1)\ntrainResampling.head(5)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:11+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>Total Length of Fwd Packet</th>\n      <th>Total Length of Bwd Packet</th>\n      <th>Fwd Packet Length Max</th>\n      <th>Fwd Packet Length Min</th>\n      <th>Fwd Packet Length Mean</th>\n      <th>Fwd Packet Length Std</th>\n      <th>Bwd Packet Length Max</th>\n      <th>Bwd Packet Length Min</th>\n      <th>Bwd Packet Length Mean</th>\n      <th>Bwd Packet Length Std</th>\n      <th>Flow Bytes/s</th>\n      <th>Flow Packets/s</th>\n      <th>Flow IAT Mean</th>\n      <th>Flow IAT Std</th>\n      <th>Flow IAT Max</th>\n      <th>Flow IAT Min</th>\n      <th>Fwd IAT Total</th>\n      <th>Fwd IAT Mean</th>\n      <th>Fwd IAT Std</th>\n      <th>Fwd IAT Max</th>\n      <th>Fwd IAT Min</th>\n      <th>Bwd IAT Total</th>\n      <th>Bwd IAT Mean</th>\n      <th>Bwd IAT Std</th>\n      <th>Bwd IAT Max</th>\n      <th>Bwd IAT Min</th>\n      <th>Fwd PSH Flags</th>\n      <th>Bwd PSH Flags</th>\n      <th>Fwd URG Flags</th>\n      <th>Bwd URG Flags</th>\n      <th>Fwd Header Length</th>\n      <th>Bwd Header Length</th>\n      <th>Fwd Packets/s</th>\n      <th>Bwd Packets/s</th>\n      <th>Packet Length Min</th>\n      <th>Packet Length Max</th>\n      <th>Packet Length Mean</th>\n      <th>Packet Length Std</th>\n      <th>Packet Length Variance</th>\n      <th>FIN Flag Count</th>\n      <th>SYN Flag Count</th>\n      <th>RST Flag Count</th>\n      <th>PSH Flag Count</th>\n      <th>ACK Flag Count</th>\n      <th>URG Flag Count</th>\n      <th>CWR Flag Count</th>\n      <th>ECE Flag Count</th>\n      <th>Down/Up Ratio</th>\n      <th>Average Packet Size</th>\n      <th>Fwd Segment Size Avg</th>\n      <th>Bwd Segment Size Avg</th>\n      <th>Fwd Bytes/Bulk Avg</th>\n      <th>Fwd Packet/Bulk Avg</th>\n      <th>Fwd Bulk Rate Avg</th>\n      <th>Bwd Bytes/Bulk Avg</th>\n      <th>Bwd Packet/Bulk Avg</th>\n      <th>Bwd Bulk Rate Avg</th>\n      <th>Subflow Fwd Packets</th>\n      <th>Subflow Fwd Bytes</th>\n      <th>Subflow Bwd Packets</th>\n      <th>Subflow Bwd Bytes</th>\n      <th>FWD Init Win Bytes</th>\n      <th>Bwd Init Win Bytes</th>\n      <th>Fwd Act Data Pkts</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n      <th>Label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>824776</td>\n      <td>5</td>\n      <td>2</td>\n      <td>592.0</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0.0</td>\n      <td>118.400000</td>\n      <td>264.750449</td>\n      <td>72.0</td>\n      <td>0.0</td>\n      <td>36.000000</td>\n      <td>50.911688</td>\n      <td>805.067073</td>\n      <td>8.487153</td>\n      <td>1.374627e+05</td>\n      <td>2.037714e+05</td>\n      <td>464763.0</td>\n      <td>7.0</td>\n      <td>824776.0</td>\n      <td>2.061940e+05</td>\n      <td>2.245934e+05</td>\n      <td>465194.0</td>\n      <td>7.0</td>\n      <td>196.0</td>\n      <td>196.000000</td>\n      <td>0.000000</td>\n      <td>196.0</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>116</td>\n      <td>40</td>\n      <td>6.062252</td>\n      <td>2.424901</td>\n      <td>0.0</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>207.204523</td>\n      <td>42933.714286</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>2</td>\n      <td>6</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>94.857143</td>\n      <td>118.400000</td>\n      <td>36.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>84</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276353e+15</td>\n      <td>1.276353e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>49287464</td>\n      <td>3</td>\n      <td>0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>25.403412</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.892722</td>\n      <td>0.060867</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>49287464.0</td>\n      <td>2.464373e+07</td>\n      <td>3.485129e+07</td>\n      <td>49287314.0</td>\n      <td>150.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>60</td>\n      <td>0</td>\n      <td>0.060867</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>22.000000</td>\n      <td>484.000000</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>14.666667</td>\n      <td>14.666667</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>14</td>\n      <td>0</td>\n      <td>0</td>\n      <td>63983</td>\n      <td>0</td>\n      <td>1</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>6.381794e+14</td>\n      <td>9.025219e+14</td>\n      <td>1.276359e+15</td>\n      <td>4.928731e+07</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>2922422</td>\n      <td>42</td>\n      <td>22</td>\n      <td>56797.0</td>\n      <td>62.0</td>\n      <td>1460.0</td>\n      <td>0.0</td>\n      <td>1352.309524</td>\n      <td>380.249115</td>\n      <td>62.0</td>\n      <td>0.0</td>\n      <td>2.818182</td>\n      <td>13.218444</td>\n      <td>19456.122353</td>\n      <td>21.899644</td>\n      <td>4.638765e+04</td>\n      <td>1.767560e+05</td>\n      <td>1320971.0</td>\n      <td>160.0</td>\n      <td>2922422.0</td>\n      <td>7.127859e+04</td>\n      <td>2.168977e+05</td>\n      <td>1320971.0</td>\n      <td>3122.0</td>\n      <td>2673104.0</td>\n      <td>127290.666667</td>\n      <td>340020.473297</td>\n      <td>1557368.0</td>\n      <td>201.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>856</td>\n      <td>440</td>\n      <td>14.371641</td>\n      <td>7.528002</td>\n      <td>0.0</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>718.086695</td>\n      <td>515648.500962</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>3</td>\n      <td>63</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>888.421875</td>\n      <td>1352.309524</td>\n      <td>2.818182</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>56797</td>\n      <td>39</td>\n      <td>50580</td>\n      <td>0</td>\n      <td>887</td>\n      <td>0</td>\n      <td>0</td>\n      <td>64240</td>\n      <td>64240</td>\n      <td>39</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276388e+15</td>\n      <td>1.276388e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>192.168.4.121-192.168.5.122-51526-143-6</td>\n      <td>192.168.4.121</td>\n      <td>51526</td>\n      <td>192.168.5.122</td>\n      <td>143</td>\n      <td>6</td>\n      <td>12/06/2010 11:19:52 AM</td>\n      <td>31006</td>\n      <td>14</td>\n      <td>26</td>\n      <td>339.0</td>\n      <td>3622.0</td>\n      <td>172.0</td>\n      <td>0.0</td>\n      <td>24.214286</td>\n      <td>43.865491</td>\n      <td>466.0</td>\n      <td>0.0</td>\n      <td>139.307692</td>\n      <td>158.768956</td>\n      <td>127749.467845</td>\n      <td>1290.072889</td>\n      <td>7.950256e+02</td>\n      <td>1.502608e+03</td>\n      <td>9574.0</td>\n      <td>43.0</td>\n      <td>31006.0</td>\n      <td>2.385077e+03</td>\n      <td>2.656102e+03</td>\n      <td>10698.0</td>\n      <td>43.0</td>\n      <td>28862.0</td>\n      <td>1154.480000</td>\n      <td>1974.791363</td>\n      <td>10192.0</td>\n      <td>149.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>292</td>\n      <td>544</td>\n      <td>451.525511</td>\n      <td>838.547378</td>\n      <td>0.0</td>\n      <td>466.0</td>\n      <td>96.609756</td>\n      <td>140.117251</td>\n      <td>19632.843902</td>\n      <td>1</td>\n      <td>3</td>\n      <td>0</td>\n      <td>33</td>\n      <td>39</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>99.025000</td>\n      <td>24.214286</td>\n      <td>139.307692</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>3961</td>\n      <td>33</td>\n      <td>133102</td>\n      <td>0</td>\n      <td>8</td>\n      <td>0</td>\n      <td>90</td>\n      <td>8192</td>\n      <td>54</td>\n      <td>11</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.276316e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.276316e+15</td>\n      <td>1.276316e+15</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>172.16.2.13-82.255.155.203-2069-6047-6</td>\n      <td>172.16.2.13</td>\n      <td>2069</td>\n      <td>82.255.155.203</td>\n      <td>6047</td>\n      <td>6</td>\n      <td>08/10/2007 09:25:41 PM</td>\n      <td>44055886</td>\n      <td>11</td>\n      <td>10</td>\n      <td>239.0</td>\n      <td>239.0</td>\n      <td>42.0</td>\n      <td>0.0</td>\n      <td>21.727273</td>\n      <td>19.779236</td>\n      <td>42.0</td>\n      <td>0.0</td>\n      <td>23.900000</td>\n      <td>19.868736</td>\n      <td>10.849856</td>\n      <td>0.476667</td>\n      <td>2.202794e+06</td>\n      <td>9.469376e+06</td>\n      <td>42432564.0</td>\n      <td>30.0</td>\n      <td>44055886.0</td>\n      <td>4.405589e+06</td>\n      <td>1.336185e+07</td>\n      <td>42432564.0</td>\n      <td>30.0</td>\n      <td>1362251.0</td>\n      <td>151361.222222</td>\n      <td>65383.010868</td>\n      <td>242985.0</td>\n      <td>30607.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>228</td>\n      <td>208</td>\n      <td>0.249683</td>\n      <td>0.226984</td>\n      <td>0.0</td>\n      <td>42.0</td>\n      <td>21.727273</td>\n      <td>19.498918</td>\n      <td>380.207792</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>14</td>\n      <td>20</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>22.761905</td>\n      <td>21.727273</td>\n      <td>23.900000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>478</td>\n      <td>14</td>\n      <td>356</td>\n      <td>0</td>\n      <td>11</td>\n      <td>0</td>\n      <td>11</td>\n      <td>16384</td>\n      <td>65127</td>\n      <td>7</td>\n      <td>20</td>\n      <td>1623322.0</td>\n      <td>0.0</td>\n      <td>1623322.0</td>\n      <td>1623322.0</td>\n      <td>5.959268e+14</td>\n      <td>8.427677e+14</td>\n      <td>1.191854e+15</td>\n      <td>4.243256e+07</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_1012701077",
+      "id": "20220123-080308_1888885180",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:355",
+      "dateFinished": "2022-01-23T08:06:13+0000",
+      "dateStarted": "2022-01-23T08:06:11+0000"
+    },
+    {
+      "text": "%python\n\nprint(\"Before UnderSampling: \", tar.value_counts())\nprint(\"After UnderSampling: \", Y_res.value_counts())\nprint(trainResampling.shape)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:17+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Before UnderSampling:  Label\n0        247089\n2         45342\n4         39485\n1         22492\n3          1748\ndtype: int64\nAfter UnderSampling:  Label\n0        1748\n1        1748\n2        1748\n3        1748\n4        1748\ndtype: int64\n(8740, 84)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_941535277",
+      "id": "20220123-080308_146123413",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:356",
+      "dateFinished": "2022-01-23T08:06:17+0000",
+      "dateStarted": "2022-01-23T08:06:17+0000"
+    },
+    {
+      "text": "%sh\n\ntouch /resource/output/labeled-data/TrainDataUnderSampling.csv",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:27+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_245993942",
+      "id": "20220123-080308_524741665",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:357",
+      "dateFinished": "2022-01-23T08:06:27+0000",
+      "dateStarted": "2022-01-23T08:06:27+0000"
+    },
+    {
+      "text": "%python\n\ntrainResampling.to_csv('/resource/output/labeled-data/TrainDataUnderSampling.csv')",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:29+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_2045727130",
+      "id": "20220123-080308_2089878553",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:358",
+      "dateFinished": "2022-01-23T08:06:29+0000",
+      "dateStarted": "2022-01-23T08:06:29+0000"
+    },
+    {
+      "text": "%md\n# Testing",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:31+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Testing</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_2127249888",
+      "id": "20220123-080308_1007335886",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:359",
+      "dateFinished": "2022-01-23T08:06:31+0000",
+      "dateStarted": "2022-01-23T08:06:31+0000"
+    },
+    {
+      "text": "%python\n\nimport pandas as pd\nimport numpy as np\ntest_data = pd.read_csv('/resource/Dataset/Botnet-Testing.csv')\ntest_data.head(5)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:33+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Flow ID</th>\n      <th>Src IP</th>\n      <th>Src Port</th>\n      <th>Dst IP</th>\n      <th>Dst Port</th>\n      <th>Protocol</th>\n      <th>Timestamp</th>\n      <th>Flow Duration</th>\n      <th>Total Fwd Packet</th>\n      <th>Total Bwd packets</th>\n      <th>Total Length of Fwd Packet</th>\n      <th>Total Length of Bwd Packet</th>\n      <th>Fwd Packet Length Max</th>\n      <th>Fwd Packet Length Min</th>\n      <th>Fwd Packet Length Mean</th>\n      <th>Fwd Packet Length Std</th>\n      <th>Bwd Packet Length Max</th>\n      <th>Bwd Packet Length Min</th>\n      <th>Bwd Packet Length Mean</th>\n      <th>Bwd Packet Length Std</th>\n      <th>Flow Bytes/s</th>\n      <th>Flow Packets/s</th>\n      <th>Flow IAT Mean</th>\n      <th>Flow IAT Std</th>\n      <th>Flow IAT Max</th>\n      <th>Flow IAT Min</th>\n      <th>Fwd IAT Total</th>\n      <th>Fwd IAT Mean</th>\n      <th>Fwd IAT Std</th>\n      <th>Fwd IAT Max</th>\n      <th>Fwd IAT Min</th>\n      <th>Bwd IAT Total</th>\n      <th>Bwd IAT Mean</th>\n      <th>Bwd IAT Std</th>\n      <th>Bwd IAT Max</th>\n      <th>Bwd IAT Min</th>\n      <th>Fwd PSH Flags</th>\n      <th>Bwd PSH Flags</th>\n      <th>Fwd URG Flags</th>\n      <th>Bwd URG Flags</th>\n      <th>Fwd Header Length</th>\n      <th>Bwd Header Length</th>\n      <th>Fwd Packets/s</th>\n      <th>Bwd Packets/s</th>\n      <th>Packet Length Min</th>\n      <th>Packet Length Max</th>\n      <th>Packet Length Mean</th>\n      <th>Packet Length Std</th>\n      <th>Packet Length Variance</th>\n      <th>FIN Flag Count</th>\n      <th>SYN Flag Count</th>\n      <th>RST Flag Count</th>\n      <th>PSH Flag Count</th>\n      <th>ACK Flag Count</th>\n      <th>URG Flag Count</th>\n      <th>CWR Flag Count</th>\n      <th>ECE Flag Count</th>\n      <th>Down/Up Ratio</th>\n      <th>Average Packet Size</th>\n      <th>Fwd Segment Size Avg</th>\n      <th>Bwd Segment Size Avg</th>\n      <th>Fwd Bytes/Bulk Avg</th>\n      <th>Fwd Packet/Bulk Avg</th>\n      <th>Fwd Bulk Rate Avg</th>\n      <th>Bwd Bytes/Bulk Avg</th>\n      <th>Bwd Packet/Bulk Avg</th>\n      <th>Bwd Bulk Rate Avg</th>\n      <th>Subflow Fwd Packets</th>\n      <th>Subflow Fwd Bytes</th>\n      <th>Subflow Bwd Packets</th>\n      <th>Subflow Bwd Bytes</th>\n      <th>FWD Init Win Bytes</th>\n      <th>Bwd Init Win Bytes</th>\n      <th>Fwd Act Data Pkts</th>\n      <th>Fwd Seg Size Min</th>\n      <th>Active Mean</th>\n      <th>Active Std</th>\n      <th>Active Max</th>\n      <th>Active Min</th>\n      <th>Idle Mean</th>\n      <th>Idle Std</th>\n      <th>Idle Max</th>\n      <th>Idle Min</th>\n      <th>Label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>8.6.0.1-8.0.6.4-0-0-0</td>\n      <td>8.6.0.1</td>\n      <td>0</td>\n      <td>8.0.6.4</td>\n      <td>0</td>\n      <td>0</td>\n      <td>01/01/1970 07:00:06 AM</td>\n      <td>61804233</td>\n      <td>13</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.210342</td>\n      <td>5.150353e+06</td>\n      <td>4.942438e+06</td>\n      <td>15120887.0</td>\n      <td>107769.0</td>\n      <td>61804233.0</td>\n      <td>5.150353e+06</td>\n      <td>4.942438e+06</td>\n      <td>15120887.0</td>\n      <td>107769.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.210342</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0000</td>\n      <td>0.0000</td>\n      <td>0.0000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>910704.5</td>\n      <td>280640.074851</td>\n      <td>1109147.0</td>\n      <td>712262.0</td>\n      <td>8.715683e+06</td>\n      <td>3.826949e+06</td>\n      <td>1.512089e+07</td>\n      <td>5.587976e+06</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>147.32.84.180-147.32.84.171-1040-139-6</td>\n      <td>147.32.84.180</td>\n      <td>1040</td>\n      <td>147.32.84.171</td>\n      <td>139</td>\n      <td>6</td>\n      <td>11/08/2011 03:33:48 PM</td>\n      <td>14119</td>\n      <td>10</td>\n      <td>10</td>\n      <td>1021.0</td>\n      <td>807.0</td>\n      <td>276.0</td>\n      <td>0.0</td>\n      <td>102.1000</td>\n      <td>94.277899</td>\n      <td>304.0</td>\n      <td>0.0</td>\n      <td>80.7000</td>\n      <td>92.492702</td>\n      <td>129470.925703</td>\n      <td>1416.530916</td>\n      <td>7.431053e+02</td>\n      <td>1.697691e+03</td>\n      <td>7593.0</td>\n      <td>72.0</td>\n      <td>14119.0</td>\n      <td>1.568778e+03</td>\n      <td>2.380197e+03</td>\n      <td>7793.0</td>\n      <td>178.0</td>\n      <td>13800.0</td>\n      <td>1533.333333</td>\n      <td>2374.061499</td>\n      <td>7765.0</td>\n      <td>184.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>208</td>\n      <td>208</td>\n      <td>708.265458</td>\n      <td>708.265458</td>\n      <td>0.0</td>\n      <td>304.0</td>\n      <td>87.047619</td>\n      <td>91.442592</td>\n      <td>8361.747619</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>16</td>\n      <td>19</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>91.4000</td>\n      <td>102.1000</td>\n      <td>80.7000</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1828</td>\n      <td>16</td>\n      <td>133489</td>\n      <td>0</td>\n      <td>51</td>\n      <td>0</td>\n      <td>40</td>\n      <td>64240</td>\n      <td>8576</td>\n      <td>8</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.313052e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.313052e+15</td>\n      <td>1.313052e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>147.32.84.180-147.32.84.19-1041-139-6</td>\n      <td>147.32.84.180</td>\n      <td>1041</td>\n      <td>147.32.84.19</td>\n      <td>139</td>\n      <td>6</td>\n      <td>11/08/2011 03:33:48 PM</td>\n      <td>40800</td>\n      <td>4</td>\n      <td>4</td>\n      <td>209.0</td>\n      <td>85.0</td>\n      <td>137.0</td>\n      <td>0.0</td>\n      <td>52.2500</td>\n      <td>65.910925</td>\n      <td>81.0</td>\n      <td>0.0</td>\n      <td>21.2500</td>\n      <td>39.877939</td>\n      <td>7205.882353</td>\n      <td>196.078431</td>\n      <td>5.828571e+03</td>\n      <td>1.113709e+04</td>\n      <td>30791.0</td>\n      <td>187.0</td>\n      <td>40800.0</td>\n      <td>1.360000e+04</td>\n      <td>1.532347e+04</td>\n      <td>31197.0</td>\n      <td>3199.0</td>\n      <td>9822.0</td>\n      <td>3274.000000</td>\n      <td>1845.207576</td>\n      <td>5148.0</td>\n      <td>1459.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>88</td>\n      <td>88</td>\n      <td>98.039216</td>\n      <td>98.039216</td>\n      <td>0.0</td>\n      <td>137.0</td>\n      <td>32.666667</td>\n      <td>51.144403</td>\n      <td>2615.750000</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>4</td>\n      <td>7</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>36.7500</td>\n      <td>52.2500</td>\n      <td>21.2500</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>294</td>\n      <td>4</td>\n      <td>43171</td>\n      <td>0</td>\n      <td>26</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>6432</td>\n      <td>2</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.313052e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.313052e+15</td>\n      <td>1.313052e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>147.32.84.180-147.32.84.19-1042-139-6</td>\n      <td>147.32.84.180</td>\n      <td>1042</td>\n      <td>147.32.84.19</td>\n      <td>139</td>\n      <td>6</td>\n      <td>11/08/2011 03:33:48 PM</td>\n      <td>44000</td>\n      <td>4</td>\n      <td>4</td>\n      <td>209.0</td>\n      <td>85.0</td>\n      <td>137.0</td>\n      <td>0.0</td>\n      <td>52.2500</td>\n      <td>65.910925</td>\n      <td>81.0</td>\n      <td>0.0</td>\n      <td>21.2500</td>\n      <td>39.877939</td>\n      <td>6681.818182</td>\n      <td>181.818182</td>\n      <td>6.285714e+03</td>\n      <td>1.102003e+04</td>\n      <td>30711.0</td>\n      <td>252.0</td>\n      <td>44000.0</td>\n      <td>1.466667e+04</td>\n      <td>1.431742e+04</td>\n      <td>31199.0</td>\n      <td>6400.0</td>\n      <td>13037.0</td>\n      <td>4345.666667</td>\n      <td>2625.225578</td>\n      <td>6465.0</td>\n      <td>1409.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>88</td>\n      <td>88</td>\n      <td>90.909091</td>\n      <td>90.909091</td>\n      <td>0.0</td>\n      <td>137.0</td>\n      <td>32.666667</td>\n      <td>51.144403</td>\n      <td>2615.750000</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>4</td>\n      <td>7</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>36.7500</td>\n      <td>52.2500</td>\n      <td>21.2500</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>294</td>\n      <td>4</td>\n      <td>42682</td>\n      <td>0</td>\n      <td>26</td>\n      <td>0</td>\n      <td>10</td>\n      <td>64240</td>\n      <td>6432</td>\n      <td>2</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.313052e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.313052e+15</td>\n      <td>1.313052e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>147.32.84.180-147.32.84.171-1043-139-6</td>\n      <td>147.32.84.180</td>\n      <td>1043</td>\n      <td>147.32.84.171</td>\n      <td>139</td>\n      <td>6</td>\n      <td>11/08/2011 03:34:03 PM</td>\n      <td>56403</td>\n      <td>16</td>\n      <td>16</td>\n      <td>1859.0</td>\n      <td>1675.0</td>\n      <td>276.0</td>\n      <td>0.0</td>\n      <td>116.1875</td>\n      <td>94.871294</td>\n      <td>360.0</td>\n      <td>0.0</td>\n      <td>104.6875</td>\n      <td>115.187221</td>\n      <td>62656.241689</td>\n      <td>567.345709</td>\n      <td>1.819452e+03</td>\n      <td>3.344010e+03</td>\n      <td>15710.0</td>\n      <td>86.0</td>\n      <td>56403.0</td>\n      <td>3.760200e+03</td>\n      <td>4.545904e+03</td>\n      <td>16800.0</td>\n      <td>272.0</td>\n      <td>51709.0</td>\n      <td>3447.266667</td>\n      <td>4508.752337</td>\n      <td>16577.0</td>\n      <td>291.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>328</td>\n      <td>328</td>\n      <td>283.672854</td>\n      <td>283.672854</td>\n      <td>0.0</td>\n      <td>360.0</td>\n      <td>107.090909</td>\n      <td>104.120532</td>\n      <td>10841.085227</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>28</td>\n      <td>31</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1.0</td>\n      <td>110.4375</td>\n      <td>116.1875</td>\n      <td>104.6875</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>3534</td>\n      <td>28</td>\n      <td>68590</td>\n      <td>0</td>\n      <td>58</td>\n      <td>0</td>\n      <td>52</td>\n      <td>64240</td>\n      <td>12864</td>\n      <td>14</td>\n      <td>20</td>\n      <td>0.0</td>\n      <td>0.000000</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1.313052e+15</td>\n      <td>0.000000e+00</td>\n      <td>1.313052e+15</td>\n      <td>1.313052e+15</td>\n      <td>NeedManualLabel</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_739719867",
+      "id": "20220123-080308_432954840",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:360",
+      "dateFinished": "2022-01-23T08:06:40+0000",
+      "dateStarted": "2022-01-23T08:06:33+0000"
+    },
+    {
+      "text": "%python\n\ntest_data.shape",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:44+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(309207, 84)"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988258_492929685",
+      "id": "20220123-080308_826383652",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:361",
+      "dateFinished": "2022-01-23T08:06:44+0000",
+      "dateStarted": "2022-01-23T08:06:44+0000"
+    },
+    {
+      "text": "%md\n## Handling Missing Drop",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:50+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Handling Missing Drop</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_1970331228",
+      "id": "20220123-080308_1166341849",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:362",
+      "dateFinished": "2022-01-23T08:06:50+0000",
+      "dateStarted": "2022-01-23T08:06:50+0000"
+    },
+    {
+      "text": "%python\n\n#handling missing drop\ntest_data.replace([np.inf, -np.inf], np.nan, inplace=True)\n#train_data.dropna(inplace=True)\npd.set_option('display.max_columns',None)\npd.set_option('display.max_rows',None)\ntest_data.isnull().sum()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:51+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Flow ID                        0\nSrc IP                         0\nSrc Port                       0\nDst IP                         0\nDst Port                       0\nProtocol                       0\nTimestamp                      0\nFlow Duration                  0\nTotal Fwd Packet               0\nTotal Bwd packets              0\nTotal Length of Fwd Packet     0\nTotal Length of Bwd Packet     0\nFwd Packet Length Max          0\nFwd Packet Length Min          0\nFwd Packet Length Mean         0\nFwd Packet Length Std          0\nBwd Packet Length Max          0\nBwd Packet Length Min          0\nBwd Packet Length Mean         0\nBwd Packet Length Std          0\nFlow Bytes/s                  20\nFlow Packets/s                20\nFlow IAT Mean                  0\nFlow IAT Std                   0\nFlow IAT Max                   0\nFlow IAT Min                   0\nFwd IAT Total                  0\nFwd IAT Mean                   0\nFwd IAT Std                    0\nFwd IAT Max                    0\nFwd IAT Min                    0\nBwd IAT Total                  0\nBwd IAT Mean                   0\nBwd IAT Std                    0\nBwd IAT Max                    0\nBwd IAT Min                    0\nFwd PSH Flags                  0\nBwd PSH Flags                  0\nFwd URG Flags                  0\nBwd URG Flags                  0\nFwd Header Length              0\nBwd Header Length              0\nFwd Packets/s                  0\nBwd Packets/s                  0\nPacket Length Min              0\nPacket Length Max              0\nPacket Length Mean             0\nPacket Length Std              0\nPacket Length Variance         0\nFIN Flag Count                 0\nSYN Flag Count                 0\nRST Flag Count                 0\nPSH Flag Count                 0\nACK Flag Count                 0\nURG Flag Count                 0\nCWR Flag Count                 0\nECE Flag Count                 0\nDown/Up Ratio                  0\nAverage Packet Size            0\nFwd Segment Size Avg           0\nBwd Segment Size Avg           0\nFwd Bytes/Bulk Avg             0\nFwd Packet/Bulk Avg            0\nFwd Bulk Rate Avg              0\nBwd Bytes/Bulk Avg             0\nBwd Packet/Bulk Avg            0\nBwd Bulk Rate Avg              0\nSubflow Fwd Packets            0\nSubflow Fwd Bytes              0\nSubflow Bwd Packets            0\nSubflow Bwd Bytes              0\nFWD Init Win Bytes             0\nBwd Init Win Bytes             0\nFwd Act Data Pkts              0\nFwd Seg Size Min               0\nActive Mean                    0\nActive Std                     0\nActive Max                     0\nActive Min                     0\nIdle Mean                      0\nIdle Std                       0\nIdle Max                       0\nIdle Min                       0\nLabel                          0\ndtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_1667856847",
+      "id": "20220123-080308_740942702",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:363",
+      "dateFinished": "2022-01-23T08:06:52+0000",
+      "dateStarted": "2022-01-23T08:06:51+0000"
+    },
+    {
+      "text": "%python\n\ntest_data.dropna(inplace=True)\ntest_data.isnull().sum()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:06:56+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Flow ID                       0\nSrc IP                        0\nSrc Port                      0\nDst IP                        0\nDst Port                      0\nProtocol                      0\nTimestamp                     0\nFlow Duration                 0\nTotal Fwd Packet              0\nTotal Bwd packets             0\nTotal Length of Fwd Packet    0\nTotal Length of Bwd Packet    0\nFwd Packet Length Max         0\nFwd Packet Length Min         0\nFwd Packet Length Mean        0\nFwd Packet Length Std         0\nBwd Packet Length Max         0\nBwd Packet Length Min         0\nBwd Packet Length Mean        0\nBwd Packet Length Std         0\nFlow Bytes/s                  0\nFlow Packets/s                0\nFlow IAT Mean                 0\nFlow IAT Std                  0\nFlow IAT Max                  0\nFlow IAT Min                  0\nFwd IAT Total                 0\nFwd IAT Mean                  0\nFwd IAT Std                   0\nFwd IAT Max                   0\nFwd IAT Min                   0\nBwd IAT Total                 0\nBwd IAT Mean                  0\nBwd IAT Std                   0\nBwd IAT Max                   0\nBwd IAT Min                   0\nFwd PSH Flags                 0\nBwd PSH Flags                 0\nFwd URG Flags                 0\nBwd URG Flags                 0\nFwd Header Length             0\nBwd Header Length             0\nFwd Packets/s                 0\nBwd Packets/s                 0\nPacket Length Min             0\nPacket Length Max             0\nPacket Length Mean            0\nPacket Length Std             0\nPacket Length Variance        0\nFIN Flag Count                0\nSYN Flag Count                0\nRST Flag Count                0\nPSH Flag Count                0\nACK Flag Count                0\nURG Flag Count                0\nCWR Flag Count                0\nECE Flag Count                0\nDown/Up Ratio                 0\nAverage Packet Size           0\nFwd Segment Size Avg          0\nBwd Segment Size Avg          0\nFwd Bytes/Bulk Avg            0\nFwd Packet/Bulk Avg           0\nFwd Bulk Rate Avg             0\nBwd Bytes/Bulk Avg            0\nBwd Packet/Bulk Avg           0\nBwd Bulk Rate Avg             0\nSubflow Fwd Packets           0\nSubflow Fwd Bytes             0\nSubflow Bwd Packets           0\nSubflow Bwd Bytes             0\nFWD Init Win Bytes            0\nBwd Init Win Bytes            0\nFwd Act Data Pkts             0\nFwd Seg Size Min              0\nActive Mean                   0\nActive Std                    0\nActive Max                    0\nActive Min                    0\nIdle Mean                     0\nIdle Std                      0\nIdle Max                      0\nIdle Min                      0\nLabel                         0\ndtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_1399827549",
+      "id": "20220123-080308_1197624238",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:364",
+      "dateFinished": "2022-01-23T08:06:57+0000",
+      "dateStarted": "2022-01-23T08:06:56+0000"
+    },
+    {
+      "text": "%python\n\n#Neris\ntest_data.loc[(test_data['Src IP']=='147.32.84.180')| \n               (test_data['Dst IP']=='147.32.84.180'), 'Label'] = 1\n#Rbot\ntest_data.loc[(test_data['Src IP']=='147.32.84.170') | \n               (test_data['Dst IP']=='147.32.84.170'), 'Label'] = 1\n#virut\ntest_data.loc[(test_data['Src IP']=='147.32.84.160')| \n               (test_data['Dst IP']=='147.32.84.160'), 'Label'] = 1\n#irc\ntest_data.loc[(test_data['Src IP']=='192.168.5.122') & (test_data['Dst IP']=='198.164.30.2'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.2.110') & (test_data['Dst IP']=='192.168.5.122'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.4.118') & (test_data['Dst IP']=='192.168.5.122'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.2.113') & (test_data['Dst IP']=='192.168.5.122'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.1.103') & (test_data['Dst IP']=='192.168.5.122'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.4.120') & (test_data['Dst IP']=='192.168.5.122'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.2.112') & (test_data['Dst IP']=='192.168.2.113'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.1.105') & (test_data['Dst IP']=='192.168.5.122'), 'Label'] = 1\n#menti\ntest_data.loc[(test_data['Src IP']=='147.32.84.150') | (test_data['Dst IP']=='147.32.84.150'), 'Label'] = 1\n#sogou\ntest_data.loc[(test_data['Src IP']=='147.32.84.140') | (test_data['Dst IP']=='147.32.84.140'), 'Label'] = 1\n#murlo\ntest_data.loc[(test_data['Src IP']=='147.32.84.130') | (test_data['Dst IP']=='147.32.84.130'), 'Label'] = 1\n#blackhole\ntest_data.loc[(test_data['Src IP']=='10.0.2.15') | (test_data['Dst IP']=='10.0.2.15'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.106.141') | (test_data['Dst IP']=='192.168.106.141'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.106.131') | (test_data['Dst IP']=='192.168.106.131'), 'Label'] = 1\n#tbot\ntest_data.loc[(test_data['Src IP']=='172.16.253.130') | (test_data['Dst IP']=='172.16.253.130'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='172.16.253.131') | (test_data['Dst IP']=='172.16.253.131'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='172.16.253.129') | (test_data['Dst IP']=='172.16.253.129'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='172.16.253.240') | (test_data['Dst IP']=='172.16.253.240'), 'Label'] = 1\n#weasel\ntest_data.loc[(test_data['Src IP']=='74.78.117.238') | (test_data['Dst IP']=='74.78.117.238'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='158.65.110.24') | (test_data['Dst IP']=='158.65.110.24'), 'Label'] = 1\n#zeus\ntest_data.loc[(test_data['Src IP']=='192.168.3.35') | (test_data['Dst IP']=='192.168.3.35'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.3.25') | (test_data['Dst IP']=='192.168.3.25'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.3.65') | (test_data['Dst IP']=='192.168.3.65'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='172.29.0.116') | (test_data['Dst IP']=='172.29.0.116'), 'Label'] = 1\n#zero access\ntest_data.loc[(test_data['Src IP']=='172.16.253.132') | (test_data['Dst IP']=='172.16.253.132'), 'Label'] = 1\ntest_data.loc[(test_data['Src IP']=='192.168.248.165') | (test_data['Dst IP']=='192.168.248.165'), 'Label'] = 1\n#trojan\ntest_data.loc[(test_data['Src IP']=='172.29.0.109') | (test_data['Dst IP']=='172.29.0.109'), 'Label'] = 1\n#smoke\ntest_data.loc[(test_data['Src IP']=='10.37.130.4') | (test_data['Dst IP']=='10.37.130.4'), 'Label'] = 1\n#normal\ntest_data.loc[(test_data['Label']=='NeedManualLabel'), 'Label'] = 0",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:07:02+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_272954805",
+      "id": "20220123-080308_2054637275",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:365",
+      "dateFinished": "2022-01-23T08:07:05+0000",
+      "dateStarted": "2022-01-23T08:07:02+0000"
+    },
+    {
+      "text": "%python\n\ntest_data['Label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:07:04+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "1    181296\n0    127891\nName: Label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_2082625177",
+      "id": "20220123-080308_413615474",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:366",
+      "dateFinished": "2022-01-23T08:07:05+0000",
+      "dateStarted": "2022-01-23T08:07:04+0000"
+    },
+    {
+      "text": "%python\n\n#multiLabel\ntest_data['Label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:07:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "1    181296\n0    127891\nName: Label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_1298304916",
+      "id": "20220123-080308_2071394203",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:367",
+      "dateFinished": "2022-01-23T08:07:08+0000",
+      "dateStarted": "2022-01-23T08:07:08+0000"
+    },
+    {
+      "text": "%sh\n\ntouch /resource/output/labeled-data/MultiLabelTestData.csv",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:07:20+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_1093167176",
+      "id": "20220123-080308_782040160",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:368",
+      "dateFinished": "2022-01-23T08:07:20+0000",
+      "dateStarted": "2022-01-23T08:07:20+0000"
+    },
+    {
+      "text": "%python\n\ntest_data.to_csv('/resource/output/labeled-data/MultiLabelTestData.csv')",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:07:23+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642924988259_2062055596",
+      "id": "20220123-080308_1847408374",
+      "dateCreated": "2022-01-23T08:03:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:369",
+      "dateFinished": "2022-01-23T08:07:43+0000",
+      "dateStarted": "2022-01-23T08:07:23+0000"
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-23T08:07:23+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642925243419_340246180",
+      "id": "paragraph_1642925243419_340246180",
+      "dateCreated": "2022-01-23T08:07:23+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:3865"
+    }
+  ],
+  "name": "01-LabelingData",
+  "id": "2GTMRAVF6",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/01-LabelingData"
+}

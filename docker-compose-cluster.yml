@@ -145,18 +145,6 @@ services:
     volumes:
       - shared-workspace:/resource
 
-  spark-worker-2:
-    image: ryuk4/spark-worker:3.1.2-hadoop3.2
-    container_name: spark-worker-2
-    depends_on:
-      - spark-master
-    ports:
-      - "8182:8081"
-    environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
-    volumes:
-      - shared-workspace:/resource
-
   #############################################
   #               ZEPPELIN                    #
   #############################################
@@ -170,7 +158,7 @@ services:
       - "8190:8080"
     volumes:
       # - ./spark:/zeppelin/spark
-      - ./notebooks:/zeppelin/notebook
+      # - ./notebooks:/opt/zeppelin/notebook
       - shared-workspace:/resource
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
@@ -214,6 +202,32 @@ services:
       CHARTS_SUPPORT_WIDGET_AND_METRICS: "on"
       SSL_CERT_DIR: /mongodb-charts/volumes/db-certs
       CHARTS_MONGODB_URI: mongodb://mongodb:27017
+
+  #############################################
+  #                 MONGO                     #
+  #############################################
+  namenode:
+    image: bde2020/hadoop-namenode:1.1.0-hadoop2.8-java8
+    container_name: namenode
+    volumes:
+      - ./data/namenode:/hadoop/dfs/name
+    environment:
+      - CLUSTER_NAME=test
+    env_file:
+      - ./hadoop.env
+    ports:
+      - 50070:50070
+  
+  datanode:
+    image: bde2020/hadoop-datanode:1.1.0-hadoop2.8-java8
+    depends_on: 
+      - namenode
+    volumes:
+      - ./data/datanode:/hadoop/dfs/data
+    env_file:
+      - ./hadoop.env
+    ports:
+      - 50075:50075
 
 volumes:
   shared-workspace:

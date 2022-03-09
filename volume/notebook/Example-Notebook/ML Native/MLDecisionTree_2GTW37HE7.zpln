@@ -1,0 +1,1715 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%python\npip install pymongo",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:33+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Collecting pymongo\r\n  Downloading pymongo-4.0.1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (452 kB)\r\n\u001b[?25l\r\r     |▊                               | 10 kB 1.5 MB/s eta 0:00:01\r     |█▌                              | 20 kB 1.3 MB/s eta 0:00:01\r     |██▏                             | 30 kB 1.2 MB/s eta 0:00:01\r     |███                             | 40 kB 1.2 MB/s eta 0:00:01\r     |███▋                            | 51 kB 1.2 MB/s eta 0:00:01\r     |████▍                           | 61 kB 1.2 MB/s eta 0:00:01\r     |█████                           | 71 kB 1.0 MB/s eta 0:00:01\r     |█████▉                          | 81 kB 1.1 MB/s eta 0:00:01\r     |██████▌                         | 92 kB 1.1 MB/s eta 0:00:01\r     |███████▎                        | 102 kB 1.0 MB/s eta 0:00:01\r     |████████                        | 112 kB 1.0 MB/s eta 0:00:01\r     |████████▊                       | 122 kB 1.0 MB/s eta 0:00:01\r     |█████████▍                      | 133 kB 1.0 MB/s eta 0:00:01\r     |██████████▏                     | 143 kB 1.0 MB/s eta 0:00:01\r     |██████████▉                     | 153 kB 1.0 MB/s eta 0:00:01\r     |███████████▋                    | 163 kB 1.0 MB/s eta 0:00:01\r     |████████████▎                   | 174 kB 1.0 MB/s eta 0:00:01\r     |█████████████                   | 184 kB 1.0 MB/s eta 0:00:01\r     |█████████████▊                  | 194 kB 1.0 MB/s eta 0:00:01\r     |██████████████▌                 | 204 kB 1.0 MB/s eta 0:00:01\r     |███████████████▏                | 215 kB 1.0 MB/s eta 0:00:01\r     |████████████████                | 225 kB 1.0 MB/s eta 0:00:01\r     |████████████████▋               | 235 kB 1.0 MB/s eta 0:00:01\r     |█████████████████▍              | 245 kB 1.0 MB/s eta 0:00:01\r     |██████████████████              | 256 kB 1.0 MB/s eta 0:00:01\r     |██████████████████▉             | 266 kB 1.0 MB/s eta 0:00:01\r     |███████████████████▌            | 276 kB 1.0 MB/s eta 0:00:01\r     |████████████████████▎           | 286 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████           | 296 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████▊          | 307 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████▍         | 317 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████▏        | 327 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████        | 337 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████▋       | 348 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████████▍      | 358 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████████      | 368 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████████▉     | 378 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████████▌    | 389 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████████▎   | 399 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████████████   | 409 kB 1.0 MB/s eta 0:00:01\r     |█████████████████████████████▊  | 419 kB 1.0 MB/s eta 0:00:01\r     |██████████████████████████████▍ | 430 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████████████▏| 440 kB 1.0 MB/s eta 0:00:01\r     |███████████████████████████████▉| 450 kB 1.0 MB/s eta 0:00:01\r     |████████████████████████████████| 452 kB 1.0 MB/s            \r\n\u001b[?25hInstalling collected packages: pymongo\r\nSuccessfully installed pymongo-4.0.1\r\n\u001b[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\u001b[0m\r\nNote: you may need to restart the kernel to use updated packages.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938751_992266126",
+      "id": "paragraph_1642608723405_982168285",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:186",
+      "dateFinished": "2022-01-19T17:06:46+0000",
+      "dateStarted": "2022-01-19T17:06:33+0000"
+    },
+    {
+      "text": "%python\nimport pandas as pd\nimport numpy as np\nimport time\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.decomposition import PCA\nfrom sklearn.model_selection import train_test_split, cross_val_score\nfrom sklearn import metrics\nfrom sklearn.metrics import confusion_matrix\nfrom sklearn.preprocessing import StandardScaler,MinMaxScaler\nimport matplotlib.pyplot as plt\nfrom pymongo import MongoClient",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:46+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938752_308268837",
+      "id": "20220112-050446_156438241",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:187",
+      "dateFinished": "2022-01-19T17:06:50+0000",
+      "dateStarted": "2022-01-19T17:06:46+0000"
+    },
+    {
+      "text": "%python\ndf_train = pd.read_csv('/resource/output/renamed-data/RenamedTrainDataUnderSampling.csv')\ndf_train.head(5)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:50+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Unnamed: 0</th>\n      <th>flow_id</th>\n      <th>src_ip</th>\n      <th>src_port</th>\n      <th>dst_ip</th>\n      <th>dst_port</th>\n      <th>protocol</th>\n      <th>timestamp</th>\n      <th>average_packet_size</th>\n      <th>bwd_IAT_total</th>\n      <th>...</th>\n      <th>idlePacket_std</th>\n      <th>packet_lenght_max</th>\n      <th>packet_lenght_mean</th>\n      <th>packet_lenght_min</th>\n      <th>packet_lenght_std</th>\n      <th>totalPacketFeature_backward</th>\n      <th>totalPacketFeature_forward</th>\n      <th>totalPacketFeature_length_of_backward</th>\n      <th>totalPacketFeature_length_of_forward</th>\n      <th>label</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>0</td>\n      <td>203.73.24.75-192.168.2.109-80-2121-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>2121</td>\n      <td>6</td>\n      <td>12/06/2010 09:33:30 PM</td>\n      <td>94.857143</td>\n      <td>196.0</td>\n      <td>...</td>\n      <td>0.000000e+00</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>0.0</td>\n      <td>207.204523</td>\n      <td>2</td>\n      <td>5</td>\n      <td>72.0</td>\n      <td>592.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>1</td>\n      <td>192.168.2.111-66.179.20.163-3655-80-6</td>\n      <td>192.168.2.111</td>\n      <td>3655</td>\n      <td>66.179.20.163</td>\n      <td>80</td>\n      <td>6</td>\n      <td>12/06/2010 11:05:38 PM</td>\n      <td>14.666667</td>\n      <td>0.0</td>\n      <td>...</td>\n      <td>9.025219e+14</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>0.0</td>\n      <td>22.000000</td>\n      <td>0</td>\n      <td>3</td>\n      <td>0.0</td>\n      <td>44.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>2</td>\n      <td>203.73.24.75-192.168.2.109-80-3828-6</td>\n      <td>203.73.24.75</td>\n      <td>80</td>\n      <td>192.168.2.109</td>\n      <td>3828</td>\n      <td>6</td>\n      <td>13/06/2010 07:05:34 AM</td>\n      <td>888.421875</td>\n      <td>2673104.0</td>\n      <td>...</td>\n      <td>0.000000e+00</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>0.0</td>\n      <td>718.086695</td>\n      <td>22</td>\n      <td>42</td>\n      <td>62.0</td>\n      <td>56797.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>3</td>\n      <td>192.168.4.121-192.168.5.122-51526-143-6</td>\n      <td>192.168.4.121</td>\n      <td>51526</td>\n      <td>192.168.5.122</td>\n      <td>143</td>\n      <td>6</td>\n      <td>12/06/2010 11:19:52 AM</td>\n      <td>99.025000</td>\n      <td>28862.0</td>\n      <td>...</td>\n      <td>0.000000e+00</td>\n      <td>466.0</td>\n      <td>96.609756</td>\n      <td>0.0</td>\n      <td>140.117251</td>\n      <td>26</td>\n      <td>14</td>\n      <td>3622.0</td>\n      <td>339.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>4</td>\n      <td>172.16.2.13-82.255.155.203-2069-6047-6</td>\n      <td>172.16.2.13</td>\n      <td>2069</td>\n      <td>82.255.155.203</td>\n      <td>6047</td>\n      <td>6</td>\n      <td>08/10/2007 09:25:41 PM</td>\n      <td>22.761905</td>\n      <td>1362251.0</td>\n      <td>...</td>\n      <td>8.427677e+14</td>\n      <td>42.0</td>\n      <td>21.727273</td>\n      <td>0.0</td>\n      <td>19.498918</td>\n      <td>10</td>\n      <td>11</td>\n      <td>239.0</td>\n      <td>239.0</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n<p>5 rows × 85 columns</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938752_302069140",
+      "id": "20220112-050446_1094707699",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:188",
+      "dateFinished": "2022-01-19T17:06:53+0000",
+      "dateStarted": "2022-01-19T17:06:50+0000"
+    },
+    {
+      "text": "%python\ndf_train.shape",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:53+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(218134, 85)"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938752_2082877067",
+      "id": "20220112-050446_415257830",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:189",
+      "dateFinished": "2022-01-19T17:06:53+0000",
+      "dateStarted": "2022-01-19T17:06:53+0000"
+    },
+    {
+      "text": "%python\ndf_train.dtypes",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:53+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Unnamed: 0                                 int64\nflow_id                                   object\nsrc_ip                                    object\nsrc_port                                   int64\ndst_ip                                    object\n                                          ...   \ntotalPacketFeature_backward                int64\ntotalPacketFeature_forward                 int64\ntotalPacketFeature_length_of_backward    float64\ntotalPacketFeature_length_of_forward     float64\nlabel                                      int64\nLength: 85, dtype: object"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938752_1657018157",
+      "id": "20220112-050446_1346468336",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:190",
+      "dateFinished": "2022-01-19T17:06:53+0000",
+      "dateStarted": "2022-01-19T17:06:53+0000"
+    },
+    {
+      "text": "%python\ndf_train.label.value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:53+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    109067\n1    109067\nName: label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1983722576",
+      "id": "20220112-050446_1106526495",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:191",
+      "dateFinished": "2022-01-19T17:06:53+0000",
+      "dateStarted": "2022-01-19T17:06:53+0000"
+    },
+    {
+      "text": "%md\n# Normalisasi",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:53+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Normalisasi</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1881668621",
+      "id": "20220112-050446_2142914723",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:192",
+      "dateFinished": "2022-01-19T17:06:56+0000",
+      "dateStarted": "2022-01-19T17:06:53+0000"
+    },
+    {
+      "text": "%python\nxNorm = df_train.drop(['Unnamed: 0','flow_id','src_ip','src_port','dst_ip','dst_port','protocol','timestamp','label'],axis=1)\nyNorm = df_train[['label']]",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:56+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1394250117",
+      "id": "20220112-050446_1670423454",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:193",
+      "dateFinished": "2022-01-19T17:06:56+0000",
+      "dateStarted": "2022-01-19T17:06:56+0000"
+    },
+    {
+      "text": "%python\nxNorm.head(3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:56+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>average_packet_size</th>\n      <th>bwd_IAT_total</th>\n      <th>bwd_PSH_flags</th>\n      <th>bwd_URG_flags</th>\n      <th>bwd_header_length</th>\n      <th>bwd_packets_per_second</th>\n      <th>bwd_segment_size_avg</th>\n      <th>bwd_win_bytes</th>\n      <th>download_upload_ratio</th>\n      <th>flow_bytes_per_second</th>\n      <th>...</th>\n      <th>idlePacket_min</th>\n      <th>idlePacket_std</th>\n      <th>packet_lenght_max</th>\n      <th>packet_lenght_mean</th>\n      <th>packet_lenght_min</th>\n      <th>packet_lenght_std</th>\n      <th>totalPacketFeature_backward</th>\n      <th>totalPacketFeature_forward</th>\n      <th>totalPacketFeature_length_of_backward</th>\n      <th>totalPacketFeature_length_of_forward</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>94.857143</td>\n      <td>196.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>40</td>\n      <td>2.424901</td>\n      <td>36.000000</td>\n      <td>64240</td>\n      <td>0.0</td>\n      <td>805.067073</td>\n      <td>...</td>\n      <td>1.276353e+15</td>\n      <td>0.000000e+00</td>\n      <td>592.0</td>\n      <td>83.000000</td>\n      <td>0.0</td>\n      <td>207.204523</td>\n      <td>2</td>\n      <td>5</td>\n      <td>72.0</td>\n      <td>592.0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>14.666667</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.892722</td>\n      <td>...</td>\n      <td>4.928731e+07</td>\n      <td>9.025219e+14</td>\n      <td>44.0</td>\n      <td>11.000000</td>\n      <td>0.0</td>\n      <td>22.000000</td>\n      <td>0</td>\n      <td>3</td>\n      <td>0.0</td>\n      <td>44.0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>888.421875</td>\n      <td>2673104.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>440</td>\n      <td>7.528002</td>\n      <td>2.818182</td>\n      <td>64240</td>\n      <td>0.0</td>\n      <td>19456.122353</td>\n      <td>...</td>\n      <td>1.276388e+15</td>\n      <td>0.000000e+00</td>\n      <td>1460.0</td>\n      <td>874.753846</td>\n      <td>0.0</td>\n      <td>718.086695</td>\n      <td>22</td>\n      <td>42</td>\n      <td>62.0</td>\n      <td>56797.0</td>\n    </tr>\n  </tbody>\n</table>\n<p>3 rows × 76 columns</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1306569015",
+      "id": "20220112-050446_1766671503",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:194",
+      "dateFinished": "2022-01-19T17:06:57+0000",
+      "dateStarted": "2022-01-19T17:06:56+0000"
+    },
+    {
+      "text": "%python\nstdScaler = StandardScaler()\nnormData = pd.DataFrame(stdScaler.fit_transform(xNorm), columns=xNorm.columns)\nnormData.head(5)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:06:57+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>average_packet_size</th>\n      <th>bwd_IAT_total</th>\n      <th>bwd_PSH_flags</th>\n      <th>bwd_URG_flags</th>\n      <th>bwd_header_length</th>\n      <th>bwd_packets_per_second</th>\n      <th>bwd_segment_size_avg</th>\n      <th>bwd_win_bytes</th>\n      <th>download_upload_ratio</th>\n      <th>flow_bytes_per_second</th>\n      <th>...</th>\n      <th>idlePacket_min</th>\n      <th>idlePacket_std</th>\n      <th>packet_lenght_max</th>\n      <th>packet_lenght_mean</th>\n      <th>packet_lenght_min</th>\n      <th>packet_lenght_std</th>\n      <th>totalPacketFeature_backward</th>\n      <th>totalPacketFeature_forward</th>\n      <th>totalPacketFeature_length_of_backward</th>\n      <th>totalPacketFeature_length_of_forward</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>-0.113786</td>\n      <td>-0.228500</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>-0.051918</td>\n      <td>-0.124725</td>\n      <td>-0.419559</td>\n      <td>3.942801</td>\n      <td>-0.763299</td>\n      <td>-0.058818</td>\n      <td>...</td>\n      <td>0.650771</td>\n      <td>-0.659378</td>\n      <td>0.586805</td>\n      <td>-0.098037</td>\n      <td>-0.530429</td>\n      <td>0.420361</td>\n      <td>-0.053995</td>\n      <td>-0.044437</td>\n      <td>-0.046560</td>\n      <td>-0.003726</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>-0.511020</td>\n      <td>-0.228514</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>-0.063461</td>\n      <td>-0.126089</td>\n      <td>-0.530067</td>\n      <td>-0.362050</td>\n      <td>-0.763299</td>\n      <td>-0.059000</td>\n      <td>...</td>\n      <td>-1.509516</td>\n      <td>1.506739</td>\n      <td>-0.469542</td>\n      <td>-0.472808</td>\n      <td>-0.530429</td>\n      <td>-0.455152</td>\n      <td>-0.065338</td>\n      <td>-0.062786</td>\n      <td>-0.046926</td>\n      <td>-0.018863</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>3.817239</td>\n      <td>-0.042410</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.063503</td>\n      <td>-0.121855</td>\n      <td>-0.521416</td>\n      <td>3.942801</td>\n      <td>-0.763299</td>\n      <td>-0.054589</td>\n      <td>...</td>\n      <td>0.650830</td>\n      <td>-0.659378</td>\n      <td>2.259998</td>\n      <td>4.023167</td>\n      <td>-0.530429</td>\n      <td>2.835444</td>\n      <td>0.059432</td>\n      <td>0.295013</td>\n      <td>-0.046611</td>\n      <td>1.548795</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>-0.093140</td>\n      <td>-0.226504</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.093512</td>\n      <td>0.345564</td>\n      <td>-0.102439</td>\n      <td>-0.358431</td>\n      <td>0.767693</td>\n      <td>-0.030040</td>\n      <td>...</td>\n      <td>0.650709</td>\n      <td>-0.659378</td>\n      <td>0.343922</td>\n      <td>-0.027196</td>\n      <td>-0.530429</td>\n      <td>0.103221</td>\n      <td>0.082118</td>\n      <td>0.038132</td>\n      <td>-0.028506</td>\n      <td>-0.010714</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>-0.470919</td>\n      <td>-0.133672</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>-0.003442</td>\n      <td>-0.125962</td>\n      <td>-0.456702</td>\n      <td>4.002240</td>\n      <td>-0.763299</td>\n      <td>-0.058998</td>\n      <td>...</td>\n      <td>-1.509516</td>\n      <td>1.363325</td>\n      <td>-0.473397</td>\n      <td>-0.416971</td>\n      <td>-0.530429</td>\n      <td>-0.466976</td>\n      <td>-0.008624</td>\n      <td>0.010609</td>\n      <td>-0.045711</td>\n      <td>-0.013477</td>\n    </tr>\n  </tbody>\n</table>\n<p>5 rows × 76 columns</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_213063879",
+      "id": "20220112-050446_335533180",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:195",
+      "dateFinished": "2022-01-19T17:07:00+0000",
+      "dateStarted": "2022-01-19T17:06:57+0000"
+    },
+    {
+      "text": "%python\n\nMONGODB_URL = os.getenv('MONGODB_URL')\n\nclient = MongoClient(MONGODB_URL)\ndb = client['mataelanglab']\n\nml_duration_col = db[\"ml_duration\"]\nml_metrix_col = db[\"ml_result\"]\nml_metrixPCA_col = db[\"ml_result_cv\"]",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_708053207",
+      "id": "paragraph_1642607674301_51630101",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:196",
+      "dateFinished": "2022-01-19T17:07:00+0000",
+      "dateStarted": "2022-01-19T17:07:00+0000"
+    },
+    {
+      "text": "%md\n # All Data without Feature Selection",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:00+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>All Data without Feature Selection</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1973103211",
+      "id": "20220112-050446_1365810348",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:197",
+      "dateFinished": "2022-01-19T17:07:00+0000",
+      "dateStarted": "2022-01-19T17:07:00+0000"
+    },
+    {
+      "text": "%python\nstart_time = time.time()\n# Split dataset into training set and test set\nxtrain, xtest, ytrain, ytest = train_test_split(normData, yNorm, test_size=0.3, random_state=42)\n\n# Create Decision Tree classifer object\nclf = DecisionTreeClassifier()\n\n# Train Decision Tree Classifer\nclf = clf.fit(xtrain,ytrain)\n\n#Predict the response for test dataset\nypred = clf.predict(xtest)\nduration = (time.time() - start_time)\nprint(\"--- %s seconds ---\" % duration)\n\nml_duration_col.insert_one({\n    'method': \"DT AF\",\n    'duration': duration\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "--- 7.7484214305877686 seconds ---\n<pymongo.results.InsertOneResult at 0x7f22f19f8190>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1847617680",
+      "id": "20220112-050446_922900812",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:198",
+      "dateFinished": "2022-01-19T17:07:08+0000",
+      "dateStarted": "2022-01-19T17:07:00+0000"
+    },
+    {
+      "text": "%python\nprint(\"confusion matrix :\",confusion_matrix(ytest, ypred).ravel())\ntn, fp, fn, tp = confusion_matrix(ytest, ypred).ravel()\naccuracy = (tp + tn) / (tp + tn + fp + fn)\nrecall = tp / ( tp + fn)\nprecision = tp / (tp + fp)\nf1_score = 2 * (precision * recall) / (precision + recall)\nprint(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n      \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))\n      \nml_metrix_col.insert_one({\n    'method': \"DT AF\",\n    'accuracy': accuracy,\n    'recall': recall,\n    'precision': precision,\n    'f1_score': f1_score\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "confusion matrix : [32147   522   565 32207]\naccuracy :  0.9834\nrecall : 0.9828\nprecision :  0.9841\nf1-measure : 0.9834\n<pymongo.results.InsertOneResult at 0x7f22f0a26730>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1458879492",
+      "id": "20220112-050446_879233567",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:199",
+      "dateFinished": "2022-01-19T17:07:08+0000",
+      "dateStarted": "2022-01-19T17:07:08+0000"
+    },
+    {
+      "text": "%python\nfeatureImportances = pd.Series(clf.feature_importances_, index= normData.columns)\nfeatureImportances.nlargest(10).plot(kind='barh')\n\nplt.title('Data') \nplt.xlabel('') \nplt.ylabel('')\np = plt.plot(featureImportances.values, featureImportances.index)\n\n\nz.show(plt)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:09+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div style='width:auto;height:auto'><img src=data:image/png;base64,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pUmTJpWpyLlz56pTp07avn27evXqpdtvv13Dhw/XsGHD9M033ygiIkLDhw+XYRiSpLNnz6pNmzZasWKFdu3apTFjxuj222+3BdlatWrp9ddfV1JSktLS0nTy5EkNGzZM//nPf3TDDTfY6asFAAConiw7d+7U7t271axZMy1ZskS//fabtm7dqqCgIElSRETEBRtt2bJFvXv3VmJioi3EZWRkaOnSpfrpp5901VVXSZImTZqkzz77TMnJyZo+fboCAgJkMpkUGhpariJvuukmjR07VpL02GOP6cUXX1Tbtm3Vv39/SdKDDz6ouLg4/frrrwoNDVXdunWLhct77rlHn332md5++221b9/e1ubo0aM1dOhQtW3bVl5eXpo5c+ZF68jNzVVubq7tc05OTrmOAwAAoDqwSNKhQ4fUrFkzpaenq3Xr1rbwV5JDhw6pe/fuevLJJ3XffffZ5n/zzTcyDEORkZHF1s/NzVVwcPBlFdmiRQvb3yEhIZKk5s2bXzDv6NGjCg0NVUFBgWbOnKk333xTP//8sy24+fr6Fmt39uzZatasmd566y2lpaXJy8vronXMmDFDU6dOvaxjAQAAcDSLJOXl5UmSvL29L7lBrVq1dNVVV2nZsmW688475e/vL0kqLCyUm5ubtm3bJje34u/GtVqtl1Wku7u77W+TyVTqvKJL1XPmzNHcuXM1b948NW/eXL6+vpowYYLtOIv8+OOPOnLkiAoLC3Xw4MFiQbMkiYmJuv/++22fc3JyFBYWdlnHBgAAUNWKvQu4RYsWeu211/T777+X2gvo7e2tFStW6KabblKPHj20atUq+fn5qXXr1iooKNDRo0fVuXPnErf18PBQQUGB/Y/iHzZs2KA+ffpo2LBhks4Hw/379ys6Otq2Tl5enoYOHaqBAweqcePGuvPOO7Vz505bb2JJPD095enpWen1AwAAVKZij4EZPHiwQkND1bdvX23atEk//vijli9fri1bthTbyNfXVx9//LEsFotuvPFGnTx5UpGRkRo6dKiGDx+ud999VwcOHNDWrVs1a9YsffLJJ5LOj+g9efKk1qxZo2PHjun06dOVclARERFavXq1Nm/erD179mjs2LH65Zdfiq3z8MMPKzs7W88995wmT56s6Oho3XnnnZVSDwAAQHVSLAAWPQaldu3auummm9S8eXPNnDnzgku60vnL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 style='width=auto;height:auto'><div>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938753_1200072460",
+      "id": "20220112-050446_1507419354",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:200",
+      "dateFinished": "2022-01-19T17:07:10+0000",
+      "dateStarted": "2022-01-19T17:07:09+0000"
+    },
+    {
+      "text": "%python\npd.set_option('display.max_columns',None)\npd.set_option('display.max_rows',None)\nfeatureImp = pd.DataFrame({'Feature_names':normData.columns,'Importances':clf.feature_importances_})\nfeatureImp.sort_values(by='Importances',ascending=False).head(15)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:10+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Feature_names</th>\n      <th>Importances</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>64</th>\n      <td>idlePacket_max</td>\n      <td>0.488089</td>\n    </tr>\n    <tr>\n      <th>70</th>\n      <td>packet_lenght_min</td>\n      <td>0.352673</td>\n    </tr>\n    <tr>\n      <th>48</th>\n      <td>flow_IAT_mean</td>\n      <td>0.038868</td>\n    </tr>\n    <tr>\n      <th>35</th>\n      <td>bwd_packet_length_min</td>\n      <td>0.025563</td>\n    </tr>\n    <tr>\n      <th>8</th>\n      <td>download_upload_ratio</td>\n      <td>0.017372</td>\n    </tr>\n    <tr>\n      <th>42</th>\n      <td>flagCount_fin</td>\n      <td>0.006897</td>\n    </tr>\n    <tr>\n      <th>49</th>\n      <td>flow_IAT_min</td>\n      <td>0.005238</td>\n    </tr>\n    <tr>\n      <th>20</th>\n      <td>fwd_win_bytes</td>\n      <td>0.005055</td>\n    </tr>\n    <tr>\n      <th>37</th>\n      <td>bwd_subflow_subflow_bytes</td>\n      <td>0.004272</td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>bwd_packets_per_second</td>\n      <td>0.003969</td>\n    </tr>\n    <tr>\n      <th>71</th>\n      <td>packet_lenght_std</td>\n      <td>0.003112</td>\n    </tr>\n    <tr>\n      <th>68</th>\n      <td>packet_lenght_max</td>\n      <td>0.003091</td>\n    </tr>\n    <tr>\n      <th>65</th>\n      <td>idlePacket_mean</td>\n      <td>0.002951</td>\n    </tr>\n    <tr>\n      <th>11</th>\n      <td>flow_pkts_per_second</td>\n      <td>0.002351</td>\n    </tr>\n    <tr>\n      <th>66</th>\n      <td>idlePacket_min</td>\n      <td>0.002231</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_1132392557",
+      "id": "20220112-050446_1287720625",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:201",
+      "dateFinished": "2022-01-19T17:07:10+0000",
+      "dateStarted": "2022-01-19T17:07:10+0000"
+    },
+    {
+      "text": "%md\n# All Data Without Feature Selection Cross Validation",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:10+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>All Data Without Feature Selection Cross Validation</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_1228061913",
+      "id": "20220112-050446_1764554332",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:202",
+      "dateFinished": "2022-01-19T17:07:10+0000",
+      "dateStarted": "2022-01-19T17:07:10+0000"
+    },
+    {
+      "text": "%python\ndf_train['label'].value_counts()",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:10+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0    109067\n1    109067\nName: label, dtype: int64"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_1316629210",
+      "id": "20220112-050446_492843412",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:203",
+      "dateFinished": "2022-01-19T17:07:10+0000",
+      "dateStarted": "2022-01-19T17:07:10+0000"
+    },
+    {
+      "text": "%python\nfrom sklearn.model_selection import KFold\n\nX=np.array(normData)\ny=np.array(yNorm)\n\naccList = []\nrecList = []\nprecList=[]\nf1List=[]\n\nkf= KFold(n_splits=10,shuffle=True)\nkf.get_n_splits(X)\nfor train_index, test_index in kf.split(X) :\n    X_train,X_test = X[train_index],X[test_index]\n    y_train,y_test = y[train_index],y[test_index]\n    clv = DecisionTreeClassifier()\n    clv = clv.fit(X_train,y_train)\n    y_pred = clv.predict(X_test)\n    print(\"confusion matrix :\", confusion_matrix(y_test,y_pred).ravel())\n    tn,fp,fn,tp = confusion_matrix(y_test,y_pred).ravel()\n    accuracy = (tp + tn) / (tp + tn + fp + fn)\n    recall = tp / (tp + fn)\n    precision = tp / (tp + fp)\n    f1_score = 2 * (precision * recall) / (precision + recall)\n    accList.append(accuracy)\n    recList.append(recall)\n    precList.append(precision)\n    f1List.append(f1_score)\n    print(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n          \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:07:10+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 582.083,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "confusion matrix : [10653   206   148 10807]\naccuracy :  0.9838\nrecall : 0.9865\nprecision :  0.9813\nf1-measure : 0.9839\nconfusion matrix : [10679   189   170 10776]\naccuracy :  0.9835\nrecall : 0.9845\nprecision :  0.9828\nf1-measure : 0.9836\nconfusion matrix : [10711   182   168 10753]\naccuracy :  0.9840\nrecall : 0.9846\nprecision :  0.9834\nf1-measure : 0.9840\nconfusion matrix : [10702   171   196 10745]\naccuracy :  0.9832\nrecall : 0.9821\nprecision :  0.9843\nf1-measure : 0.9832\nconfusion matrix : [10709   163   199 10742]\naccuracy :  0.9834\nrecall : 0.9818\nprecision :  0.9851\nf1-measure : 0.9834\nconfusion matrix : [10627   195   150 10841]\naccuracy :  0.9842\nrecall : 0.9864\nprecision :  0.9823\nf1-measure : 0.9843\nconfusion matrix : [10876   167   171 10599]\naccuracy :  0.9845\nrecall : 0.9841\nprecision :  0.9845\nf1-measure : 0.9843\nconfusion matrix : [10781   188   164 10680]\naccuracy :  0.9839\nrecall : 0.9849\nprecision :  0.9827\nf1-measure : 0.9838\nconfusion matrix : [10707   167   183 10756]\naccuracy :  0.9840\nrecall : 0.9833\nprecision :  0.9847\nf1-measure : 0.9840\nconfusion matrix : [10837   157   175 10644]\naccuracy :  0.9848\nrecall : 0.9838\nprecision :  0.9855\nf1-measure : 0.9846\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_1211377155",
+      "id": "20220112-050446_260929878",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:204",
+      "dateFinished": "2022-01-19T17:08:19+0000",
+      "dateStarted": "2022-01-19T17:07:10+0000"
+    },
+    {
+      "text": "%python\nfrom statistics import mean\nprint('accuracy : ',(mean(accList)))\nprint('recall : ',(mean(recList)))\nprint('precision : ',(mean(precList)))\nprint('f1_score : ',(mean(f1List)))\n\n\nml_metrixPCA_col.insert_one({\n    'method': \"DT AF\",\n    'accuracy': (mean(accList)),\n    'recall': (mean(recList)),\n    'precision': (mean(precList)),\n    'f1_score': (mean(f1List))\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:19+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "accuracy :  0.983913563261501\nrecall :  0.9841920540819532\nprecision :  0.9836497752264864\nf1_score :  0.9839190634035934\n<pymongo.results.InsertOneResult at 0x7f22f0a514b0>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_997596335",
+      "id": "20220112-050446_1266502288",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:205",
+      "dateFinished": "2022-01-19T17:08:19+0000",
+      "dateStarted": "2022-01-19T17:08:19+0000"
+    },
+    {
+      "text": "%md\n# Using Feature Importance",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:19+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Using Feature Importance</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_1346964929",
+      "id": "20220112-050446_1173212085",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:206",
+      "dateFinished": "2022-01-19T17:08:19+0000",
+      "dateStarted": "2022-01-19T17:08:19+0000"
+    },
+    {
+      "text": "%python\nimportance = normData[['fwd_win_bytes','idlePacket_max','fwd_header_length',\n                       'bwd_packets_per_second','flow_bytes_per_second','bwd_win_bytes','flow_IAT_max']]",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:19+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938754_667414319",
+      "id": "20220112-050446_1495121421",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:207",
+      "dateFinished": "2022-01-19T17:08:19+0000",
+      "dateStarted": "2022-01-19T17:08:19+0000"
+    },
+    {
+      "text": "%python\nstart_time = time.time()\n# Split dataset into training set and test set\nxftrain, xftest, yftrain, yftest = train_test_split(importance, yNorm, test_size=0.3, random_state=42)\n\n# Create Decision Tree classifer object\nclfi = DecisionTreeClassifier()\n\n# Train Decision Tree Classifer\nclfi = clfi.fit(xftrain,yftrain)\n\n#Predict the response for test dataset\nyfpred = clfi.predict(xftest)\nduration = (time.time() - start_time)\nprint(\"--- %s seconds ---\" % duration)\n\nml_duration_col.insert_one({\n    'method': \"DT FI\",\n    'duration': duration\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:19+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "--- 0.7416560649871826 seconds ---\n<pymongo.results.InsertOneResult at 0x7f22f081dc30>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_663351274",
+      "id": "20220112-050446_1027488689",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:208",
+      "dateFinished": "2022-01-19T17:08:20+0000",
+      "dateStarted": "2022-01-19T17:08:19+0000"
+    },
+    {
+      "text": "%python\nprint(\"confusion matrix :\",confusion_matrix(yftest, yfpred).ravel())\ntn, fp, fn, tp = confusion_matrix(yftest, yfpred).ravel()\naccuracy = (tp + tn) / (tp + tn + fp + fn)\nrecall = tp / ( tp + fn)\nprecision = tp / (tp + fp)\nf1_score = 2 * (precision * recall) / (precision + recall)\nprint(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n      \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))\n      \nml_metrix_col.insert_one({\n    'method': \"DT FI\",\n    'accuracy': accuracy,\n    'recall': recall,\n    'precision': precision,\n    'f1_score': f1_score\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:20+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "confusion matrix : [32035   634   658 32114]\naccuracy :  0.9803\nrecall : 0.9799\nprecision :  0.9806\nf1-measure : 0.9803\n<pymongo.results.InsertOneResult at 0x7f22f089cc30>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_152868992",
+      "id": "20220112-050446_481746764",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:209",
+      "dateFinished": "2022-01-19T17:08:20+0000",
+      "dateStarted": "2022-01-19T17:08:20+0000"
+    },
+    {
+      "text": "%md\n# Using Feature Importance Cross Validation",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:20+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Using Feature Importance Cross Validation</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_269150967",
+      "id": "20220112-050446_925703948",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:210",
+      "dateFinished": "2022-01-19T17:08:20+0000",
+      "dateStarted": "2022-01-19T17:08:20+0000"
+    },
+    {
+      "text": "%python\nimportance = normData[['fwd_win_bytes','idlePacket_max','fwd_header_length',\n                       'bwd_packets_per_second','flow_bytes_per_second','bwd_win_bytes','flow_IAT_max']]",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:20+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_491247209",
+      "id": "20220112-050446_57946674",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:211",
+      "dateFinished": "2022-01-19T17:08:20+0000",
+      "dateStarted": "2022-01-19T17:08:20+0000"
+    },
+    {
+      "text": "%python\nfrom sklearn.model_selection import KFold\n\nX=np.array(importance)\ny=np.array(yNorm)\n\naccList = []\nrecList = []\nprecList=[]\nf1List=[]\n\nkf= KFold(n_splits=10,shuffle=True)\nkf.get_n_splits(X)\nfor train_index, test_index in kf.split(X) :\n    X_train,X_test = X[train_index],X[test_index]\n    y_train,y_test = y[train_index],y[test_index]\n    clv = DecisionTreeClassifier()\n    clv = clv.fit(X_train,y_train)\n    y_pred = clv.predict(X_test)\n    print(\"confusion matrix :\", confusion_matrix(y_test,y_pred).ravel())\n    tn,fp,fn,tp = confusion_matrix(y_test,y_pred).ravel()\n    accuracy = (tp + tn) / (tp + tn + fp + fn)\n    recall = tp / (tp + fn)\n    precision = tp / (tp + fp)\n    f1_score = 2 * (precision * recall) / (precision + recall)\n    accList.append(accuracy)\n    recList.append(recall)\n    precList.append(precision)\n    f1List.append(f1_score)\n    print(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n          \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "confusion matrix : [10695   206   191 10722]\naccuracy :  0.9818\nrecall : 0.9825\nprecision :  0.9811\nf1-measure : 0.9818\nconfusion matrix : [10742   191   198 10683]\naccuracy :  0.9822\nrecall : 0.9818\nprecision :  0.9824\nf1-measure : 0.9821\nconfusion matrix : [10722   220   191 10681]\naccuracy :  0.9812\nrecall : 0.9824\nprecision :  0.9798\nf1-measure : 0.9811\nconfusion matrix : [10740   223   233 10618]\naccuracy :  0.9791\nrecall : 0.9785\nprecision :  0.9794\nf1-measure : 0.9790\nconfusion matrix : [10673   201   204 10735]\naccuracy :  0.9814\nrecall : 0.9814\nprecision :  0.9816\nf1-measure : 0.9815\nconfusion matrix : [10702   201   218 10692]\naccuracy :  0.9808\nrecall : 0.9800\nprecision :  0.9815\nf1-measure : 0.9808\nconfusion matrix : [10736   219   197 10661]\naccuracy :  0.9809\nrecall : 0.9819\nprecision :  0.9799\nf1-measure : 0.9809\nconfusion matrix : [10668   240   173 10732]\naccuracy :  0.9811\nrecall : 0.9841\nprecision :  0.9781\nf1-measure : 0.9811\nconfusion matrix : [10688   202   227 10696]\naccuracy :  0.9803\nrecall : 0.9792\nprecision :  0.9815\nf1-measure : 0.9803\nconfusion matrix : [10562   236   185 10830]\naccuracy :  0.9807\nrecall : 0.9832\nprecision :  0.9787\nf1-measure : 0.9809\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_281143502",
+      "id": "20220112-050446_1331389022",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:212",
+      "dateFinished": "2022-01-19T17:08:30+0000",
+      "dateStarted": "2022-01-19T17:08:21+0000"
+    },
+    {
+      "text": "%python\nfrom statistics import mean\nprint('accuracy : ',(mean(accList)))\nprint('recall : ',(mean(recList)))\nprint('precision : ',(mean(precList)))\nprint('f1_score : ',(mean(f1List)))\n\n\nml_metrixPCA_col.insert_one({\n    'method': \"DT FI\",\n    'accuracy': (mean(accList)),\n    'recall': (mean(recList)),\n    'precision': (mean(precList)),\n    'f1_score': (mean(f1List))\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "accuracy :  0.9809474890066654\nrecall :  0.981504509947122\nprecision :  0.9804136300003288\nf1_score :  0.9809570844873987\n<pymongo.results.InsertOneResult at 0x7f22f081ecd0>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_1180099317",
+      "id": "20220112-050446_1698531398",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:213",
+      "dateFinished": "2022-01-19T17:08:30+0000",
+      "dateStarted": "2022-01-19T17:08:30+0000"
+    },
+    {
+      "text": "%md\n# Using PCA",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:30+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Using PCA</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_1289084007",
+      "id": "20220112-050446_976699026",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:214",
+      "dateFinished": "2022-01-19T17:08:30+0000",
+      "dateStarted": "2022-01-19T17:08:30+0000"
+    },
+    {
+      "text": "%python\nstart_time = time.time()\npca = PCA(n_components=7)\npca_dataset = pd.DataFrame(pca.fit_transform(normData), columns=[\n    \"Feature 1\",\n    \"Feature 2\",\n    \"Feature 3\",\n    \"Feature 4\",\n    \"Feature 5\",\n    \"Feature 6\",\n    \"Feature 7\"\n])\n#pca_dataset[\"Label\"] = pca_label[\"Label\"]\nduration = (time.time() - start_time)\nprint(\"--- %s seconds ---\" % duration)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "--- 2.563570976257324 seconds ---\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_1185873363",
+      "id": "20220112-050446_410025540",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:215",
+      "dateFinished": "2022-01-19T17:08:33+0000",
+      "dateStarted": "2022-01-19T17:08:30+0000"
+    },
+    {
+      "text": "%python\nprint(pca.explained_variance_)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:33+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[10.88449402  9.09396116  6.65470816  5.49491754  4.40487123  3.77902178\n  3.05000115]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_707220313",
+      "id": "20220112-050446_204322438",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:216",
+      "dateFinished": "2022-01-19T17:08:33+0000",
+      "dateStarted": "2022-01-19T17:08:33+0000"
+    },
+    {
+      "text": "%python\na = 0\nfor i in pca.explained_variance_:\n  a = a+i\nprint(a)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:08:33+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "43.36197503264936\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_1767822980",
+      "id": "20220112-050446_89874685",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:217",
+      "dateFinished": "2022-01-19T17:08:33+0000",
+      "dateStarted": "2022-01-19T17:08:33+0000"
+    },
+    {
+      "text": "%python\nstart_time = time.time()\n# Split dataset into training set and test set\nxptrain, xptest, yptrain, yptest = train_test_split(pca_dataset, yNorm, test_size=0.3, random_state=42)\n\n# Create Decision Tree classifer object\nclfp = DecisionTreeClassifier()\n\n# Train Decision Tree Classifer\nclfp = clfp.fit(xptrain,yptrain)\n\n#Predict the response for test dataset\nyppred = clfp.predict(xptest)\nduration = (time.time() - start_time)\nprint(\"--- %s seconds ---\" % duration)\n\nml_duration_col.insert_one({\n    'method': \"DT PCA\",\n    'duration': duration\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:09:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "--- 1.9314086437225342 seconds ---\n<pymongo.results.InsertOneResult at 0x7f22f082ab40>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_1670500018",
+      "id": "20220112-050446_102440298",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:218",
+      "dateFinished": "2022-01-19T17:09:02+0000",
+      "dateStarted": "2022-01-19T17:09:00+0000"
+    },
+    {
+      "text": "%python\nprint(\"confusion matrix :\",confusion_matrix(yptest, yppred).ravel())\ntn, fp, fn, tp = confusion_matrix(yptest, yppred).ravel()\naccuracy = (tp + tn) / (tp + tn + fp + fn)\nrecall = tp / ( tp + fn)\nprecision = tp / (tp + fp)\nf1_score = 2 * (precision * recall) / (precision + recall)\nprint(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n      \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))\n\nml_metrix_col.insert_one({\n    'method': \"DT PCA\",\n    'accuracy': accuracy,\n    'recall': recall,\n    'precision': precision,\n    'f1_score': f1_score\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:09:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938755_1255186749",
+      "id": "20220112-050446_495108531",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:219",
+      "dateFinished": "2022-01-19T17:09:05+0000",
+      "dateStarted": "2022-01-19T17:09:05+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "confusion matrix : [31839   830   801 31971]\naccuracy :  0.9751\nrecall : 0.9756\nprecision :  0.9747\nf1-measure : 0.9751\n<pymongo.results.InsertOneResult at 0x7f22f0828af0>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%md\n# Using PCA Cross Validation",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:09:13+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_1149900696",
+      "id": "20220112-050446_2096815363",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:220",
+      "dateFinished": "2022-01-19T17:09:13+0000",
+      "dateStarted": "2022-01-19T17:09:13+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Using PCA Cross Validation</h1>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nstart_time = time.time()\npca = PCA(n_components=7)\npca_dataset = pd.DataFrame(pca.fit_transform(normData), columns=[\n    \"Feature 1\",\n    \"Feature 2\",\n    \"Feature 3\",\n    \"Feature 4\",\n    \"Feature 5\",\n    \"Feature 6\",\n    \"Feature 7\"\n])\n#pca_dataset[\"Label\"] = pca_label[\"Label\"]\nprint(\"--- %s seconds ---\" % (time.time() - start_time))",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:09:15+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_1120273203",
+      "id": "20220112-050446_586684137",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:221",
+      "dateFinished": "2022-01-19T17:09:18+0000",
+      "dateStarted": "2022-01-19T17:09:15+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "--- 2.6751692295074463 seconds ---\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nprint(pca.explained_variance_)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:15:38+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_1736782291",
+      "id": "20220112-050446_2094448529",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:222",
+      "dateFinished": "2022-01-19T17:15:38+0000",
+      "dateStarted": "2022-01-19T17:15:38+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[10.88449402  9.09396116  6.65470816  5.49491754  4.40487123  3.77902179\n  3.05000117]\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\na = 0\nfor i in pca.explained_variance_:\n  a = a+i\nprint(a)",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:15:41+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_606270209",
+      "id": "20220112-050446_2001888993",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:223",
+      "dateFinished": "2022-01-19T17:15:41+0000",
+      "dateStarted": "2022-01-19T17:15:41+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "43.361975064687385\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nfrom sklearn.model_selection import KFold\n\nX=np.array(pca_dataset)\ny=np.array(yNorm)\n\naccList = []\nrecList = []\nprecList=[]\nf1List=[]\n\nkf= KFold(n_splits=10,shuffle=True)\nkf.get_n_splits(X)\nfor train_index, test_index in kf.split(X) :\n    X_train,X_test = X[train_index],X[test_index]\n    y_train,y_test = y[train_index],y[test_index]\n    clv = DecisionTreeClassifier()\n    clv = clv.fit(X_train,y_train)\n    y_pred = clv.predict(X_test)\n    print(\"confusion matrix :\", confusion_matrix(y_test,y_pred).ravel())\n    tn,fp,fn,tp = confusion_matrix(y_test,y_pred).ravel()\n    accuracy = (tp + tn) / (tp + tn + fp + fn)\n    recall = tp / (tp + fn)\n    precision = tp / (tp + fp)\n    f1_score = 2 * (precision * recall) / (precision + recall)\n    accList.append(accuracy)\n    recList.append(recall)\n    precList.append(precision)\n    f1List.append(f1_score)\n    print(str('accuracy :  %0.4f' % accuracy) +\"\\n\" + str('recall : %0.4f' % recall) +\n          \"\\n\" + str('precision :  %0.4f' %precision) + \"\\n\" + str('f1-measure : %0.4f' %f1_score))\n          ",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:15:44+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_1487402143",
+      "id": "20220112-050446_1567277005",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:224",
+      "dateFinished": "2022-01-19T17:16:10+0000",
+      "dateStarted": "2022-01-19T17:15:44+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "confusion matrix : [10672   285   261 10596]\naccuracy :  0.9750\nrecall : 0.9760\nprecision :  0.9738\nf1-measure : 0.9749\nconfusion matrix : [10703   264   265 10582]\naccuracy :  0.9757\nrecall : 0.9756\nprecision :  0.9757\nf1-measure : 0.9756\nconfusion matrix : [10660   268   282 10604]\naccuracy :  0.9748\nrecall : 0.9741\nprecision :  0.9753\nf1-measure : 0.9747\nconfusion matrix : [10475   258   245 10836]\naccuracy :  0.9769\nrecall : 0.9779\nprecision :  0.9767\nf1-measure : 0.9773\nconfusion matrix : [10557   269   269 10718]\naccuracy :  0.9753\nrecall : 0.9755\nprecision :  0.9755\nf1-measure : 0.9755\nconfusion matrix : [10611   278   238 10686]\naccuracy :  0.9763\nrecall : 0.9782\nprecision :  0.9746\nf1-measure : 0.9764\nconfusion matrix : [10710   266   277 10560]\naccuracy :  0.9751\nrecall : 0.9744\nprecision :  0.9754\nf1-measure : 0.9749\nconfusion matrix : [10610   251   267 10685]\naccuracy :  0.9763\nrecall : 0.9756\nprecision :  0.9770\nf1-measure : 0.9763\nconfusion matrix : [10690   270   284 10569]\naccuracy :  0.9746\nrecall : 0.9738\nprecision :  0.9751\nf1-measure : 0.9745\nconfusion matrix : [10704   266   298 10545]\naccuracy :  0.9741\nrecall : 0.9725\nprecision :  0.9754\nf1-measure : 0.9740\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\nfrom statistics import mean\nprint('accuracy : ',(mean(accList)))\nprint('recall : ',(mean(recList)))\nprint('precision : ',(mean(precList)))\nprint('f1_score : ',(mean(f1List)))\n\nml_metrixPCA_col.insert_one({\n    'method': \"DT PCA\",\n    'accuracy': (mean(accList)),\n    'recall': (mean(recList)),\n    'precision': (mean(precList)),\n    'f1_score': (mean(f1List))\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:16:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_670651853",
+      "id": "20220112-050446_1061660119",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:225",
+      "dateFinished": "2022-01-19T17:16:43+0000",
+      "dateStarted": "2022-01-19T17:16:43+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "accuracy :  0.9754233601615129\nrecall :  0.9753653633286329\nprecision :  0.9754684487300335\nf1_score :  0.9754160563507619\n<pymongo.results.InsertOneResult at 0x7f22f08810a0>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-01-19T17:05:38+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1642611938756_1470735569",
+      "id": "20220112-050446_1990508441",
+      "dateCreated": "2022-01-19T17:05:38+0000",
+      "status": "READY",
+      "$$hashKey": "object:226"
+    }
+  ],
+  "name": "MLDecisionTree",
+  "id": "2GTW37HE7",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/MLDecisionTree"
+}
