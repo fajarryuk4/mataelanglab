@@ -57,7 +57,7 @@ echo -e "\nInput Mongo Chart UserAdmin Account"
 read -p "Username: " USERNAME
 read -s -p "Password: " PASSWORD
 
-echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Local Cluster(Uder Construction)"
+echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Local Cluster(Under Construction)"
 read -p "Your choice : " MELMODE
 
 RULE_CHOICE=1
@@ -67,6 +67,32 @@ if [[ ! $MELMODE -eq 1 && ! $MELMODE -eq 2 ]]; then
   echo -e "Choose a valid choice.\nExited."
   exit 1
 fi
+
+if [[ $MELMODE -eq 1 ]]; then
+  # echo "Using Standalone MataElangLab.."
+  compose_file="docker-compose.yml"
+fi
+
+if [[ $MELMODE -eq 2 ]]; then
+  # echo "Using Single-Cluster MataElangLab.."
+  compose_file="docker-compose-cluster.yml"
+fi
+
+while true; do
+    echo    # (optional) move to a new line
+    read -p "Do You want to use Your own docker-registry[Y/n]? " yn
+    case $yn in
+        [Yy]* ) 
+          echo -e "Ex: 192.168.100.1:5000\n"
+          read -p "Docker Registry Address: " DOCREGADD;
+          DOCREGADD="$DOCREGADD/";
+          sed -i 's|image:\ |image:\ '$DOCREGADD'|g' "$compose_file";
+          break;;
+        [Nn]* ) break;;
+        * ) echo -e "Please answer yes or no.\n";;
+    esac
+done
+
 #============================================================
 
 #Export Folder Project Path
@@ -93,21 +119,21 @@ ufw allow 1883
 ufw allow 7077 
 
 #Remove Exist Volume
-rm -rf ./volume/mongochart ./spark #./notebooks
+while true; do
+    echo    # (optional) move to a new line
+    read -p "Do You want to remove the old data[Y/n]? " yn
+    case $yn in
+        [Yy]* ) 
+          rm -rf ./volume/mongochart ./volume/spark #./volume/notebooks
+          break;;
+        [Nn]* ) break;;
+        * ) echo -e "Please answer yes or no.\n";;
+    esac
+done
 
 #Starting Big Data
 echo -e "\nStarting Compose BigData..."
 echo "-----------------------------------\ "
-
-if [[ $MELMODE -eq 1 ]]; then
-  echo "Using Standalone MataElangLab.."
-  compose_file="docker-compose.yml"
-fi
-
-if [[ $MELMODE -eq 2 ]]; then
-  echo "Using Single-Cluster MataElangLab.."
-  compose_file="docker-compose-cluster.yml"
-fi
 
 #Set Config for Mode
 mkdir -p /etc/mataelanglab
@@ -143,7 +169,7 @@ do
   then
     echo -en "\n\nSome process has failed to Instance, Please Try Again\n"
     docker-compose --file $compose_file down -v
-    exit
+    exit 1
   fi
 done
 
