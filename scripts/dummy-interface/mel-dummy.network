@@ -1,0 +1,6 @@
+[Match]
+Name=mel-dummy
+
+[Network]
+Address=172.168.1.100
+Mask=255.255.255.0

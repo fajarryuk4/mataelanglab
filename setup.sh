@@ -40,6 +40,7 @@ read -p "Press any key to resume ..."
 
 echo -e "\nAvailable Network Interface :\n"
 netints=`ls -C /sys/class/net`
+netints+=("Dummy-Interface")
 PS3="Network Interface Card for Tapping"$'\n'"Your Choice(ex: 1): "
 select option in ${netints[@]}
 do
@@ -52,6 +53,19 @@ do
       break
     fi
 done
+
+if [[ "$NETINT" == *"Dummy"* ]]; then
+  ip link add name mel-dummy type dummy
+  
+  rm -rf /etc/systemd/network/mel-dummy.netdev /etc/systemd/network/mel-dummy.network
+
+  cp scripts/dummy-interface/mel-dummy.netdev  /etc/systemd/network/mel-dummy.netdev
+  cp scripts/dummy-interface/mel-dummy.network /etc/systemd/network/mel-dummy.network
+
+  systemctl restart systemd-networkd
+  
+  NETINT='mel-dummy'
+fi
 
 echo -e "\nInput Mongo Chart UserAdmin Account"
 read -p "Username: " USERNAME
