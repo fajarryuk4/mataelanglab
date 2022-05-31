@@ -4,7 +4,7 @@ build:
 	@sudo bash setup.sh
 
 remove:
-	@sudo docker-compose down --remove-orphans -v
+	@sudo docker-compose down --remove-orphans -v && sudo rm -rf ./volume/mongochart
 
 stop:
 	@sudo bash scripts/stop.sh

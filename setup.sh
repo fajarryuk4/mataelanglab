@@ -100,12 +100,17 @@ while true; do
           echo -e "Ex: 192.168.100.1:5000\n"
           read -p "Docker Registry Address: " DOCREGADD;
           DOCREGADD="$DOCREGADD/";
-          sed -i 's|image:\ |image:\ '$DOCREGADD'|g' "$compose_file";
+          sed -i 's/^image:.*/image='$DOCREGADD'/g' $compose_file
           break;;
         [Nn]* ) break;;
         * ) echo -e "Please answer yes or no.\n";;
     esac
 done
+
+# if [[ $yn -eq "y" || $yn -eq "Y" ]]; then 
+#   sed -i 's|image:\ |image:\ '$DOCREGADD'|g' $compose_file
+#   sed -i 's/^image:.*/image='$DOCREGADD'/g' $compose_file
+# fi
 
 #============================================================
 
@@ -114,7 +119,7 @@ export MEL_PATH=$PWD
 
 #Get NIC IP then override env file
 ip4=$(/sbin/ip -o -4 addr list $NETINT | awk '{print $4}' | cut -d/ -f1)
-subnet=$(/sbin/ifconfig $NETINT | awk '/Mask:/{ print $4;} ')
+subnet=$(/sbin/ip -o -f inet addr show $NETINT | awk '/scope global/ {print $4}')
 
 ##Netflowmeter
 sed -i 's/^NETINT=.*/NETINT='$NETINT'/' envfile/netflowmeter.env
@@ -133,17 +138,7 @@ ufw allow 1883
 ufw allow 7077 
 
 #Remove Exist Volume
-while true; do
-    echo    # (optional) move to a new line
-    read -p "Do You want to remove the old data[Y/n]? " yn
-    case $yn in
-        [Yy]* ) 
-          rm -rf ./volume/mongochart ./volume/spark #./volume/notebooks
-          break;;
-        [Nn]* ) break;;
-        * ) echo -e "Please answer yes or no.\n";;
-    esac
-done
+rm -rf ./volume/mongochart
 
 #Starting Big Data
 echo -e "\nStarting Compose BigData..."
@@ -197,19 +192,31 @@ echo -e "-----------------------------------"
 if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
 then
   echo -en "MongoDB Chart UserAdmin... \n"
-  sleep 10
-  docker exec -it mongo-charts bash -c \
-  "charts-cli add-user \
-  --first-name "$USERNAME" \
-  --last-name \"lab\" \
-  --email \"$USERNAME@mail.com\" \
-  --password "$PASSWORD" \
-  --role \"UserAdmin\""
-  docker cp volume/notebook/. apache-zeppelin:/opt/zeppelin/notebook
+  sleep 15
+  dbUser=$(
+    docker exec -it mongo-charts bash -c \
+      "charts-cli add-user \
+      --first-name "$USERNAME" \
+      --last-name \"lab\" \
+      --email \"$USERNAME@mail.com\" \
+      --password "$PASSWORD" \
+      --role \"UserAdmin\""
+  )
 
+  dbUser='GNU/Linux is an operating system'
+  SUB='@mail.com'
+  if [[ "$STR" == *"$SUB"* ]]; then
+    echo "Your Email is $USERNAME@mail.com."
+  else
+    echo -e "${YELLOW}Failed to add Mongo-Chart User. "
+    echo -e "Please wait a minute and create new User again by run command ${NC}'make mongo-user'"
+  fi
 fi
 
 cat scripts/web-info.txt
+
+nbToken=$((docker exec -it spark-notebook bash -c 'jupyter server list' | rev | cut -d= -f1 | rev) | rev | cut -d: -f3 | rev)
+echo -e "http://localhost:8888/${nbToken}"
 
 echo -e "For easier debugging process, You can install portainer"
 

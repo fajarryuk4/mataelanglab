@@ -19,7 +19,7 @@ services:
   #                 KAFKA                     #
   #############################################
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.0.1
+    image: confluentinc/cp-zookeeper:7.1.0
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -29,7 +29,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   broker:
-    image: confluentinc/cp-kafka:7.0.1
+    image: confluentinc/cp-kafka:7.1.0
     hostname: broker
     container_name: broker
     depends_on:
@@ -51,7 +51,7 @@ services:
       KAFKA_JMX_HOSTNAME: localhost
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:7.0.1
+    image: confluentinc/cp-schema-registry:7.1.0
     hostname: schema-registry
     container_name: schema-registry
     depends_on:
@@ -148,24 +148,41 @@ services:
   #############################################
   #               ZEPPELIN                    #
   #############################################
-  zeppelin:
-    image: ryuk4/zeppelin-spark:3.1.2-hadoop3.2
-    container_name: apache-zeppelin
-    user: root
-    depends_on:
-      - spark-master
-    ports:
-      - "8190:8080"
+  # zeppelin:
+  #   image: ryuk4/zeppelin-spark:3.1.2-hadoop3.2
+  #   container_name: apache-zeppelin
+  #   user: root
+  #   depends_on:
+  #     - spark-master
+  #   ports:
+  #     - "8190:8080"
+  #   volumes:
+  #     # - ./spark:/zeppelin/spark
+  #     # - ./notebooks:/opt/zeppelin/notebook
+  #     - shared-workspace:/resource
+  #   environment:
+  #     - "SPARK_MASTER=spark://spark-master:7077"
+  #     - "SPARK_HOME=/spark"
+  #     - "BOOTSTRAP_SERVERS=broker:29092"
+  #     - "SCHEMA_REGISTRY_URL=http://schema-registry:8081"
+  #     - "MONGODB_URL=mongodb://mongodb:27017"
+  spark-notebook:
+    image: ryuk4/spark-notebook:trial
+    hostname: spark-notebook
+    container_name: spark-notebook
+    ports: 
+        - "8888:8888"
+        - "8190:4040"
+        - "8787:8787"
+    environment: 
+        SPARK_MASTER: spark://spark-master:7077
+        MONGO_URL: 'mongodb://mongodb:27017'
+        BOOTSTRAP_SERVERS: 'broker:29092'
+        SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
+        JUPYTER_ENABLE_LAB: "yes"
     volumes:
-      # - ./spark:/zeppelin/spark
-      # - ./notebooks:/opt/zeppelin/notebook
       - shared-workspace:/resource
-    environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
-      - "SPARK_HOME=/spark"
-      - "BOOTSTRAP_SERVERS=broker:29092"
-      - "SCHEMA_REGISTRY_URL=http://schema-registry:8081"
-      - "MONGODB_URL=mongodb://mongodb:27017"
+    # command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
 
   #############################################
   #                 MONGO                     #
@@ -176,12 +193,25 @@ services:
     container_name: mongodb
     restart: on-failure
     ports:
-      - "8281:8081"
+      # - "8281:8081"
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: mataelanglab
+      # MONGO_INITDB_ROOT_USERNAME: rootuser
+      # MONGO_INITDB_ROOT_PASSWORD: rootpass
     volumes:
       - ./volume/mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8281:8081
+    environment:
+      # - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
+      # - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+      - ME_CONFIG_MONGODB_SERVER=mongodb
 
   mongochart:
     image: quay.io/mongodb/charts:19.12.2
@@ -200,7 +230,7 @@ services:
       - ./volume/mongochart/web-certs:/mongodb-charts/volumes/web-certs
     environment:
       CHARTS_SUPPORT_WIDGET_AND_METRICS: "on"
-      SSL_CERT_DIR: /mongodb-charts/volumes/db-certs
+      SSL_CERT_DIR: /mongodb-charts/voluinstructionsmes/db-certs
       CHARTS_MONGODB_URI: mongodb://mongodb:27017
 
 volumes:
