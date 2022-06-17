@@ -99,18 +99,14 @@ while true; do
         [Yy]* ) 
           echo -e "Ex: 192.168.100.1:5000\n"
           read -p "Docker Registry Address: " DOCREGADD;
-          DOCREGADD="$DOCREGADD/";
-          sed -i 's/^image:.*/image='$DOCREGADD'/g' $compose_file
+          replacement="image:$DOCREGADD/"
+          sed --expression "s|image:.*|$replacement|g"
+          # sed -i 's/^image:.*/image='$DOCREGADD'/g' $compose_file
           break;;
         [Nn]* ) break;;
         * ) echo -e "Please answer yes or no.\n";;
     esac
 done
-
-# if [[ $yn -eq "y" || $yn -eq "Y" ]]; then 
-#   sed -i 's|image:\ |image:\ '$DOCREGADD'|g' $compose_file
-#   sed -i 's/^image:.*/image='$DOCREGADD'/g' $compose_file
-# fi
 
 #============================================================
 
@@ -216,7 +212,9 @@ fi
 cat scripts/web-info.txt
 
 nbToken=$((docker exec -it spark-notebook bash -c 'jupyter server list' | rev | cut -d= -f1 | rev) | rev | cut -d: -f3 | rev)
-echo -e "http://localhost:8888/${nbToken}"
+nbURI="http://localhost:8888/${nbToken}"
+echo $nbURI
+echo -e "please create the password using this token ${YELLOW} ${nbToken} ${NC}"
 
 echo -e "For easier debugging process, You can install portainer"
 
