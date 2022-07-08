@@ -149,7 +149,7 @@ services:
   #               Notebook                    #
   #############################################
   spark-notebook:
-    image: ryuk4/spark-notebook:trial
+    image: ryuk4/spark-notebook:latest
     hostname: spark-notebook
     container_name: spark-notebook
     ports: 
@@ -174,7 +174,6 @@ services:
     container_name: mongodb
     restart: on-failure
     ports:
-      # - "8281:8081"
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: mataelanglab

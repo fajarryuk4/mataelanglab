@@ -8,3 +8,5 @@ db.createCollection('sklearn_cv');
 
 db.createCollection('spark_result');
 db.createCollection('spark_cv');
+
+db.createCollection('stream_result');
