@@ -67,6 +67,13 @@ if [[ "$NETINT" == *"Dummy"* ]]; then
   NETINT='mel-dummy'
 fi
 
+echo -e "\n\n-----------------------------------"
+#Create Charts users
+echo -e "Create Mongo Chart UserAdmin Account"
+read -p "Username: " USERNAME
+read -s -p "Password: " PASSWORD
+echo
+
 echo -e "\nInput Jupyter-Notebook Password"
 read -s -p "Password: " NOTEBOOK_PASSWORD
 
@@ -173,14 +180,12 @@ do
     break;
   elif [ "$( docker container inspect -f '{{.State.ExitCode}}' $container_name )" == 1 ]
   then
-    echo -en "\n\nSome process has failed to Instance, Please Try Again\n"
-    docker-compose --file $compose_file down -v
-    exit 1
+    docker restart connect
   fi
 done
 
-
 #Configuring MongoCharts
+chars="/-\|"
 container_name="mongo-charts"
 echo 
 
@@ -191,38 +196,26 @@ do
     echo -en "Configuring MongoDB-Charts...[${chars:$i:1}]" "\r"
   done
 
-  if [ "$( docker container inspect -f '{{.State.Health.Status}}' $container_name  )" == "healthy" ]
+  charts_conn=$( docker exec -it $container_name charts-cli test-connection 'mongodb://172.17.0.1' )
+
+  if [[ $charts_conn == *"successfully"* ]];
   then
     sleep 5
-    break;
+    docker exec -it mongo-charts bash -c \
+      "charts-cli add-user \
+      --first-name "$USERNAME" \
+      --last-name \"lab\" \
+      --email \"$USERNAME@mail.com\" \
+      --password "$PASSWORD" \
+      --role \"UserAdmin\""
+      break
 
   elif [ "$( docker container inspect -f '{{.State.Health.Status}}' $container_name  )" == "unhealthy" ]
   then
     docker restart mongo-charts
 
-  elif [ "$( docker container inspect -f '{{.State.ExitCode}}' $container_name )" == 1 ]
-  then
-    echo -en "\n\nSome process has failed to Instance, Please Try Again\n"
-    docker-compose --file $compose_file down -v
-    exit 1
   fi
 done
-
-echo -e "\n\n-----------------------------------"
-#Create Charts users
-echo -e "Create Mongo Chart UserAdmin Account"
-read -p "Username: " USERNAME
-read -s -p "Password: " PASSWORD
-echo
-
-sleep 15
-docker exec -it mongo-charts bash -c \
-  "charts-cli add-user \
-  --first-name "$USERNAME" \
-  --last-name \"lab\" \
-  --email \"$USERNAME@mail.com\" \
-  --password "$PASSWORD" \
-  --role \"UserAdmin\""
 
 #Display Available Link
 echo -e "\n\n-----------------------------------"
