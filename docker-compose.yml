@@ -32,6 +32,7 @@ services:
     image: confluentinc/cp-kafka:7.1.0
     hostname: broker
     container_name: broker
+    restart: on-failure
     depends_on:
       - zookeeper
     ports:
@@ -54,6 +55,7 @@ services:
     image: confluentinc/cp-schema-registry:7.1.0
     hostname: schema-registry
     container_name: schema-registry
+    restart: on-failure
     depends_on:
       - broker
     ports:
@@ -67,6 +69,7 @@ services:
     image: ryuk4/cp-kafka-connect:6.2.2
     hostname: connect
     container_name: connect
+    restart: on-failure
     depends_on:
       - zookeeper
       - broker
@@ -156,12 +159,8 @@ services:
         - "8888:8888"
         - "4040:4040"
         - "8787:8787"
-    environment: 
-        SPARK_MASTER: spark://spark-master:7077
-        MONGO_URL: 'mongodb://mongodb:27017'
-        BOOTSTRAP_SERVERS: 'broker:29092'
-        SCHEMA_REGISTRY_URL: 'http://schema-registry:8081'
-        JUPYTER_ENABLE_LAB: "yes"
+    env_file:
+      - ./envfile/notebook.env
     volumes:
       - shared-workspace:/resource
 
@@ -177,32 +176,41 @@ services:
       - "27017:27017"
     environment:
       MONGO_INITDB_DATABASE: mataelanglab
-      # MONGO_INITDB_ROOT_USERNAME: rootuser
-      # MONGO_INITDB_ROOT_PASSWORD: rootpass
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - ./volume/mongodb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   mongo-express:
     image: mongo-express
     container_name: mongo-express
-    restart: always
+    restart: on-failure
+    depends_on:
+      - connect
+      - mongodb
     ports:
-      - 8191:8081
+      - 9181:8081
     environment:
-      # - ME_CONFIG_MONGODB_ADMINUSERNAME=rootuser
-      # - ME_CONFIG_MONGODB_ADMINPASSWORD=rootpass
+      # - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      # - ME_CONFIG_MONGODB_ADMINPASSWORD=password
       - ME_CONFIG_MONGODB_SERVER=mongodb
 
   mongochart:
     image: quay.io/mongodb/charts:19.12.2
     hostname: mongo-charts
     container_name: mongo-charts
+    restart: on-failure
     depends_on:
       - connect
       - mongodb
     ports:
-      - 8190:80
+      - 9180:80
       - 9443:443
+    healthcheck:
+        test: ["CMD", "charts-cli", "test-connection", "mongodb://172.17.0.1:27017"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
     volumes:
       - ./volume/mongochart/keys:/mongodb-charts/volumes/keys
       - ./volume/mongochart/logs:/mongodb-charts/volumes/logs
@@ -211,7 +219,8 @@ services:
     environment:
       CHARTS_SUPPORT_WIDGET_AND_METRICS: "on"
       SSL_CERT_DIR: /mongodb-charts/voluinstructionsmes/db-certs
-      CHARTS_MONGODB_URI: mongodb://mongodb:27017
+      CHARTS_MONGODB_URI: mongodb://172.17.0.1:27017
+      # MONGODB_ROOT_PASSWORD: "password"
 
 volumes:
   shared-workspace:

@@ -1,8 +1,9 @@
+MongoDB URI             mongodb://172.17.0.1:27017
 
-MongoDB-URL             mongodb://mongodb:27017
-Mongo Chart Panel       http://localhost:8280/
-Kafka Control Center    http://localhost:9021/"
-Spark-Panel             http://localhost:8180/"
-Zeppelin-Notebook       http://localhost:8190/"
+Kafka Control Center    http://localhost:9021
+Spark-Panel             http://localhost:8180
+Jupyter-Notebook        http://localhost:8888
+Mongo Chart Panel       http://localhost:9180
+Mongo-Express           http://localhost:9181
 
 Run 'make help' for get some help and information

@@ -67,9 +67,8 @@ if [[ "$NETINT" == *"Dummy"* ]]; then
   NETINT='mel-dummy'
 fi
 
-echo -e "\nInput Mongo Chart UserAdmin Account"
-read -p "Username: " USERNAME
-read -s -p "Password: " PASSWORD
+echo -e "\nInput Jupyter-Notebook Password"
+read -s -p "Password: " NOTEBOOK_PASSWORD
 
 echo -e "\n\nWhat kind Mode do you want to use?\n\t1. Standalone\n\t2. Local Cluster(Under Construction)"
 read -p "Your choice : " MELMODE
@@ -88,25 +87,25 @@ if [[ $MELMODE -eq 1 ]]; then
 fi
 
 if [[ $MELMODE -eq 2 ]]; then
+  echo -e "\nSorry, This Mode Still Under Construction. Aborting.";
+  exit 0; 
   # echo "Using Single-Cluster MataElangLab.."
-  compose_file="docker-compose-cluster.yml"
+  # compose_file="docker-compose-cluster.yml"
 fi
 
-while true; do
-    echo    # (optional) move to a new line
-    read -p "Do You want to use Your own docker-registry[Y/n]? " yn
-    case $yn in
-        [Yy]* ) 
-          echo -e "Ex: 192.168.100.1:5000\n"
-          read -p "Docker Registry Address: " DOCREGADD;
-          replacement="image:$DOCREGADD/"
-          sed --expression "s|image:.*|$replacement|g"
-          # sed -i 's/^image:.*/image='$DOCREGADD'/g' $compose_file
-          break;;
-        [Nn]* ) break;;
-        * ) echo -e "Please answer yes or no.\n";;
-    esac
-done
+# while true; do
+#     echo    # (optional) move to a new line
+#     read -p "Do You want to use Your own docker-registry[Y/n]? " yn
+#     case $yn in
+#         [Yy]* ) 
+#           echo -e "Ex: 192.168.100.1:5000\n"
+#           read -p "Docker Registry Address: " DOCREGADD;
+#           replacement="image:$DOCREGADD/"
+#           break;;
+#         [Nn]* ) break;;
+#         * ) echo -e "Please answer yes or no.\n";;
+#     esac
+# done
 
 #============================================================
 
@@ -124,6 +123,8 @@ sed -i 's/^MQTT_HOST=.*/MQTT_HOST='$ip4'/' envfile/netflowmeter.env
 sed -i 's/^PROTECTED_SUBNET=.*/PROTECTED_SUBNET='$subnet'\/24/' envfile/snort.env 
 sed -i 's/^ALERT_MQTT_SERVER=.*/ALERT_MQTT_SERVER='$ip4'/' envfile/snort.env
 sed -i 's/^NETINT=.*/NETINT='$NETINT'/' envfile/snort.env
+##Notebook
+sed -i 's/^JUPYTER_TOKEN=.*/JUPYTER_TOKEN='$NOTEBOOK_PASSWORD'/' envfile/notebook.env
 
 #Running MQTT
 systemctl start mosquitto
@@ -178,43 +179,58 @@ do
   fi
 done
 
+
+#Configuring MongoCharts
+container_name="mongo-charts"
+echo 
+
+while [ "$( docker container inspect -f '{{.State.Running}}' $container_name  )" == "true" ];
+do
+  for (( i=0; i<${#chars}; i++ )); do
+    sleep 0.1
+    echo -en "Configuring MongoDB-Charts...[${chars:$i:1}]" "\r"
+  done
+
+  if [ "$( docker container inspect -f '{{.State.Health.Status}}' $container_name  )" == "healthy" ]
+  then
+    sleep 5
+    break;
+
+  elif [ "$( docker container inspect -f '{{.State.Health.Status}}' $container_name  )" == "unhealthy" ]
+  then
+    docker restart mongo-charts
+
+  elif [ "$( docker container inspect -f '{{.State.ExitCode}}' $container_name )" == 1 ]
+  then
+    echo -en "\n\nSome process has failed to Instance, Please Try Again\n"
+    docker-compose --file $compose_file down -v
+    exit 1
+  fi
+done
+
+echo -e "\n\n-----------------------------------"
+#Create Charts users
+echo -e "Create Mongo Chart UserAdmin Account"
+read -p "Username: " USERNAME
+read -s -p "Password: " PASSWORD
+echo
+
+sleep 15
+docker exec -it mongo-charts bash -c \
+  "charts-cli add-user \
+  --first-name "$USERNAME" \
+  --last-name \"lab\" \
+  --email \"$USERNAME@mail.com\" \
+  --password "$PASSWORD" \
+  --role \"UserAdmin\""
+
 #Display Available Link
 echo -e "\n\n-----------------------------------"
 echo -e "${YELLOW}Available WebApp${NC}"
 echo -e "(For easier Please Bookmark or Copy link)"
 echo -e "-----------------------------------"
 
-#Create Charts users
-if [ "$( docker container inspect -f '{{.State.Running}}' mongo-charts )" == "true" ];
-then
-  echo -en "MongoDB Chart UserAdmin... \n"
-  sleep 15
-  dbUser=$(
-    docker exec -it mongo-charts bash -c \
-      "charts-cli add-user \
-      --first-name "$USERNAME" \
-      --last-name \"lab\" \
-      --email \"$USERNAME@mail.com\" \
-      --password "$PASSWORD" \
-      --role \"UserAdmin\""
-  )
-
-  dbUser='GNU/Linux is an operating system'
-  SUB='@mail.com'
-  if [[ "$STR" == *"$SUB"* ]]; then
-    echo "Your Email is $USERNAME@mail.com."
-  else
-    echo -e "${YELLOW}Failed to add Mongo-Chart User. "
-    echo -e "Please wait a minute and create new User again by run command ${NC}'make mongo-user'"
-  fi
-fi
-
 cat scripts/web-info.txt
-
-nbToken=$((docker exec -it spark-notebook bash -c 'jupyter server list' | rev | cut -d= -f1 | rev) | rev | cut -d: -f3 | rev)
-nbURI="http://localhost:8888/${nbToken}"
-echo $nbURI
-echo -e "please create the password using this token ${YELLOW} ${nbToken} ${NC}"
 
 echo -e "For easier debugging process, You can install portainer"
 
