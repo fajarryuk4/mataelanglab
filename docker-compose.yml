@@ -172,10 +172,10 @@ services:
       - shared-workspace:/resource
 
   #############################################
-  #                Dasboard                   #
+  #                Dashboard                  #
   #############################################
-  dasboard:
-    container_name: dasboard
+  dashboard:
+    container_name: dashboard
     image: ryuk4/mel-dashboard:latest
     ports:
       - 9180:8080
