@@ -1,5 +1,3 @@
-file=`cat $(mode)`
-
 build:
 	@sudo bash setup.sh
 
@@ -22,4 +20,8 @@ info:
 	@cat scripts/web-info.txt
 
 modul-list:
-	@sudo docker ps -a
+	@sudo docker-compose ps -a
+
+reset-notebook:
+	@sudo bash scripts/reset-notebook.sh
+
