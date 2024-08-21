@@ -1,9 +1,15 @@
 MongoDB URI             mongodb://172.17.0.1:27017
 
+MataElangLab Dashboard  http://localhost:9180
+
 Kafka Control Center    http://localhost:9021
+
 Spark-Panel             http://localhost:8180
 Jupyter-Notebook        http://localhost:8888
-Mongo Chart Panel       http://localhost:9180
+
 Mongo-Express           http://localhost:9181
+Mongo Chart Panel       http://localhost:9182
+
+Dozzle Monitor          http://localhost:9183
 
 Run 'make help' for get some help and information

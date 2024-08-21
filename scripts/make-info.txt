@@ -12,3 +12,5 @@ info                 Get MataElangLab-GUI app
 mongo-user           Create new mongodb user
 
 modul-list           Get Modul Name List
+
+reset-notebook       Reset Notebook like new
